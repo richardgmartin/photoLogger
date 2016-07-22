@@ -10,6 +10,10 @@ import UIKit
 
 class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    
+    @IBOutlet weak var tableView: UITableView!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
