@@ -29,14 +29,14 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rQf-YT-2zv">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rQf-YT-2zv">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCellID" rowHeight="140" id="s7K-o8-Ijv">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCellID" rowHeight="140" id="s7K-o8-Ijv" customClass="PostCell" customModule="photoLogger" customModuleProvider="target">
                                         <frame key="frameInset" minY="28" width="374" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s7K-o8-Ijv" id="ekR-5x-Mq5">
-                                            <frame key="frameInset" width="374" height="139.66666666666666"/>
+                                            <frame key="frameInset" width="374" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="martial-arts" translatesAutoresizingMaskIntoConstraints="NO" id="h1b-wg-mCl">
@@ -107,6 +107,14 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="postAddress" destination="tUO-ZD-rLL" id="lRk-x8-drI"/>
+                                            <outlet property="postClient" destination="frc-qp-A1o" id="695-cQ-J1e"/>
+                                            <outlet property="postDate" destination="c5r-4j-FNT" id="bJS-IF-nJv"/>
+                                            <outlet property="postDescription" destination="Wj8-NT-6IZ" id="Lgp-j3-00W"/>
+                                            <outlet property="postImg" destination="h1b-wg-mCl" id="eOp-TW-oSG"/>
+                                            <outlet property="postTitle" destination="bMP-vG-JZE" id="13B-Xn-46n"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
