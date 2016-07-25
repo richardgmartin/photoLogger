@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
     @IBOutlet weak var tableView: UITableView!
@@ -38,14 +38,19 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let post = posts[indexPath.row]
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCellID") as? PostCell {
-            cell.configureCell(post: post)
-            return cell
+        var cell:PostCell
+        
+        if (tableView.dequeueReusableCell(withIdentifier: "PostCellID") as? PostCell) != nil {
+            
+            cell = tableView.dequeueReusableCell(withIdentifier: "PostCellID") as! PostCell
         } else {
-            let cell = PostCell()
-            cell.configureCell(post: post)
-            return cell
+            
+            cell = PostCell()
         }
+        
+        cell.configureCell(post: post)
+        return cell
+
     }
     
     internal func numberOfSections(in tableView: UITableView) -> Int {

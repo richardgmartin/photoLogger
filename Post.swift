@@ -64,5 +64,11 @@ class Post {
         
     }
     
+    convenience init() {
+        
+        self.init(name: "", title: "", description: "", date: "", address: "", image: "")
+    }
+    
+    
     
 }
