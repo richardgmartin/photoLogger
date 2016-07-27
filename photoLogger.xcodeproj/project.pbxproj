@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F53FC4458D20BEB9B810D37 /* libPods-photoLogger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67940DEC902E2A5EBE349A57 /* libPods-photoLogger.a */; };
 		79331C6F1D3EBD1F0094D418 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79331C6E1D3EBD1F0094D418 /* AppDelegate.swift */; };
 		79331C711D3EBD1F0094D418 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79331C701D3EBD1F0094D418 /* DetailView.swift */; };
 		79331C741D3EBD1F0094D418 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79331C721D3EBD1F0094D418 /* Main.storyboard */; };
@@ -14,9 +15,12 @@
 		79331C791D3EBD1F0094D418 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79331C771D3EBD1F0094D418 /* LaunchScreen.storyboard */; };
 		797680FC1D400F65002F0382 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797680FB1D400F65002F0382 /* Post.swift */; };
 		79E413C41D46528C0072863C /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E413C31D46528C0072863C /* PostCell.swift */; };
+		79F7ADD21D4920F8006A3B13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F7ADD11D4920F8006A3B13 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		67940DEC902E2A5EBE349A57 /* libPods-photoLogger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-photoLogger.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DAE454DF498D5EA16B4DEF9 /* Pods-photoLogger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-photoLogger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-photoLogger/Pods-photoLogger.debug.xcconfig"; sourceTree = "<group>"; };
 		79331C6B1D3EBD1F0094D418 /* photoLogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = photoLogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79331C6E1D3EBD1F0094D418 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79331C701D3EBD1F0094D418 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -26,6 +30,8 @@
 		79331C7A1D3EBD1F0094D418 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		797680FB1D400F65002F0382 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = SOURCE_ROOT; };
 		79E413C31D46528C0072863C /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		79F7ADD11D4920F8006A3B13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E4BA8673243489A63428372D /* Pods-photoLogger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-photoLogger.release.xcconfig"; path = "Pods/Target Support Files/Pods-photoLogger/Pods-photoLogger.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F53FC4458D20BEB9B810D37 /* libPods-photoLogger.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +51,8 @@
 			children = (
 				79331C6D1D3EBD1F0094D418 /* photoLogger */,
 				79331C6C1D3EBD1F0094D418 /* Products */,
+				826EFAFA4717C819B9A39535 /* Pods */,
+				A6F61D5AD2BAC9428CEA7279 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +76,7 @@
 				79331C6E1D3EBD1F0094D418 /* AppDelegate.swift */,
 				79331C751D3EBD1F0094D418 /* Assets.xcassets */,
 				79331C7A1D3EBD1F0094D418 /* Info.plist */,
+				79F7ADD11D4920F8006A3B13 /* GoogleService-Info.plist */,
 			);
 			path = photoLogger;
 			sourceTree = "<group>";
@@ -110,6 +120,23 @@
 			name = cells;
 			sourceTree = "<group>";
 		};
+		826EFAFA4717C819B9A39535 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6DAE454DF498D5EA16B4DEF9 /* Pods-photoLogger.debug.xcconfig */,
+				E4BA8673243489A63428372D /* Pods-photoLogger.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A6F61D5AD2BAC9428CEA7279 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				67940DEC902E2A5EBE349A57 /* libPods-photoLogger.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -117,9 +144,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 79331C7D1D3EBD1F0094D418 /* Build configuration list for PBXNativeTarget "photoLogger" */;
 			buildPhases = (
+				FA30C298C62832ED20D19960 /* [CP] Check Pods Manifest.lock */,
 				79331C671D3EBD1E0094D418 /* Sources */,
 				79331C681D3EBD1E0094D418 /* Frameworks */,
 				79331C691D3EBD1E0094D418 /* Resources */,
+				4B298DE94F712FEA86F96840 /* [CP] Embed Pods Frameworks */,
+				6EE84A63527D296F202A2641 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -172,12 +202,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				79331C791D3EBD1F0094D418 /* LaunchScreen.storyboard in Resources */,
+				79F7ADD21D4920F8006A3B13 /* GoogleService-Info.plist in Resources */,
 				79331C761D3EBD1F0094D418 /* Assets.xcassets in Resources */,
 				79331C741D3EBD1F0094D418 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4B298DE94F712FEA86F96840 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-photoLogger/Pods-photoLogger-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6EE84A63527D296F202A2641 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-photoLogger/Pods-photoLogger-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA30C298C62832ED20D19960 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		79331C671D3EBD1E0094D418 /* Sources */ = {
@@ -304,6 +383,7 @@
 		};
 		79331C7E1D3EBD1F0094D418 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DAE454DF498D5EA16B4DEF9 /* Pods-photoLogger.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = photoLogger/Info.plist;
@@ -316,6 +396,7 @@
 		};
 		79331C7F1D3EBD1F0094D418 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4BA8673243489A63428372D /* Pods-photoLogger.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = photoLogger/Info.plist;
