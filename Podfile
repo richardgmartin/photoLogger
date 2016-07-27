@@ -2,9 +2,7 @@
 platform :ios, '10.0'
 
 target 'photoLogger' do
-
   # Pods for photoLogger
-
      pod 'Firebase'
-
+     pod 'Firebase/Database'
 end

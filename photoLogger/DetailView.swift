@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Firebase
 
 class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    let rootRef = FIRDatabase.database().reference()
     
     @IBOutlet weak var tableView: UITableView!
 

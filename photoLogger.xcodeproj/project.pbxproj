@@ -67,13 +67,13 @@
 		79331C6D1D3EBD1F0094D418 /* photoLogger */ = {
 			isa = PBXGroup;
 			children = (
+				79331C6E1D3EBD1F0094D418 /* AppDelegate.swift */,
 				79331C721D3EBD1F0094D418 /* Main.storyboard */,
 				79331C771D3EBD1F0094D418 /* LaunchScreen.storyboard */,
 				79331C801D3EC5C90094D418 /* model */,
 				79331C811D3EC5E60094D418 /* views */,
 				79331C831D3EC69E0094D418 /* services */,
 				79331C841D3ECE8E0094D418 /* utilities */,
-				79331C6E1D3EBD1F0094D418 /* AppDelegate.swift */,
 				79331C751D3EBD1F0094D418 /* Assets.xcassets */,
 				79331C7A1D3EBD1F0094D418 /* Info.plist */,
 				79F7ADD11D4920F8006A3B13 /* GoogleService-Info.plist */,
