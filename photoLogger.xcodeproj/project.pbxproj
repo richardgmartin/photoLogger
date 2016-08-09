@@ -13,6 +13,14 @@
 		79331C741D3EBD1F0094D418 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79331C721D3EBD1F0094D418 /* Main.storyboard */; };
 		79331C761D3EBD1F0094D418 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79331C751D3EBD1F0094D418 /* Assets.xcassets */; };
 		79331C791D3EBD1F0094D418 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79331C771D3EBD1F0094D418 /* LaunchScreen.storyboard */; };
+		793386101D5A1E73003DF510 /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7933860C1D5A1E73003DF510 /* NotoSans-Bold.ttf */; };
+		793386111D5A1E73003DF510 /* NotoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7933860D1D5A1E73003DF510 /* NotoSans-BoldItalic.ttf */; };
+		793386121D5A1E73003DF510 /* NotoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7933860E1D5A1E73003DF510 /* NotoSans-Italic.ttf */; };
+		793386131D5A1E73003DF510 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7933860F1D5A1E73003DF510 /* NotoSans-Regular.ttf */; };
+		793386151D5A2CCE003DF510 /* DropBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793386141D5A2CCE003DF510 /* DropBoxView.swift */; };
+		793386171D5A2E62003DF510 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793386161D5A2E62003DF510 /* Constants.swift */; };
+		793386191D5A5FFC003DF510 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793386181D5A5FFC003DF510 /* TextFieldView.swift */; };
+		7933861B1D5A6822003DF510 /* StyleRectangleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7933861A1D5A6822003DF510 /* StyleRectangleButton.swift */; };
 		797680FC1D400F65002F0382 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797680FB1D400F65002F0382 /* Post.swift */; };
 		79E413C41D46528C0072863C /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E413C31D46528C0072863C /* PostCell.swift */; };
 		79F7ADD21D4920F8006A3B13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F7ADD11D4920F8006A3B13 /* GoogleService-Info.plist */; };
@@ -28,6 +36,14 @@
 		79331C751D3EBD1F0094D418 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79331C781D3EBD1F0094D418 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79331C7A1D3EBD1F0094D418 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7933860C1D5A1E73003DF510 /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
+		7933860D1D5A1E73003DF510 /* NotoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		7933860E1D5A1E73003DF510 /* NotoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Italic.ttf"; sourceTree = "<group>"; };
+		7933860F1D5A1E73003DF510 /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
+		793386141D5A2CCE003DF510 /* DropBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropBoxView.swift; sourceTree = "<group>"; };
+		793386161D5A2E62003DF510 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		793386181D5A5FFC003DF510 /* TextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		7933861A1D5A6822003DF510 /* StyleRectangleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleRectangleButton.swift; sourceTree = "<group>"; };
 		797680FB1D400F65002F0382 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = SOURCE_ROOT; };
 		79E413C31D46528C0072863C /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		79F7ADD11D4920F8006A3B13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -73,6 +89,7 @@
 				79331C801D3EC5C90094D418 /* model */,
 				79331C811D3EC5E60094D418 /* views */,
 				79331C831D3EC69E0094D418 /* services */,
+				7933860B1D5A1E1D003DF510 /* resources */,
 				79331C841D3ECE8E0094D418 /* utilities */,
 				79331C751D3EBD1F0094D418 /* Assets.xcassets */,
 				79331C7A1D3EBD1F0094D418 /* Info.plist */,
@@ -93,6 +110,9 @@
 			isa = PBXGroup;
 			children = (
 				79331C701D3EBD1F0094D418 /* DetailView.swift */,
+				793386141D5A2CCE003DF510 /* DropBoxView.swift */,
+				793386181D5A5FFC003DF510 /* TextFieldView.swift */,
+				7933861A1D5A6822003DF510 /* StyleRectangleButton.swift */,
 				79EAD5FC1D46A2F60020BBA4 /* cells */,
 			);
 			name = views;
@@ -108,8 +128,20 @@
 		79331C841D3ECE8E0094D418 /* utilities */ = {
 			isa = PBXGroup;
 			children = (
+				793386161D5A2E62003DF510 /* Constants.swift */,
 			);
 			name = utilities;
+			sourceTree = "<group>";
+		};
+		7933860B1D5A1E1D003DF510 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				7933860C1D5A1E73003DF510 /* NotoSans-Bold.ttf */,
+				7933860D1D5A1E73003DF510 /* NotoSans-BoldItalic.ttf */,
+				7933860E1D5A1E73003DF510 /* NotoSans-Italic.ttf */,
+				7933860F1D5A1E73003DF510 /* NotoSans-Regular.ttf */,
+			);
+			name = resources;
 			sourceTree = "<group>";
 		};
 		79EAD5FC1D46A2F60020BBA4 /* cells */ = {
@@ -201,9 +233,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				793386111D5A1E73003DF510 /* NotoSans-BoldItalic.ttf in Resources */,
 				79331C791D3EBD1F0094D418 /* LaunchScreen.storyboard in Resources */,
 				79F7ADD21D4920F8006A3B13 /* GoogleService-Info.plist in Resources */,
 				79331C761D3EBD1F0094D418 /* Assets.xcassets in Resources */,
+				793386131D5A1E73003DF510 /* NotoSans-Regular.ttf in Resources */,
+				793386121D5A1E73003DF510 /* NotoSans-Italic.ttf in Resources */,
+				793386101D5A1E73003DF510 /* NotoSans-Bold.ttf in Resources */,
 				79331C741D3EBD1F0094D418 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,10 +299,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				793386151D5A2CCE003DF510 /* DropBoxView.swift in Sources */,
+				793386191D5A5FFC003DF510 /* TextFieldView.swift in Sources */,
 				797680FC1D400F65002F0382 /* Post.swift in Sources */,
 				79331C711D3EBD1F0094D418 /* DetailView.swift in Sources */,
 				79331C6F1D3EBD1F0094D418 /* AppDelegate.swift in Sources */,
 				79E413C41D46528C0072863C /* PostCell.swift in Sources */,
+				793386171D5A2E62003DF510 /* Constants.swift in Sources */,
+				7933861B1D5A6822003DF510 /* StyleRectangleButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
