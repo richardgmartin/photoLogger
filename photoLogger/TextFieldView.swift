@@ -23,13 +23,13 @@ class TextFieldView: UITextField {
     // adjust inset for background text
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.insetBy(dx: 10, dy: 5)
+        return bounds.insetBy(dx: 10, dy: 0)
     }
     
     // adjust inset for test while editing in box
     
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.insetBy(dx: 10, dy: 5)
+        return bounds.insetBy(dx: 10, dy: 0)
 
     }
 
