@@ -7,4 +7,6 @@ target 'photoLogger' do
      pod 'Firebase/Database'
      pod 'Firebase/Auth'
      pod 'Firebase/Storage'
+     pod 'FBSDKLoginKit'
+     
 end

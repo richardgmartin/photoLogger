@@ -48,5 +48,25 @@
 		<string>NotoSans-Italic.ttf</string>
 		<string>NotoSans-Regular.ttf</string>
 	</array>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>fb1630268053931525</string>
+            </array>
+        </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>1630268053931525</string>
+    <key>FacebookDisplayName</key>
+    <string>PhotoLogger</string>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>fbapi</string>
+        <string>fb-messenger-api</string>
+        <string>fbauth2</string>
+        <string>fbshareextension</string>
+    </array>
 </dict>
 </plist>
