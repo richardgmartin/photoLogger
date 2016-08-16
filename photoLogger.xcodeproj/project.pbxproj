@@ -46,6 +46,7 @@
 		793386181D5A5FFC003DF510 /* TextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		7933861A1D5A6822003DF510 /* StyleRectangleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleRectangleButton.swift; sourceTree = "<group>"; };
 		7956F91D1D636AD000A33D01 /* photoLogger-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "photoLogger-Bridging-Header.h"; sourceTree = "<group>"; };
+		7956F9211D63AAD400A33D01 /* photoLogger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = photoLogger.entitlements; sourceTree = "<group>"; };
 		797680FB1D400F65002F0382 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = SOURCE_ROOT; };
 		7995E7B31D5B6D1600731D10 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		79E413C31D46528C0072863C /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
@@ -86,6 +87,7 @@
 		79331C6D1D3EBD1F0094D418 /* photoLogger */ = {
 			isa = PBXGroup;
 			children = (
+				7956F9211D63AAD400A33D01 /* photoLogger.entitlements */,
 				79331C6E1D3EBD1F0094D418 /* AppDelegate.swift */,
 				79331C721D3EBD1F0094D418 /* Main.storyboard */,
 				79331C771D3EBD1F0094D418 /* LaunchScreen.storyboard */,
@@ -221,6 +223,11 @@
 						DevelopmentTeamName = "Richard G Martin";
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -442,6 +449,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = photoLogger/photoLogger.entitlements;
 				INFOPLIST_FILE = photoLogger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.richardgmartin.photoLogger;
@@ -458,6 +466,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = photoLogger/photoLogger.entitlements;
 				INFOPLIST_FILE = photoLogger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.richardgmartin.photoLogger;
