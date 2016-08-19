@@ -21,9 +21,9 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         
         // test data
-        var post1 = Post(name: "Brenda", title: "Brenda's Program", description: "Exercise program for Brenda", date: "July 22, 2016", address: "123 Main Street", image: "")
-        var post2 = Post(name: "Janet", title: "Janet's Program", description: "Exercise program for Janet", date: "July 18, 2016", address: "123 Reynolds Street", image: "")
-        var post3 = Post(name: "Melanie", title: "Melanie's Program", description: "Exercise program for Melanie", date: "July 9, 2016", address: "123 Bank Street", image: "")
+        let post1 = Post(name: "Brenda", title: "Brenda's Program", description: "Exercise program for Brenda", date: "July 22, 2016", address: "123 Main Street", image: "")
+        let post2 = Post(name: "Janet", title: "Janet's Program", description: "Exercise program for Janet", date: "July 18, 2016", address: "123 Reynolds Street", image: "")
+        let post3 = Post(name: "Melanie", title: "Melanie's Program", description: "Exercise program for Melanie", date: "July 9, 2016", address: "123 Bank Street", image: "")
         
         posts.append(post1)
         posts.append(post2)
@@ -50,7 +50,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             cell = PostCell()
         }
         
-        cell.configureCell(post: post)
+        cell.configureCell(post)
         return cell
 
     }

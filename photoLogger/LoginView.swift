@@ -39,14 +39,14 @@ class LoginView: UIViewController {
                 print("RGM: user successfully authenticated via Facebook")
                 // get credential
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-                self.firebaseAuth(_credential: credential)
+                self.firebaseAuth(credential)
             }
         }
     }
     
     // authenticate with Firebase :: used by most federated access means
     
-    func firebaseAuth(_credential: FIRAuthCredential) {
+    func firebaseAuth(_ _credential: FIRAuthCredential) {
         
         FIRAuth.auth()?.signIn(with: _credential, completion: { (user, error) in
             if error != nil {

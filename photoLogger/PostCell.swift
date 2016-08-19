@@ -24,7 +24,7 @@ class PostCell: UITableViewCell {
         // Initialization code
     }
     
-    func configureCell(post: Post) {
+    func configureCell(_ post: Post) {
         postTitle.text = post.taskTitle
         postClient.text = post.clientName
         postDate.text = post.taskDate
