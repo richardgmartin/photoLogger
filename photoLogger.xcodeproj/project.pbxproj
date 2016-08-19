@@ -44,7 +44,6 @@
 		793386161D5A2E62003DF510 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		793386181D5A5FFC003DF510 /* TextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		7933861A1D5A6822003DF510 /* StyleRectangleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleRectangleButton.swift; sourceTree = "<group>"; };
-		7956F91D1D636AD000A33D01 /* photoLogger-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "photoLogger-Bridging-Header.h"; sourceTree = "<group>"; };
 		7956F9211D63AAD400A33D01 /* photoLogger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = photoLogger.entitlements; sourceTree = "<group>"; };
 		797680FB1D400F65002F0382 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = SOURCE_ROOT; };
 		7995E7B31D5B6D1600731D10 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -133,7 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				793386161D5A2E62003DF510 /* Constants.swift */,
-				7956F91D1D636AD000A33D01 /* photoLogger-Bridging-Header.h */,
 			);
 			name = utilities;
 			sourceTree = "<group>";
