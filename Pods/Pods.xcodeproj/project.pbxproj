@@ -1350,6 +1350,15 @@
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 				TargetAttributes = {
+					0C1F8E331232C34F034FD26C684AFA0A = {
+						LastSwiftMigration = 0800;
+					};
+					2B1D61AC8FC8F0F7AA4E46CC76927A12 = {
+						LastSwiftMigration = 0800;
+					};
+					7E61C9A8C176278C6C99C2C59E9C152E = {
+						LastSwiftMigration = 0800;
+					};
 					ECA37F8740A4431132525B9AA3EB38E4 = {
 						LastSwiftMigration = 0800;
 					};
@@ -1564,6 +1573,7 @@
 				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1585,6 +1595,7 @@
 				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1688,6 +1699,7 @@
 				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1751,6 +1763,7 @@
 				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1772,6 +1785,7 @@
 				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1793,6 +1807,7 @@
 				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
