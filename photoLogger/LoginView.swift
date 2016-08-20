@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import FBSDKLoginKit
-import SwiftKeychainWrapper
 
 class LoginView: UIViewController {
 

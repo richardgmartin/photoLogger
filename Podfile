@@ -12,6 +12,5 @@ target 'photoLogger' do
      pod 'Firebase/Auth'
      pod 'Firebase/Storage'
      pod 'FBSDKLoginKit'
-     pod 'SwiftKeychainWrapper'
      
 end

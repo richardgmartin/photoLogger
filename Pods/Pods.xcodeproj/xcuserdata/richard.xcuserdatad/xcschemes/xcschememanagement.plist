@@ -8,35 +8,33 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 		<key>FBSDKCoreKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>FBSDKLoginKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>Pods-photoLogger.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-		</dict>
-		<key>SwiftKeychainWrapper.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>02487F5D90C782735C205DDAFFBE3332</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>0EB19C1377A747F81110D44E2D5FCF78</key>
 		<dict>
 			<key>primary</key>
@@ -52,7 +50,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A158E220AD17C05F7C9A62AFB62D8FCD</key>
+		<key>ACF2187282B62BD9C25B2C2D92366FDF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
