@@ -45,7 +45,7 @@ class LoginView: UIViewController {
         }
     }
     
-    // authenticate with Firebase :: used by most federated access means
+    // authenticate with Firebase :: used by Facebook login
     
     func firebaseAuth(_ _credential: FIRAuthCredential) {
         
@@ -59,6 +59,8 @@ class LoginView: UIViewController {
             }
         })
     }
+    
+    // authenticate user with email + password or create new user with email + password
 
     @IBAction func signinTapped(_ sender: AnyObject) {
         if let email = emailAddressText.text, let password = passwordText.text {
