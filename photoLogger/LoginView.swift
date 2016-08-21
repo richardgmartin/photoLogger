@@ -22,6 +22,19 @@ class LoginView: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        // check to see if user already signed in
+        
+        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
+            if let user = user {
+                // user already signed in
+                print("RGM: the user, \(user), is already signed in.")
+                self.performSegue(withIdentifier: "goToPostFeed", sender: nil)
+            }
+        })
+    }
+
+    
     // authenticate with Facebook
     
     @IBAction func facebookButtonTapped(_ sender: AnyObject) {
