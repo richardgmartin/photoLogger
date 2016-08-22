@@ -161,7 +161,7 @@
         <!--PhotoLogger-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="DetailView" customModule="photoLogger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="DetailView" customModule="photoLogger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -172,15 +172,12 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="185" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rQf-YT-2zv">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="539" id="aF8-Ef-JzZ"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCellID" rowHeight="185" id="s7K-o8-Ijv" customClass="PostCell" customModule="photoLogger" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="343" height="185"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="185"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s7K-o8-Ijv" id="ekR-5x-Mq5">
-                                            <frame key="frameInset" width="343" height="185"/>
+                                            <frame key="frameInset" width="375" height="185"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QVK-PB-S4M">
@@ -276,9 +273,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="rQf-YT-2zv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="DaQ-zU-dAI"/>
-                            <constraint firstItem="rQf-YT-2zv" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="JBJ-60-NJD"/>
-                            <constraint firstItem="rQf-YT-2zv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="K5H-M6-SoX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rQf-YT-2zv" secondAttribute="bottom" id="SMK-Il-kDb"/>
+                            <constraint firstItem="rQf-YT-2zv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="arc-Mf-qim"/>
+                            <constraint firstAttribute="trailing" secondItem="rQf-YT-2zv" secondAttribute="trailing" id="mP2-2i-pHS"/>
+                            <constraint firstItem="rQf-YT-2zv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tZb-J8-vSj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="PhotoLogger" id="q1T-EG-ohS">
@@ -298,7 +296,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fcd-xI-Z7E" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5yi-DX-5Jk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5yi-DX-5Jk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
