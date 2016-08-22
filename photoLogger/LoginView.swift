@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FBSDKLoginKit
+import FBSDKCoreKit
 
 class LoginView: UIViewController {
 
@@ -41,12 +42,20 @@ class LoginView: UIViewController {
         
         let facebookLogin = FBSDKLoginManager()
         
+        print("RGM: at inititalization the facebookLogin is - \(facebookLogin)")
+        
+        
         facebookLogin.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
+            
+            print("RGM: result is - \(result?.isCancelled)")
+            print("RGM: error is - \(error)")
+            print("RGM: inside the completion handler facebookLogin is - \(facebookLogin)")
+            
             if error != nil {
                 // facebook authentication failed
                 print("RGM: unable to authenticate with Facebook - \(error)")
             } else if result?.isCancelled == true {
-                // user declines access via facebook oermissions
+                // user declines access via facebook permissions
                 print("RGM: user declined permission to access via Facebook")
             } else {
                 // facebook successful authentication
@@ -90,6 +99,12 @@ class LoginView: UIViewController {
                         } else {
                             // new user successfully created in firebase
                             print("RGM: new user from email and password successfully created")
+                            
+                            // post user on firebase database using func inside DataService
+                            if let user = user {
+                                let userData = ["provider": user.providerID]
+                                self.completeSignIn(id: user.uid, userData: userData)
+                            }
                         }
                     })
                 }
@@ -98,6 +113,12 @@ class LoginView: UIViewController {
             // send alert to user (when we go to production
             print("RGM: email address and/or password fields empty")
         }
-        
+    }
+    
+    // function to complete the signin process :: post new user in firebase database and segue to DetailView
+    
+    func completeSignIn(id: String, userData: Dictionary<String, String>) {
+        DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
+        performSegue(withIdentifier: "goToPostFeed", sender: nil)
     }
 }

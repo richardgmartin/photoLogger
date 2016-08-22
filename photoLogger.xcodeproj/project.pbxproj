@@ -23,6 +23,7 @@
 		7933861B1D5A6822003DF510 /* StyleRectangleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7933861A1D5A6822003DF510 /* StyleRectangleButton.swift */; };
 		797680FC1D400F65002F0382 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797680FB1D400F65002F0382 /* Post.swift */; };
 		7995E7B41D5B6D1600731D10 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7995E7B31D5B6D1600731D10 /* LoginView.swift */; };
+		79CF4A061D6B778F001F3373 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CF4A051D6B778F001F3373 /* DataService.swift */; };
 		79E413C41D46528C0072863C /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E413C31D46528C0072863C /* PostCell.swift */; };
 		79F7ADD21D4920F8006A3B13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F7ADD11D4920F8006A3B13 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -47,6 +48,7 @@
 		7956F9211D63AAD400A33D01 /* photoLogger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = photoLogger.entitlements; sourceTree = "<group>"; };
 		797680FB1D400F65002F0382 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = SOURCE_ROOT; };
 		7995E7B31D5B6D1600731D10 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		79CF4A051D6B778F001F3373 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		79E413C31D46528C0072863C /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		79F7ADD11D4920F8006A3B13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E4BA8673243489A63428372D /* Pods-photoLogger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-photoLogger.release.xcconfig"; path = "Pods/Target Support Files/Pods-photoLogger/Pods-photoLogger.release.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		79331C831D3EC69E0094D418 /* services */ = {
 			isa = PBXGroup;
 			children = (
+				79CF4A051D6B778F001F3373 /* DataService.swift */,
 			);
 			name = services;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				79E413C41D46528C0072863C /* PostCell.swift in Sources */,
 				793386171D5A2E62003DF510 /* Constants.swift in Sources */,
 				7933861B1D5A6822003DF510 /* StyleRectangleButton.swift in Sources */,
+				79CF4A061D6B778F001F3373 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
