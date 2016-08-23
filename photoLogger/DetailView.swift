@@ -10,8 +10,6 @@ import UIKit
 import Firebase
 
 class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    let rootRef = FIRDatabase.database().reference()
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -59,8 +57,15 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     
-
-
+    @IBAction func logoutButtonTapped(_ sender: AnyObject) {
+        
+        let currentUser = FIRAuth.auth()?.currentUser
+        print("RGM: user named, \(currentUser?.email), successfully logged out")
+        do {
+            try! FIRAuth.auth()!.signOut()
+        }
+        performSegue(withIdentifier: "goToSignIn", sender: nil)
+    }
 
 }
 

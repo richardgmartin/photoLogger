@@ -156,12 +156,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VnJ-Js-ihf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-295.19999999999999" y="52.623688155922046"/>
+            <point key="canvasLocation" x="-330" y="38"/>
         </scene>
-        <!--PhotoLogger-->
+        <!--Detail View-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="DetailView" customModule="photoLogger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Detail View" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="DetailView" customModule="photoLogger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -280,23 +280,28 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="PhotoLogger" id="q1T-EG-ohS">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="c37-U6-Wzu"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="c37-U6-Wzu">
+                            <connections>
+                                <action selector="logoutButtonTapped:" destination="BYZ-38-t0r" id="RKy-Cf-tEz"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="KNN-Dl-9of"/>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="rQf-YT-2zv" id="s1x-2e-TC6"/>
+                        <segue destination="KDP-zt-1Nx" kind="presentation" identifier="goToSignIn" id="qVj-Wy-3uY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1568.8" y="52.623688155922046"/>
+            <point key="canvasLocation" x="1449" y="38"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zEp-2U-lTE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fcd-xI-Z7E" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5yi-DX-5Jk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5yi-DX-5Jk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -307,7 +312,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3lo-hX-jNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="629.60000000000002" y="52.623688155922046"/>
+            <point key="canvasLocation" x="638" y="-576"/>
         </scene>
     </scenes>
     <resources>
