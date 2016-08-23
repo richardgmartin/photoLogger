@@ -115,8 +115,8 @@
 		79331C811D3EC5E60094D418 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				79331C701D3EBD1F0094D418 /* DetailView.swift */,
 				7995E7B31D5B6D1600731D10 /* LoginView.swift */,
+				79331C701D3EBD1F0094D418 /* DetailView.swift */,
 				7995E7B21D5B686400731D10 /* styles */,
 				79EAD5FC1D46A2F60020BBA4 /* cells */,
 			);

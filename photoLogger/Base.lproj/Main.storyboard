@@ -279,7 +279,7 @@
                             <constraint firstItem="rQf-YT-2zv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tZb-J8-vSj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="PhotoLogger" id="q1T-EG-ohS">
+                    <navigationItem key="navigationItem" title="Photo Logger" id="q1T-EG-ohS">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="c37-U6-Wzu">
                             <connections>
                                 <action selector="logoutButtonTapped:" destination="BYZ-38-t0r" id="RKy-Cf-tEz"/>
