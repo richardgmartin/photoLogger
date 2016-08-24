@@ -285,16 +285,92 @@
                                 <action selector="logoutButtonTapped:" destination="BYZ-38-t0r" id="RKy-Cf-tEz"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KNN-Dl-9of"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KNN-Dl-9of">
+                            <connections>
+                                <action selector="addPostButtonTapped:" destination="BYZ-38-t0r" id="FK6-HV-hgQ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="rQf-YT-2zv" id="s1x-2e-TC6"/>
                         <segue destination="KDP-zt-1Nx" kind="presentation" identifier="goToSignIn" id="qVj-Wy-3uY"/>
+                        <segue destination="Dah-m4-UGt" kind="show" identifier="addPostSegue" id="nTz-zd-Ixj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1449" y="38"/>
+        </scene>
+        <!--Post View-->
+        <scene sceneID="oHT-EQ-Cr5">
+            <objects>
+                <viewController id="Dah-m4-UGt" customClass="PostView" customModule="photoLogger" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wbc-2q-Iw2"/>
+                        <viewControllerLayoutGuide type="bottom" id="YrJ-3i-rUe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DbH-ya-KGC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QcT-FC-eBV">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="TLL-GR-4Hu"/>
+                                    <constraint firstAttribute="width" constant="240" id="iYO-1v-9wo"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter title" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t1w-aU-srJ" customClass="TextFieldView" customModule="photoLogger" customModuleProvider="target">
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qdD-pi-hk6">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="aGu-nG-v9n"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gM-zY-6xM" customClass="StyleRectangleButton" customModule="photoLogger" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.83529411760000005" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="VNK-Ig-nyB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="14"/>
+                                <state key="normal" title="SAVE POST">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="savePostButtonTapped:" destination="Dah-m4-UGt" eventType="touchUpInside" id="pNW-OQ-1je"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="t1w-aU-srJ" firstAttribute="width" secondItem="QcT-FC-eBV" secondAttribute="width" id="4bE-Uq-Bl3"/>
+                            <constraint firstItem="3gM-zY-6xM" firstAttribute="top" secondItem="qdD-pi-hk6" secondAttribute="bottom" constant="15" id="7fu-KX-hLa"/>
+                            <constraint firstItem="3gM-zY-6xM" firstAttribute="centerX" secondItem="DbH-ya-KGC" secondAttribute="centerX" id="CA4-hO-c3v"/>
+                            <constraint firstItem="3gM-zY-6xM" firstAttribute="width" secondItem="qdD-pi-hk6" secondAttribute="width" id="DBe-eD-OAY"/>
+                            <constraint firstItem="QcT-FC-eBV" firstAttribute="centerX" secondItem="DbH-ya-KGC" secondAttribute="centerX" id="E98-vC-dee"/>
+                            <constraint firstItem="qdD-pi-hk6" firstAttribute="centerX" secondItem="DbH-ya-KGC" secondAttribute="centerX" id="Jua-er-wmd"/>
+                            <constraint firstItem="qdD-pi-hk6" firstAttribute="top" secondItem="t1w-aU-srJ" secondAttribute="bottom" constant="15" id="Wr1-Mc-Hls"/>
+                            <constraint firstItem="t1w-aU-srJ" firstAttribute="top" secondItem="QcT-FC-eBV" secondAttribute="bottom" constant="15" id="dDO-P8-eca"/>
+                            <constraint firstItem="t1w-aU-srJ" firstAttribute="centerX" secondItem="DbH-ya-KGC" secondAttribute="centerX" id="kyX-qR-DZR"/>
+                            <constraint firstItem="QcT-FC-eBV" firstAttribute="top" secondItem="Wbc-2q-Iw2" secondAttribute="bottom" constant="10" id="mWm-S0-S2C"/>
+                            <constraint firstItem="qdD-pi-hk6" firstAttribute="width" secondItem="t1w-aU-srJ" secondAttribute="width" id="y6U-d2-hNz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="qdD-pi-hk6" id="s47-QC-DdD"/>
+                        <outlet property="imageView" destination="QcT-FC-eBV" id="6tE-0f-FJT"/>
+                        <outlet property="titleTextField" destination="t1w-aU-srJ" id="nte-SK-nDC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ViD-bu-mHL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2308" y="36.431784107946029"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zEp-2U-lTE">

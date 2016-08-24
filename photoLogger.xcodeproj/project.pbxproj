@@ -26,6 +26,7 @@
 		79CF4A061D6B778F001F3373 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CF4A051D6B778F001F3373 /* DataService.swift */; };
 		79E413C41D46528C0072863C /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E413C31D46528C0072863C /* PostCell.swift */; };
 		79F1A8CD1D6DE1EA007E88D8 /* NavigationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F1A8CC1D6DE1EA007E88D8 /* NavigationItemView.swift */; };
+		79F1A8CF1D6DFA41007E88D8 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F1A8CE1D6DFA41007E88D8 /* PostView.swift */; };
 		79F7ADD21D4920F8006A3B13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F7ADD11D4920F8006A3B13 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		79CF4A051D6B778F001F3373 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		79E413C31D46528C0072863C /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		79F1A8CC1D6DE1EA007E88D8 /* NavigationItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationItemView.swift; sourceTree = "<group>"; };
+		79F1A8CE1D6DFA41007E88D8 /* PostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		79F7ADD11D4920F8006A3B13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E4BA8673243489A63428372D /* Pods-photoLogger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-photoLogger.release.xcconfig"; path = "Pods/Target Support Files/Pods-photoLogger/Pods-photoLogger.release.xcconfig"; sourceTree = "<group>"; };
 		EBAACD68CC53CDBC65B4F6E7 /* Pods_photoLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_photoLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +121,7 @@
 			children = (
 				7995E7B31D5B6D1600731D10 /* LoginView.swift */,
 				79331C701D3EBD1F0094D418 /* DetailView.swift */,
+				79F1A8CE1D6DFA41007E88D8 /* PostView.swift */,
 				7995E7B21D5B686400731D10 /* styles */,
 				79EAD5FC1D46A2F60020BBA4 /* cells */,
 			);
@@ -334,6 +337,7 @@
 				79E413C41D46528C0072863C /* PostCell.swift in Sources */,
 				793386171D5A2E62003DF510 /* Constants.swift in Sources */,
 				7933861B1D5A6822003DF510 /* StyleRectangleButton.swift in Sources */,
+				79F1A8CF1D6DFA41007E88D8 /* PostView.swift in Sources */,
 				79CF4A061D6B778F001F3373 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

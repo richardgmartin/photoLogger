@@ -60,6 +60,9 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     
+
+    
+    
     @IBAction func logoutButtonTapped(_ sender: AnyObject) {
         
         let currentUser = FIRAuth.auth()?.currentUser
@@ -69,6 +72,16 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         performSegue(withIdentifier: "goToSignIn", sender: nil)
     }
+    
+    
+    
+    @IBAction func addPostButtonTapped(_ sender: AnyObject) {
+        
+        navigationItem.title = nil
+
+        performSegue(withIdentifier: "addPostSegue", sender: nil)
+    }
+    
 
 }
 
