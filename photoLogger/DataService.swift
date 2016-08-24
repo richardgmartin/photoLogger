@@ -20,7 +20,7 @@ class DataService {
     
     static let ds = DataService()
     
-    // reference endpoints for database
+    // reference endpoints for Firevase Database
     private var _REF_BASE = DB_BASE
     private var _REF_POSTS = DB_BASE.child("posts")
     private var _REF_USERS = DB_BASE.child("users")
@@ -42,6 +42,14 @@ class DataService {
     func createFirebaseDBUser(uid: String, userData: Dictionary<String, String>) {
         REF_USERS.child(uid).updateChildValues(userData)
     }
+    
+    // reference endpoint for Firebase Storage
+    private var _REF_IMAGES = STORAGE_BASE.child("post-images")
+    
+    var REF_IMAGES: FIRStorageReference {
+        return _REF_IMAGES
+    }
+    
     
     
 }

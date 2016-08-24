@@ -313,7 +313,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QcT-FC-eBV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QcT-FC-eBV" customClass="StyleImageSelector" customModule="photoLogger" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.47058823529411764" green="0.56470588235294117" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="TLL-GR-4Hu"/>
                                     <constraint firstAttribute="width" constant="240" id="iYO-1v-9wo"/>
@@ -324,7 +325,7 @@
                                 <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qdD-pi-hk6">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qdD-pi-hk6" customClass="StyleDescriptionBox" customModule="photoLogger" customModuleProvider="target">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="aGu-nG-v9n"/>
@@ -362,9 +363,17 @@
                             <constraint firstItem="qdD-pi-hk6" firstAttribute="width" secondItem="t1w-aU-srJ" secondAttribute="width" id="y6U-d2-hNz"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="4Rb-rL-zmY">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="O3L-1m-sgC">
+                            <connections>
+                                <action selector="cameraButtonTapped:" destination="Dah-m4-UGt" id="UUe-hX-6GX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="descriptionTextView" destination="qdD-pi-hk6" id="s47-QC-DdD"/>
                         <outlet property="imageView" destination="QcT-FC-eBV" id="6tE-0f-FJT"/>
+                        <outlet property="savePostButton" destination="3gM-zY-6xM" id="OL8-7g-p6W"/>
                         <outlet property="titleTextField" destination="t1w-aU-srJ" id="nte-SK-nDC"/>
                     </connections>
                 </viewController>

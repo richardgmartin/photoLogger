@@ -27,6 +27,8 @@
 		79E413C41D46528C0072863C /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E413C31D46528C0072863C /* PostCell.swift */; };
 		79F1A8CD1D6DE1EA007E88D8 /* NavigationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F1A8CC1D6DE1EA007E88D8 /* NavigationItemView.swift */; };
 		79F1A8CF1D6DFA41007E88D8 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F1A8CE1D6DFA41007E88D8 /* PostView.swift */; };
+		79F1A8D11D6E453A007E88D8 /* StyleImageSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F1A8D01D6E4539007E88D8 /* StyleImageSelector.swift */; };
+		79F1A8D31D6E4626007E88D8 /* StyleDescriptionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F1A8D21D6E4626007E88D8 /* StyleDescriptionBox.swift */; };
 		79F7ADD21D4920F8006A3B13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F7ADD11D4920F8006A3B13 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,8 @@
 		79E413C31D46528C0072863C /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		79F1A8CC1D6DE1EA007E88D8 /* NavigationItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationItemView.swift; sourceTree = "<group>"; };
 		79F1A8CE1D6DFA41007E88D8 /* PostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		79F1A8D01D6E4539007E88D8 /* StyleImageSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleImageSelector.swift; sourceTree = "<group>"; };
+		79F1A8D21D6E4626007E88D8 /* StyleDescriptionBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleDescriptionBox.swift; sourceTree = "<group>"; };
 		79F7ADD11D4920F8006A3B13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E4BA8673243489A63428372D /* Pods-photoLogger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-photoLogger.release.xcconfig"; path = "Pods/Target Support Files/Pods-photoLogger/Pods-photoLogger.release.xcconfig"; sourceTree = "<group>"; };
 		EBAACD68CC53CDBC65B4F6E7 /* Pods_photoLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_photoLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +166,8 @@
 				793386181D5A5FFC003DF510 /* TextFieldView.swift */,
 				793386141D5A2CCE003DF510 /* DropBoxView.swift */,
 				79F1A8CC1D6DE1EA007E88D8 /* NavigationItemView.swift */,
+				79F1A8D01D6E4539007E88D8 /* StyleImageSelector.swift */,
+				79F1A8D21D6E4626007E88D8 /* StyleDescriptionBox.swift */,
 			);
 			name = styles;
 			sourceTree = "<group>";
@@ -332,8 +338,10 @@
 				793386191D5A5FFC003DF510 /* TextFieldView.swift in Sources */,
 				797680FC1D400F65002F0382 /* Post.swift in Sources */,
 				7995E7B41D5B6D1600731D10 /* LoginView.swift in Sources */,
+				79F1A8D11D6E453A007E88D8 /* StyleImageSelector.swift in Sources */,
 				79331C711D3EBD1F0094D418 /* DetailView.swift in Sources */,
 				79331C6F1D3EBD1F0094D418 /* AppDelegate.swift in Sources */,
+				79F1A8D31D6E4626007E88D8 /* StyleDescriptionBox.swift in Sources */,
 				79E413C41D46528C0072863C /* PostCell.swift in Sources */,
 				793386171D5A2E62003DF510 /* Constants.swift in Sources */,
 				7933861B1D5A6822003DF510 /* StyleRectangleButton.swift in Sources */,
