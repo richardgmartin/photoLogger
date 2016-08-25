@@ -57,6 +57,25 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     @IBAction func savePostButtonTapped(_ sender: AnyObject) {
         
         
+        // prepare image and post to Firebase Storage
+        let image = imageView.image
+        let imageUID = NSUUID().uuidString
+        let imageData = UIImageJPEGRepresentation(image!, 0.2)
+        let metaData = FIRStorageMetadata()
+        metaData.contentType = "image/jpg"
+        
+        DataService.ds.REF_IMAGES.child(imageUID).put(imageData!, metadata: metaData) { (metaData, error) in
+            if error != nil {
+                print("RGM: error uploading image to firebase storage")
+            } else {
+                print("RGM: image upload to firebase storage was successful")
+                print("RGM: imageUID is \(imageUID)")
+                print("RGM: metaData is \(metaData)")
+                let downloadURL = metaData?.downloadURL()?.absoluteString
+                print("RGM: downloadURL is \(downloadURL)")
+                
+            }
+        }
         
     }
 
