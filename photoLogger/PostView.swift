@@ -46,8 +46,6 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         
     }
     
-    
-    
     @IBAction func cameraButtonTapped(_ sender: AnyObject) {
         
         imagePicker.sourceType = .savedPhotosAlbum
@@ -60,6 +58,16 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     @IBAction func savePostButtonTapped(_ sender: AnyObject) {
         
         // check to make sure post entries complete
+        
+        guard let postTitle = titleTextField.text, postTitle != "" else {
+            print("RGM: post title must be provided")
+            return
+        }
+        
+        guard let postDescription = descriptionTextView.text, postDescription != "" else {
+            print("RGM: post description must be provided")
+            return
+        }
         
         guard let image = imageView.image, imageSelected == true else {
             print("RGM: image must be selected")
@@ -79,11 +87,35 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                 print("RGM: image upload to firebase storage was successful")
                 print("RGM: imageUID is \(imageUID)")
                 print("RGM: metaData is \(metaData)")
+                
                 let downloadURL = metaData?.downloadURL()?.absoluteString
                 print("RGM: downloadURL is \(downloadURL)")
+                if let url = downloadURL {
+                    self.postDataToFirebase(imageURL: url)
+                }
                 
             }
         }
+    }
+    
+    // upload post data (with image url) to Firebase database
+    
+    func postDataToFirebase(imageURL: String) {
+        
+        let photoLoggerPost: Dictionary<String, String> = [
+            "taskImage": imageURL,
+            "taskTitle": titleTextField.text!,
+            "taskDescription": descriptionTextView.text
+        ]
+        
+        let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
+        firebasePost.setValue(photoLoggerPost)
+        
+        // reset fields
+        titleTextField.text = ""
+        descriptionTextView.text = ""
+        imageView.image = UIImage(named: "photo-logger-logo")
+        
     }
 
 
