@@ -21,6 +21,8 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     var imagePicker: UIImagePickerController!
     
+    var imageSelected: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +40,7 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         imageView.image = image
+        imageSelected = true
         imageView.backgroundColor = UIColor.clear
         imagePicker.dismiss(animated: true, completion: nil)
         
@@ -56,11 +59,16 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     @IBAction func savePostButtonTapped(_ sender: AnyObject) {
         
+        // check to make sure post entries complete
+        
+        guard let image = imageView.image, imageSelected == true else {
+            print("RGM: image must be selected")
+            return
+        }
         
         // prepare image and post to Firebase Storage
-        let image = imageView.image
         let imageUID = NSUUID().uuidString
-        let imageData = UIImageJPEGRepresentation(image!, 0.2)
+        let imageData = UIImageJPEGRepresentation(image, 0.2)
         let metaData = FIRStorageMetadata()
         metaData.contentType = "image/jpg"
         
@@ -76,7 +84,6 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                 
             }
         }
-        
     }
 
 
