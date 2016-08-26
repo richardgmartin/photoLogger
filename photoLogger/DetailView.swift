@@ -20,8 +20,13 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // set up and initiate firebase observer
+        DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
+            print(snapshot.value)
+        })
         
-        // test data
+        
+        /* test data
         let post1 = Post(name: "Brenda", title: "Brenda's Program", description: "Exercise program for Brenda", date: "July 22, 2016", address: "123 Main Street", image: "")
         let post2 = Post(name: "Janet", title: "Janet's Program", description: "Exercise program for Janet", date: "July 18, 2016", address: "123 Reynolds Street", image: "")
         let post3 = Post(name: "Melanie", title: "Melanie's Program", description: "Exercise program for Melanie", date: "July 9, 2016", address: "123 Bank Street", image: "")
@@ -29,6 +34,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         posts.append(post1)
         posts.append(post2)
         posts.append(post3)
+        */
         
         tableView.reloadData()
 
