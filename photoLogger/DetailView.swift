@@ -22,9 +22,22 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         // set up and initiate firebase observer
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
-            print(snapshot.value)
+            if let postsSnap = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                for snap in postsSnap {
+                    print("RGM || SNAP: \(snap)")
+                    if let postDict = snap.value as? Dictionary<String, AnyObject> {
+                        let postKey = snap.key
+                        // call custom (convenience) init in Post.swift class to create a post
+                        let post = Post(postKey: postKey, postData: postDict as! Dictionary<String, String>)
+                        self.posts.append(post)
+                    }
+                }
+            }
+            self.tableView.reloadData()
+            print("RGM: snap posts are: \(self.posts)")
         })
         
+        // tableView.reloadData()
         
         /* test data
         let post1 = Post(name: "Brenda", title: "Brenda's Program", description: "Exercise program for Brenda", date: "July 22, 2016", address: "123 Main Street", image: "")
@@ -35,10 +48,9 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         posts.append(post2)
         posts.append(post3)
         */
-        
-        tableView.reloadData()
 
     }
+    
 
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
@@ -47,6 +59,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let post = posts[indexPath.row]
+        // print("RGM: \(post.taskTitle)")
         var cell:PostCell
         
         if (tableView.dequeueReusableCell(withIdentifier: "PostCellID") as? PostCell) != nil {
@@ -57,7 +70,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             cell = PostCell()
         }
         
-        cell.configureCell(post)
+        cell.configureCell(post: post)
         return cell
 
     }

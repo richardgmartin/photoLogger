@@ -17,19 +17,23 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var postDescription: UILabel!
     @IBOutlet weak var postImg: UIImageView!
     
-    
+    var post: Post!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
-    func configureCell(_ post: Post) {
+    func configureCell(post: Post) {
+        
+        self.post = post
+        
         postTitle.text = post.taskTitle
-        postClient.text = post.clientName
-        postDate.text = post.taskDate
-        postAddress.text = post.taskAddress
+        // postClient.text = post.clientName
+        // postDate.text = post.taskDate
+        // postAddress.text = post.taskAddress
         postDescription.text = post.taskDescription
+        
         
         // deal with image later
         

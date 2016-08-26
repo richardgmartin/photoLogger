@@ -12,16 +12,17 @@ class Post {
     
     // declare Post vars as Private and as getters
     
-    private var _clientName: String
-    private var _taskTitle: String
-    private var _taskDescription: String
-    private var _taskDate: String
-    private var _taskAddress: String
-    private var _taskImage: String       //assume var is a String type to comply with Firebase :: for now
+    // private var _clientName: String!
+    private var _taskTitle: String!
+    private var _taskDescription: String!
+    // private var _taskDate: String!
+    // private var _taskAddress: String!
+    // private var _taskImage: String!
+    private var _postKey: String!
     
-    var clientName: String {
-        return _clientName
-    }
+    // var clientName: String {
+    //     return _clientName
+    // }
     
     var taskTitle: String {
         return _taskTitle
@@ -31,9 +32,9 @@ class Post {
         return _taskDescription
     }
     
-    var taskDate: String {
-        return _taskDate
-    }
+    // var taskDate: String {
+        // return _taskDate
+    // }
     
 //    var dateString: String {
 //        let dateFormatter = DateFormatter()
@@ -42,33 +43,53 @@ class Post {
 //        return dateString
 //    }
     
-    var taskAddress: String {
-        return _taskAddress
+    // var taskAddress: String {
+        // return _taskAddress
+    // }
+    
+    // var taskImage: String {
+        // return _taskImage
+    // }
+    
+    var postKey: String {
+        return _postKey
     }
     
-    var taskImage: String {
-        return _taskImage
-    }
-    
-    init(name: String, title: String, description: String, date: String, address: String, image: String) {
-        self._clientName = name
+    init(name: String, title: String, desc: String, date: String, address: String, image: String) {
+        // self._clientName = name
         self._taskTitle = title
-        self._taskDescription = description
-        self._taskDate = date
-        self._taskAddress = address
-        self._taskImage = image
-        
-        // convert taskDate to a String
-        
-        
-        
+        self._taskDescription = desc
+        // self._taskDate = date
+        // self._taskAddress = address
+        // self._taskImage = image
     }
     
-    convenience init() {
-        
-        self.init(name: "", title: "", description: "", date: "", address: "", image: "")
+    init(postKey: String, postData: Dictionary<String, String>) {
+            
+        self._postKey = postKey
+            
+        // if let clientName = postData["clientName"] {
+            //self._clientName = clientName
+        // }
+            
+        if let taskTitle = postData["taskTitle"] {
+            self._taskTitle = taskTitle
+        }
+            
+        if let taskDescription = postData["taskDescription"] {
+            self._taskDescription = taskDescription
+        }
+            
+        // if let taskDate = postData["taskDate"] {
+            // self._taskDate = taskDate
+        // }
+            
+        // if let taskAddress = postData["taskAddress"] {
+            // self._taskAddress = taskAddress
+        // }
+            
+        // if let taskImage = postData["taskImage"] {
+            // self._taskImage = taskImage
+        // }
     }
-    
-    
-    
 }
