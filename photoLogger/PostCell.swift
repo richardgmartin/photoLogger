@@ -29,10 +29,10 @@ class PostCell: UITableViewCell {
         self.post = post
         
         postTitle.text = post.taskTitle
-        // postClient.text = post.clientName
-        // postDate.text = post.taskDate
-        // postAddress.text = post.taskAddress
         postDescription.text = post.taskDescription
+        postClient.text = post.clientName
+        postDate.text = post.taskDate
+        postAddress.text = post.taskAddress
         
         
         // deal with image later

@@ -36,18 +36,6 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.tableView.reloadData()
             print("RGM: snap posts are: \(self.posts)")
         })
-        
-        // tableView.reloadData()
-        
-        /* test data
-        let post1 = Post(name: "Brenda", title: "Brenda's Program", description: "Exercise program for Brenda", date: "July 22, 2016", address: "123 Main Street", image: "")
-        let post2 = Post(name: "Janet", title: "Janet's Program", description: "Exercise program for Janet", date: "July 18, 2016", address: "123 Reynolds Street", image: "")
-        let post3 = Post(name: "Melanie", title: "Melanie's Program", description: "Exercise program for Melanie", date: "July 9, 2016", address: "123 Bank Street", image: "")
-        
-        posts.append(post1)
-        posts.append(post2)
-        posts.append(post3)
-        */
 
     }
     
