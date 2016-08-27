@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class PostCell: UITableViewCell {
     
@@ -21,10 +22,10 @@ class PostCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
     }
     
-    func configureCell(post: Post) {
+    func configureCell(post: Post, img: UIImage? = nil) {
         
         self.post = post
         
@@ -34,11 +35,27 @@ class PostCell: UITableViewCell {
         postDate.text = post.taskDate
         postAddress.text = post.taskAddress
         
-        
-        // deal with image later
-        
-        
+        if img != nil {
+            // set image in cell to image in cache
+            self.postImg.image = img
+        } else {
+            // image is not in cache, so retrieve image from firebase storage
+            let ref = FIRStorage.storage().reference(forURL: post.taskImage)
+            ref.data(withMaxSize: 2 * 1024 * 1024, completion: { (data, error) in
+                if error != nil {
+                    print("RGM: problem downloading image from firebase storage")
+                } else {
+                    // image downloaded from firebase storage
+                    print("RGM: image successfully downloaded from firebase storage")
+                    // download the image from firebase storage into cache
+                    if let imgData = data {
+                        if let img = UIImage(data: imgData) {
+                            self.postImg.image = img
+                            DetailView.imageCache.setObject(img, forKey: post.taskImage as NSString)
+                        }
+                    }
+                }
+            })
+        }
     }
-
-    
 }

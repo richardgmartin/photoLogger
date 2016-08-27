@@ -16,6 +16,8 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
 
     var posts = [Post]()
+    // declare global cache var
+    static var imageCache: NSCache<NSString, UIImage> = NSCache()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +38,6 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.tableView.reloadData()
             print("RGM: snap posts are: \(self.posts)")
         })
-
     }
     
 
@@ -47,27 +48,24 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let post = posts[indexPath.row]
-        // print("RGM: \(post.taskTitle)")
         var cell:PostCell
         
-        if (tableView.dequeueReusableCell(withIdentifier: "PostCellID") as? PostCell) != nil {
+        cell = tableView.dequeueReusableCell(withIdentifier: "PostCellID") as! PostCell
             
-            cell = tableView.dequeueReusableCell(withIdentifier: "PostCellID") as! PostCell
+        // check if we can source image from image cache
+        if let img = DetailView.imageCache.object(forKey: post.taskImage as NSString) {
+            cell.configureCell(post: post, img: img)
+            return cell
         } else {
-            
-            cell = PostCell()
+            // image is not there :: return post data without image
+            cell.configureCell(post: post, img: nil)
+            return cell
         }
-        
-        cell.configureCell(post: post)
-        return cell
-
     }
     
     internal func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
-
     
     
     @IBAction func logoutButtonTapped(_ sender: AnyObject) {
