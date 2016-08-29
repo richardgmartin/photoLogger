@@ -12,22 +12,24 @@ import Firebase
 class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet weak var titleTextField: TextFieldView!
-    
     @IBOutlet weak var descriptionTextView: UITextView!
-    
     @IBOutlet weak var savePostButton: StyleRectangleButton!
     
     var imagePicker: UIImagePickerController!
-    
     var imageSelected: Bool = false
+    
+    enum Reset : String {
+        
+        case LogoImage = "photo-logger-logo"
+        case TitleField = ""
+        case DescriptionField = " "
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         imagePicker = UIImagePickerController()
-        
         imagePicker.delegate = self
         
     }
@@ -80,6 +82,9 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         let metaData = FIRStorageMetadata()
         metaData.contentType = "image/jpg"
         
+        // TODO: Check if the user ID is really needed
+       // let userID = "FEb60c3X69WsSN1JZvLrP7qDRVD3"
+        
         DataService.ds.REF_IMAGES.child(imageUID).put(imageData!, metadata: metaData) { (metaData, error) in
             if error != nil {
                 print("RGM: error uploading image to firebase storage")
@@ -93,7 +98,6 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                 if let url = downloadURL {
                     self.postDataToFirebase(imageURL: url)
                 }
-                
             }
         }
     }
@@ -111,13 +115,15 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
         firebasePost.setValue(photoLoggerPost)
         
-        // reset fields
-        titleTextField.text = ""
-        descriptionTextView.text = ""
-        imageView.image = UIImage(named: "photo-logger-logo")
-        
+        reset()
     }
-
-
+    
+    func reset() {
+        
+        // reset fields
+        titleTextField.text = Reset.TitleField.rawValue
+        descriptionTextView.text = Reset.DescriptionField.rawValue
+        imageView.image = UIImage(named: Reset.LogoImage.rawValue)
+    }
 }
 

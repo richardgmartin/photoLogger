@@ -38,6 +38,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.tableView.reloadData()
             print("RGM: snap posts are: \(self.posts)")
         })
+        
     }
     
 
