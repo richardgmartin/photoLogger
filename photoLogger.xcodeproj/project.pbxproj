@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2AADECE4E5233F517DB93590 /* Pods_photoLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBAACD68CC53CDBC65B4F6E7 /* Pods_photoLogger.framework */; };
-		7916D2721D736B6A00EBEA05 /* TextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7916D2711D736B6A00EBEA05 /* TextFieldStyle.swift */; };
 		79331C6F1D3EBD1F0094D418 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79331C6E1D3EBD1F0094D418 /* AppDelegate.swift */; };
 		79331C711D3EBD1F0094D418 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79331C701D3EBD1F0094D418 /* DetailView.swift */; };
 		79331C741D3EBD1F0094D418 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79331C721D3EBD1F0094D418 /* Main.storyboard */; };
@@ -35,7 +34,6 @@
 
 /* Begin PBXFileReference section */
 		6DAE454DF498D5EA16B4DEF9 /* Pods-photoLogger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-photoLogger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-photoLogger/Pods-photoLogger.debug.xcconfig"; sourceTree = "<group>"; };
-		7916D2711D736B6A00EBEA05 /* TextFieldStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldStyle.swift; sourceTree = "<group>"; };
 		79331C6B1D3EBD1F0094D418 /* photoLogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = photoLogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79331C6E1D3EBD1F0094D418 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79331C701D3EBD1F0094D418 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -170,7 +168,6 @@
 				79F1A8CC1D6DE1EA007E88D8 /* NavigationItemView.swift */,
 				79F1A8D01D6E4539007E88D8 /* StyleImageSelector.swift */,
 				79F1A8D21D6E4626007E88D8 /* StyleDescriptionBox.swift */,
-				7916D2711D736B6A00EBEA05 /* TextFieldStyle.swift */,
 			);
 			name = styles;
 			sourceTree = "<group>";
@@ -339,7 +336,6 @@
 				793386151D5A2CCE003DF510 /* DropBoxView.swift in Sources */,
 				79F1A8CD1D6DE1EA007E88D8 /* NavigationItemView.swift in Sources */,
 				793386191D5A5FFC003DF510 /* TextFieldView.swift in Sources */,
-				7916D2721D736B6A00EBEA05 /* TextFieldStyle.swift in Sources */,
 				797680FC1D400F65002F0382 /* Post.swift in Sources */,
 				7995E7B41D5B6D1600731D10 /* LoginView.swift in Sources */,
 				79F1A8D11D6E453A007E88D8 /* StyleImageSelector.swift in Sources */,

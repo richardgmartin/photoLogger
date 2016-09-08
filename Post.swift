@@ -12,20 +12,12 @@ class Post {
     
     // declare Post vars as Private and as getters
     
-    private var _clientName: String!
     private var _taskTitle: String!
     private var _taskDescription: String!
     private var _taskDate: String!
     private var _taskAddress: String!
     private var _taskImage: String!
     private var _postKey: String!
-    
-    var clientName: String {
-        if _clientName == nil {
-            _clientName = ""
-        }
-         return _clientName
-     }
     
     var taskTitle: String {
         if _taskTitle == nil {
@@ -73,8 +65,7 @@ class Post {
         return _postKey
     }
     
-    init(name: String, title: String, desc: String, date: String, address: String, image: String) {
-        self._clientName = name
+    init(title: String, desc: String, date: String, address: String, image: String) {
         self._taskTitle = title
         self._taskDescription = desc
         self._taskDate = date
@@ -85,10 +76,6 @@ class Post {
     init(postKey: String, postData: Dictionary<String, String>) {
             
         self._postKey = postKey
-            
-        if let clientName = postData["clientName"] {
-            self._clientName = clientName
-        }
             
         if let taskTitle = postData["taskTitle"] {
             self._taskTitle = taskTitle

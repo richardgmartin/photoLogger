@@ -12,11 +12,17 @@ import Firebase
 class PostCell: UITableViewCell {
     
     @IBOutlet weak var postTitle: UILabel!
-    @IBOutlet weak var postClient: UILabel!
     @IBOutlet weak var postDate: UILabel!
     @IBOutlet weak var postAddress: UILabel!
     @IBOutlet weak var postDescription: UILabel!
     @IBOutlet weak var postImg: UIImageView!
+    
+//    var post: Post! {
+//        didSet {
+//            // takes care of self.post = post
+//            
+//        }
+//    }
     
     var post: Post!
     
@@ -27,11 +33,10 @@ class PostCell: UITableViewCell {
     
     func configureCell(post: Post, img: UIImage? = nil) {
         
-        self.post = post
+        // self.post = post
         
         postTitle.text = post.taskTitle
         postDescription.text = post.taskDescription
-        postClient.text = post.clientName
         postDate.text = post.taskDate
         postAddress.text = post.taskAddress
         

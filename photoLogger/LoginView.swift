@@ -36,12 +36,6 @@ class LoginView: UIViewController {
     }
 
     
-    override func viewDidLayoutSubviews() {
-        // HERE styles for UI items
-        
-        let _ = TextFieldStyle(emailAddressText)
-    }
-    
     // authenticate with Facebook
     
     @IBAction func facebookButtonTapped(_ sender: AnyObject) {
