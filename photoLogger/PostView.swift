@@ -12,9 +12,9 @@ import Firebase
 class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var titleTextField: TextFieldView!
-    @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var savePostButton: StyleRectangleButton!
+    @IBOutlet weak var titleTextField: TitleTextField!
+    @IBOutlet weak var descriptionTextView: DescriptionTextView!
+    @IBOutlet weak var savePostButton: SavePostButton!
     
     var imagePicker: UIImagePickerController!
     var imageSelected: Bool = false

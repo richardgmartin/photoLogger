@@ -1,14 +1,14 @@
 //
-//  StyleDescriptionBox.swift
+//  DescriptionTextView.swift
 //  photoLogger
 //
-//  Created by Richard Martin on 2016-08-24.
+//  Created by Richard Martin on 2016-09-09.
 //  Copyright © 2016 richard martin. All rights reserved.
 //
 
 import UIKit
 
-class StyleDescriptionBox: UITextView {
+class DescriptionTextView: UITextView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,7 +18,5 @@ class StyleDescriptionBox: UITextView {
         layer.cornerRadius = 2.0
         
     }
-    
-
 
 }

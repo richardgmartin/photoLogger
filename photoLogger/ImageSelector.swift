@@ -1,14 +1,14 @@
 //
-//  StyleView.swift
+//  ImageSelector.swift
 //  photoLogger
 //
-//  Created by Richard Martin on 2016-08-09.
+//  Created by Richard Martin on 2016-08-24.
 //  Copyright © 2016 richard martin. All rights reserved.
 //
 
 import UIKit
 
-class DropBoxView: UIView {
+class ImageSelector: UIImageView {
 
     override func awakeFromNib() {
         super.awakeFromNib()

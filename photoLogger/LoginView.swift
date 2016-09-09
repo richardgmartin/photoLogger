@@ -13,8 +13,8 @@ import FBSDKCoreKit
 
 class LoginView: UIViewController {
 
-    @IBOutlet weak var emailAddressText: TextFieldView!
-    @IBOutlet weak var passwordText: TextFieldView!
+    @IBOutlet weak var emailAddressText: EmailPasswordTextField!
+    @IBOutlet weak var passwordText: EmailPasswordTextField!
     
     
     override func viewDidLoad() {

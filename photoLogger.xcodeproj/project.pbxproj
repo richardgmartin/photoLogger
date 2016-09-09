@@ -17,18 +17,20 @@
 		793386111D5A1E73003DF510 /* NotoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7933860D1D5A1E73003DF510 /* NotoSans-BoldItalic.ttf */; };
 		793386121D5A1E73003DF510 /* NotoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7933860E1D5A1E73003DF510 /* NotoSans-Italic.ttf */; };
 		793386131D5A1E73003DF510 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7933860F1D5A1E73003DF510 /* NotoSans-Regular.ttf */; };
-		793386151D5A2CCE003DF510 /* DropBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793386141D5A2CCE003DF510 /* DropBoxView.swift */; };
 		793386171D5A2E62003DF510 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793386161D5A2E62003DF510 /* Constants.swift */; };
-		793386191D5A5FFC003DF510 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793386181D5A5FFC003DF510 /* TextFieldView.swift */; };
-		7933861B1D5A6822003DF510 /* StyleRectangleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7933861A1D5A6822003DF510 /* StyleRectangleButton.swift */; };
+		7933861B1D5A6822003DF510 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7933861A1D5A6822003DF510 /* LoginButton.swift */; };
 		797680FC1D400F65002F0382 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797680FB1D400F65002F0382 /* Post.swift */; };
+		7983B4011D8341F100F04B3A /* SavePostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983B4001D8341F100F04B3A /* SavePostButton.swift */; };
+		7983B4031D83448200F04B3A /* EmailPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983B4021D83448200F04B3A /* EmailPasswordTextField.swift */; };
+		7983B4051D8346B200F04B3A /* ShadowBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983B4041D8346B200F04B3A /* ShadowBoxView.swift */; };
+		7983B4071D8349C800F04B3A /* TitleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983B4061D8349C800F04B3A /* TitleTextField.swift */; };
+		7983B4091D834A5B00F04B3A /* DescriptionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983B4081D834A5B00F04B3A /* DescriptionTextView.swift */; };
 		7995E7B41D5B6D1600731D10 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7995E7B31D5B6D1600731D10 /* LoginView.swift */; };
 		79CF4A061D6B778F001F3373 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CF4A051D6B778F001F3373 /* DataService.swift */; };
 		79E413C41D46528C0072863C /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E413C31D46528C0072863C /* PostCell.swift */; };
 		79F1A8CD1D6DE1EA007E88D8 /* NavigationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F1A8CC1D6DE1EA007E88D8 /* NavigationItemView.swift */; };
 		79F1A8CF1D6DFA41007E88D8 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F1A8CE1D6DFA41007E88D8 /* PostView.swift */; };
-		79F1A8D11D6E453A007E88D8 /* StyleImageSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F1A8D01D6E4539007E88D8 /* StyleImageSelector.swift */; };
-		79F1A8D31D6E4626007E88D8 /* StyleDescriptionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F1A8D21D6E4626007E88D8 /* StyleDescriptionBox.swift */; };
+		79F1A8D11D6E453A007E88D8 /* ImageSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F1A8D01D6E4539007E88D8 /* ImageSelector.swift */; };
 		79F7ADD21D4920F8006A3B13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F7ADD11D4920F8006A3B13 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -45,19 +47,21 @@
 		7933860D1D5A1E73003DF510 /* NotoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		7933860E1D5A1E73003DF510 /* NotoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Italic.ttf"; sourceTree = "<group>"; };
 		7933860F1D5A1E73003DF510 /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
-		793386141D5A2CCE003DF510 /* DropBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropBoxView.swift; sourceTree = "<group>"; };
 		793386161D5A2E62003DF510 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		793386181D5A5FFC003DF510 /* TextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
-		7933861A1D5A6822003DF510 /* StyleRectangleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleRectangleButton.swift; sourceTree = "<group>"; };
+		7933861A1D5A6822003DF510 /* LoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		7956F9211D63AAD400A33D01 /* photoLogger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = photoLogger.entitlements; sourceTree = "<group>"; };
 		797680FB1D400F65002F0382 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = SOURCE_ROOT; };
+		7983B4001D8341F100F04B3A /* SavePostButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavePostButton.swift; sourceTree = "<group>"; };
+		7983B4021D83448200F04B3A /* EmailPasswordTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailPasswordTextField.swift; sourceTree = "<group>"; };
+		7983B4041D8346B200F04B3A /* ShadowBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowBoxView.swift; sourceTree = "<group>"; };
+		7983B4061D8349C800F04B3A /* TitleTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleTextField.swift; sourceTree = "<group>"; };
+		7983B4081D834A5B00F04B3A /* DescriptionTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionTextView.swift; sourceTree = "<group>"; };
 		7995E7B31D5B6D1600731D10 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		79CF4A051D6B778F001F3373 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		79E413C31D46528C0072863C /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		79F1A8CC1D6DE1EA007E88D8 /* NavigationItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationItemView.swift; sourceTree = "<group>"; };
 		79F1A8CE1D6DFA41007E88D8 /* PostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
-		79F1A8D01D6E4539007E88D8 /* StyleImageSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleImageSelector.swift; sourceTree = "<group>"; };
-		79F1A8D21D6E4626007E88D8 /* StyleDescriptionBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleDescriptionBox.swift; sourceTree = "<group>"; };
+		79F1A8D01D6E4539007E88D8 /* ImageSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSelector.swift; sourceTree = "<group>"; };
 		79F7ADD11D4920F8006A3B13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E4BA8673243489A63428372D /* Pods-photoLogger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-photoLogger.release.xcconfig"; path = "Pods/Target Support Files/Pods-photoLogger/Pods-photoLogger.release.xcconfig"; sourceTree = "<group>"; };
 		EBAACD68CC53CDBC65B4F6E7 /* Pods_photoLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_photoLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,15 +163,41 @@
 			name = resources;
 			sourceTree = "<group>";
 		};
+		7983B3FE1D8340BA00F04B3A /* LoginView styles */ = {
+			isa = PBXGroup;
+			children = (
+				7933861A1D5A6822003DF510 /* LoginButton.swift */,
+				7983B4021D83448200F04B3A /* EmailPasswordTextField.swift */,
+				7983B4041D8346B200F04B3A /* ShadowBoxView.swift */,
+			);
+			name = "LoginView styles";
+			sourceTree = "<group>";
+		};
+		7983B3FF1D83419F00F04B3A /* PostView styles */ = {
+			isa = PBXGroup;
+			children = (
+				7983B4001D8341F100F04B3A /* SavePostButton.swift */,
+				79F1A8D01D6E4539007E88D8 /* ImageSelector.swift */,
+				7983B4061D8349C800F04B3A /* TitleTextField.swift */,
+				7983B4081D834A5B00F04B3A /* DescriptionTextView.swift */,
+			);
+			name = "PostView styles";
+			sourceTree = "<group>";
+		};
+		7983B40A1D834C2700F04B3A /* DetailView styles */ = {
+			isa = PBXGroup;
+			children = (
+				79F1A8CC1D6DE1EA007E88D8 /* NavigationItemView.swift */,
+			);
+			name = "DetailView styles";
+			sourceTree = "<group>";
+		};
 		7995E7B21D5B686400731D10 /* styles */ = {
 			isa = PBXGroup;
 			children = (
-				7933861A1D5A6822003DF510 /* StyleRectangleButton.swift */,
-				793386181D5A5FFC003DF510 /* TextFieldView.swift */,
-				793386141D5A2CCE003DF510 /* DropBoxView.swift */,
-				79F1A8CC1D6DE1EA007E88D8 /* NavigationItemView.swift */,
-				79F1A8D01D6E4539007E88D8 /* StyleImageSelector.swift */,
-				79F1A8D21D6E4626007E88D8 /* StyleDescriptionBox.swift */,
+				7983B3FE1D8340BA00F04B3A /* LoginView styles */,
+				7983B40A1D834C2700F04B3A /* DetailView styles */,
+				7983B3FF1D83419F00F04B3A /* PostView styles */,
 			);
 			name = styles;
 			sourceTree = "<group>";
@@ -333,18 +363,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				793386151D5A2CCE003DF510 /* DropBoxView.swift in Sources */,
+				7983B4071D8349C800F04B3A /* TitleTextField.swift in Sources */,
 				79F1A8CD1D6DE1EA007E88D8 /* NavigationItemView.swift in Sources */,
-				793386191D5A5FFC003DF510 /* TextFieldView.swift in Sources */,
 				797680FC1D400F65002F0382 /* Post.swift in Sources */,
+				7983B4011D8341F100F04B3A /* SavePostButton.swift in Sources */,
 				7995E7B41D5B6D1600731D10 /* LoginView.swift in Sources */,
-				79F1A8D11D6E453A007E88D8 /* StyleImageSelector.swift in Sources */,
+				7983B4091D834A5B00F04B3A /* DescriptionTextView.swift in Sources */,
+				79F1A8D11D6E453A007E88D8 /* ImageSelector.swift in Sources */,
 				79331C711D3EBD1F0094D418 /* DetailView.swift in Sources */,
 				79331C6F1D3EBD1F0094D418 /* AppDelegate.swift in Sources */,
-				79F1A8D31D6E4626007E88D8 /* StyleDescriptionBox.swift in Sources */,
 				79E413C41D46528C0072863C /* PostCell.swift in Sources */,
+				7983B4031D83448200F04B3A /* EmailPasswordTextField.swift in Sources */,
+				7983B4051D8346B200F04B3A /* ShadowBoxView.swift in Sources */,
 				793386171D5A2E62003DF510 /* Constants.swift in Sources */,
-				7933861B1D5A6822003DF510 /* StyleRectangleButton.swift in Sources */,
+				7933861B1D5A6822003DF510 /* LoginButton.swift in Sources */,
 				79F1A8CF1D6DFA41007E88D8 /* PostView.swift in Sources */,
 				79CF4A061D6B778F001F3373 /* DataService.swift in Sources */,
 			);

@@ -1,14 +1,14 @@
 //
-//  TextFieldView.swift
+//  TitleTextField.swift
 //  photoLogger
 //
-//  Created by Richard Martin on 2016-08-09.
+//  Created by Richard Martin on 2016-09-09.
 //  Copyright © 2016 richard martin. All rights reserved.
 //
 
 import UIKit
 
-class TextFieldView: UITextField {
+class TitleTextField: UITextField {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,7 +19,7 @@ class TextFieldView: UITextField {
         
     }
     
-
+    
     // adjust inset for background text
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
@@ -30,7 +30,7 @@ class TextFieldView: UITextField {
     
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.insetBy(dx: 10, dy: 0)
-
+        
     }
 
 }

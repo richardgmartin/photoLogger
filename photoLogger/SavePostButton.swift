@@ -1,14 +1,14 @@
 //
-//  StyleRectangleButton.swift
+//  SavePostButton.swift
 //  photoLogger
 //
-//  Created by Richard Martin on 2016-08-09.
+//  Created by Richard Martin on 2016-09-09.
 //  Copyright © 2016 richard martin. All rights reserved.
 //
 
 import UIKit
 
-class StyleRectangleButton: UIButton {
+class SavePostButton: UIButton {
 
     override func awakeFromNib() {
         super.awakeFromNib()
