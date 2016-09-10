@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
+import CoreLocation
 
-class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleTextField: TitleTextField!
@@ -18,6 +19,8 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     var imagePicker: UIImagePickerController!
     var imageSelected: Bool = false
+    var locationManager = CLLocationManager()
+    var address: String?
     
     enum Reset : String {
         
@@ -32,10 +35,62 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         
+        // locationManager property values
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.title = "PhotoLogger"
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation: CLLocation = locations[0]
+        
+        CLGeocoder().reverseGeocodeLocation(userLocation) { (placemarks, error) in
+            if error != nil {
+                print(error)
+            } else {
+                if let placemark = placemarks?[0] {
+                    print("placemark: \(placemark)")
+                    
+                    var subThoroughfare = ""
+                    if placemark.subThoroughfare != nil {
+                        subThoroughfare = placemark.subThoroughfare!
+                    }
+                    
+                    var thoroughfare = ""
+                    if placemark.thoroughfare != nil {
+                        thoroughfare = placemark.thoroughfare!
+                    }
+                    
+                    var subLocality = ""
+                    if placemark.subLocality != nil {
+                        subLocality = placemark.subLocality!
+                    }
+                    
+                    var subAdministrativeArea = ""
+                    if placemark.subAdministrativeArea != nil {
+                        subAdministrativeArea = placemark.subAdministrativeArea!
+                    }
+                    
+                    var postalCode = ""
+                    if placemark.postalCode != nil {
+                        postalCode = placemark.postalCode!
+                    }
+                    
+                    self.address = subThoroughfare + " " + thoroughfare + " " + subLocality + " " + subAdministrativeArea + " " + postalCode
+                    print("address: \(self.address)")
+                    
+                    self.locationManager.stopUpdatingLocation()
+                    
+                }
+            }
+        }
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -76,6 +131,11 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
             return
         }
         
+        guard let postAddress = self.address, postAddress != "" else {
+            print("RGM: post address must be provided")
+            return
+        }
+        
         // prepare image and post to Firebase Storage
         let imageUID = NSUUID().uuidString
         let imageData = UIImageJPEGRepresentation(image, 0.2)
@@ -109,7 +169,8 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         let photoLoggerPost: Dictionary<String, String> = [
             "taskImage": imageURL,
             "taskTitle": titleTextField.text!,
-            "taskDescription": descriptionTextView.text
+            "taskDescription": descriptionTextView.text,
+            "taskAddress": self.address!
         ]
         
         let firebasePost = DataService.ds.REF_POSTS.childByAutoId()

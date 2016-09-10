@@ -19,6 +19,7 @@
 		793386131D5A1E73003DF510 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7933860F1D5A1E73003DF510 /* NotoSans-Regular.ttf */; };
 		793386171D5A2E62003DF510 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793386161D5A2E62003DF510 /* Constants.swift */; };
 		7933861B1D5A6822003DF510 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7933861A1D5A6822003DF510 /* LoginButton.swift */; };
+		7970EF0A1D84279100B91174 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7970EF091D84279100B91174 /* CoreLocation.framework */; };
 		797680FC1D400F65002F0382 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797680FB1D400F65002F0382 /* Post.swift */; };
 		7983B4011D8341F100F04B3A /* SavePostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983B4001D8341F100F04B3A /* SavePostButton.swift */; };
 		7983B4031D83448200F04B3A /* EmailPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983B4021D83448200F04B3A /* EmailPasswordTextField.swift */; };
@@ -50,6 +51,7 @@
 		793386161D5A2E62003DF510 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7933861A1D5A6822003DF510 /* LoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		7956F9211D63AAD400A33D01 /* photoLogger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = photoLogger.entitlements; sourceTree = "<group>"; };
+		7970EF091D84279100B91174 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		797680FB1D400F65002F0382 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = SOURCE_ROOT; };
 		7983B4001D8341F100F04B3A /* SavePostButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavePostButton.swift; sourceTree = "<group>"; };
 		7983B4021D83448200F04B3A /* EmailPasswordTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailPasswordTextField.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7970EF0A1D84279100B91174 /* CoreLocation.framework in Frameworks */,
 				2AADECE4E5233F517DB93590 /* Pods_photoLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +225,7 @@
 		A6F61D5AD2BAC9428CEA7279 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7970EF091D84279100B91174 /* CoreLocation.framework */,
 				EBAACD68CC53CDBC65B4F6E7 /* Pods_photoLogger.framework */,
 			);
 			name = Frameworks;

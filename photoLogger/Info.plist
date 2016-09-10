@@ -70,5 +70,9 @@
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
 	</array>
+	<key>NSLocationWhileInUseUsageDescription</key>
+	<string>PhotoLogger would like to access your location to get the address of any photos you take inside the app.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>PhotoLogger would like to access your location to get the address of any photos you take inside the app.</string>
 </dict>
 </plist>
