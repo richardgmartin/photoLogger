@@ -143,7 +143,7 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         metaData.contentType = "image/jpg"
         
         // TODO: Check if the user ID is really needed
-       // let userID = "FEb60c3X69WsSN1JZvLrP7qDRVD3"
+        // let userID = "FEb60c3X69WsSN1JZvLrP7qDRVD3"
         
         DataService.ds.REF_IMAGES.child(imageUID).put(imageData!, metadata: metaData) { (metaData, error) in
             if error != nil {
@@ -156,7 +156,10 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                 let downloadURL = metaData?.downloadURL()?.absoluteString
                 print("RGM: downloadURL is \(downloadURL)")
                 if let url = downloadURL {
+                    // post data to firebase
                     self.postDataToFirebase(imageURL: url)
+                    // return user to the DetailView view controller
+                    _ = self.navigationController?.popViewController(animated: true)
                 }
             }
         }
