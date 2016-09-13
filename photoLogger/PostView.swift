@@ -21,6 +21,7 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     var imageSelected: Bool = false
     var locationManager = CLLocationManager()
     var address: String?
+    var postDate: String?
     
     enum Reset : String {
         
@@ -35,7 +36,7 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         
-        // locationManager property values
+        // initialize and set locationManager property values
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
@@ -46,6 +47,8 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.title = "PhotoLogger"
     }
+    
+    // determine address where photo is taken
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation: CLLocation = locations[0]
@@ -90,8 +93,20 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                 }
             }
         }
-        
     }
+    
+    // determine time and date photo is taken
+    
+    func getDateAndTime() -> String {
+        
+        let date = NSDate()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM dd yyyy HH:mm"
+        let dateAndTime = dateFormatter.string(from: date as Date)
+        return dateAndTime
+    }
+    
+    // take photo or select image from library
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
@@ -111,8 +126,14 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         
     }
 
+    // save post to firebase
     
     @IBAction func savePostButtonTapped(_ sender: AnyObject) {
+        
+        // determine time save post button is pushed
+        
+        self.postDate = getDateAndTime()
+        print("RGM: self.postDate is ... \(self.postDate)")
         
         // check to make sure post entries complete
         
@@ -133,6 +154,11 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         
         guard let postAddress = self.address, postAddress != "" else {
             print("RGM: post address must be provided")
+            return
+        }
+        
+        guard let postDate = self.postDate, postDate != "" else {
+            print("RGM: post date must be provided")
             return
         }
         
@@ -173,7 +199,8 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
             "taskImage": imageURL,
             "taskTitle": titleTextField.text!,
             "taskDescription": descriptionTextView.text,
-            "taskAddress": self.address!
+            "taskAddress": self.address!,
+            "taskDate": self.postDate!
         ]
         
         let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
@@ -182,9 +209,10 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         reset()
     }
     
+    // reset fields
+    
     func reset() {
         
-        // reset fields
         titleTextField.text = Reset.TitleField.rawValue
         descriptionTextView.text = Reset.DescriptionField.rawValue
         imageView.image = UIImage(named: Reset.LogoImage.rawValue)

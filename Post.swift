@@ -40,13 +40,6 @@ class Post {
         return _taskDate
      }
     
-//    var dateString: String {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd"
-//        let dateString = dateFormatter.string(from: _taskDate as Date)
-//        return dateString
-//    }
-    
      var taskAddress: String {
         if _taskAddress == nil {
             _taskAddress = ""
