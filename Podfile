@@ -5,12 +5,12 @@ target 'photoLogger' do
     
     use_frameworks!
 
-
   # Pods for photoLogger
      pod 'Firebase'
      pod 'Firebase/Database'
      pod 'Firebase/Auth'
      pod 'Firebase/Storage'
      pod 'FBSDKLoginKit'
+     pod 'DZNEmptyDataSet'
      
 end

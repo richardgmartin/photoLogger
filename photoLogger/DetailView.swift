@@ -8,8 +8,23 @@
 
 import UIKit
 import Firebase
+import DZNEmptyDataSet
 
-
+extension DetailView: DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: "No Posts Available!")
+    }
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: "Time to add some PhotoLogger posts.")
+    }
+    
+//    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+//        return UIImage(named: "photo-logger-girl")
+//    }
+    
+    
+}
 
 class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -19,8 +34,15 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // declare global cache var
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.tableFooterView = UIView()
+        
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
         
         // set up and initiate firebase observer
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
@@ -36,11 +58,18 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 }
             }
             self.tableView.reloadData()
+            self.tableView.reloadEmptyDataSet()
             print("RGM: snap posts are: \(self.posts)")
         })
         
     }
     
+    // clear out delegate and data source assignments for DZNEmptyDataSet when class is destroyed
+    
+    deinit {
+        self.tableView.emptyDataSetSource = nil
+        self.tableView.emptyDataSetDelegate = nil
+    }
 
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
