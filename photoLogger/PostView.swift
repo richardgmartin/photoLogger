@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import CoreLocation
+import SVProgressHUD
 
 class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
 
@@ -58,7 +59,7 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                 print(error)
             } else {
                 if let placemark = placemarks?[0] {
-                    print("placemark: \(placemark)")
+                    print("PostView: placemark: \(placemark)")
                     
                     var subThoroughfare = ""
                     if placemark.subThoroughfare != nil {
@@ -86,7 +87,7 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                     }
                     
                     self.address = subThoroughfare + " " + thoroughfare + " " + subLocality + " " + subAdministrativeArea + " " + postalCode
-                    print("address: \(self.address)")
+                    print("PostView: address: \(self.address)")
                     
                     self.locationManager.stopUpdatingLocation()
                     
@@ -115,7 +116,6 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         imageSelected = true
         imageView.backgroundColor = UIColor.clear
         imagePicker.dismiss(animated: true, completion: nil)
-        
     }
     
     @IBAction func cameraButtonTapped(_ sender: AnyObject) {
@@ -123,7 +123,6 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         imagePicker.sourceType = .savedPhotosAlbum
         imagePicker.allowsEditing = true
         present(imagePicker, animated: true, completion: nil)
-        
     }
 
     // save post to firebase
@@ -131,34 +130,28 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     @IBAction func savePostButtonTapped(_ sender: AnyObject) {
         
         // determine time save post button is pushed
-        
         self.postDate = getDateAndTime()
-        print("RGM: self.postDate is ... \(self.postDate)")
+        print("PostView: RGM: self.postDate is ... \(self.postDate)")
         
         // check to make sure post entries complete
-        
         guard let postTitle = titleTextField.text, postTitle != "" else {
-            print("RGM: post title must be provided")
+            print("PostView: RGM: post title must be provided")
             return
         }
-        
         guard let postDescription = descriptionTextView.text, postDescription != "" else {
-            print("RGM: post description must be provided")
+            print("PostView: RGM: post description must be provided")
             return
         }
-        
         guard let image = imageView.image, imageSelected == true else {
-            print("RGM: image must be selected")
+            print("PostView: RGM: image must be selected")
             return
         }
-        
         guard let postAddress = self.address, postAddress != "" else {
-            print("RGM: post address must be provided")
+            print("PostView: RGM: post address must be provided")
             return
         }
-        
         guard let postDate = self.postDate, postDate != "" else {
-            print("RGM: post date must be provided")
+            print("PostView: RGM: post date must be provided")
             return
         }
         
@@ -168,24 +161,33 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         let metaData = FIRStorageMetadata()
         metaData.contentType = "image/jpg"
         
-        // TODO: Check if the user ID is really needed
-        // let userID = "FEb60c3X69WsSN1JZvLrP7qDRVD3"
+        // initiate progress indicator
+        SVProgressHUD.show(withStatus: "Saving Post.")
         
         DataService.ds.REF_IMAGES.child(imageUID).put(imageData!, metadata: metaData) { (metaData, error) in
             if error != nil {
-                print("RGM: error uploading image to firebase storage")
+                print("PostView: RGM: error uploading image to firebase storage")
             } else {
-                print("RGM: image upload to firebase storage was successful")
-                print("RGM: imageUID is \(imageUID)")
-                print("RGM: metaData is \(metaData)")
+                print("PostView: RGM: image upload to firebase storage was successful")
+                print("PostView: RGM: imageUID is \(imageUID)")
+                print("PostView: RGM: metaData is \(metaData)")
                 
                 let downloadURL = metaData?.downloadURL()?.absoluteString
-                print("RGM: downloadURL is \(downloadURL)")
+                print("PostView: RGM: downloadURL is \(downloadURL)")
                 if let url = downloadURL {
-                    // post data to firebase
                     self.postDataToFirebase(imageURL: url)
-                    // return user to the DetailView view controller
-                    _ = self.navigationController?.popViewController(animated: true)
+                    
+                    DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
+                        // post data to firebase
+                        self.postDataToFirebase(imageURL: url)
+                        
+                        DispatchQueue.main.async {
+                            SVProgressHUD.dismiss()
+                            self.reset()
+                            _ = self.navigationController?.popViewController(animated: true)
+
+                        }
+                    }
                 }
             }
         }
@@ -205,8 +207,6 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         
         let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
         firebasePost.setValue(photoLoggerPost)
-        
-        reset()
     }
     
     // reset fields

@@ -48,7 +48,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
             if let postsSnap = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for snap in postsSnap {
-                    print("RGM || SNAP: \(snap)")
+                    print("DetailView: RGM || SNAP: \(snap)")
                     if let postDict = snap.value as? Dictionary<String, AnyObject> {
                         let postKey = snap.key
                         // call custom (convenience) init in Post.swift class to create a post
@@ -58,18 +58,18 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 }
             }
             self.tableView.reloadData()
-            self.tableView.reloadEmptyDataSet()
-            print("RGM: snap posts are: \(self.posts)")
+            // self.tableView.reloadEmptyDataSet()
+            print("DetailView: RGM: snap posts are: \(self.posts)")
         })
         
     }
     
     // clear out delegate and data source assignments for DZNEmptyDataSet when class is destroyed
     
-    deinit {
-        self.tableView.emptyDataSetSource = nil
-        self.tableView.emptyDataSetDelegate = nil
-    }
+//    deinit {
+//        self.tableView.emptyDataSetSource = nil
+//        self.tableView.emptyDataSetDelegate = nil
+//    }
 
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
@@ -101,7 +101,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBAction func logoutButtonTapped(_ sender: AnyObject) {
         
         let currentUser = FIRAuth.auth()?.currentUser
-        print("RGM: user named, \(currentUser?.email), successfully logged out")
+        print("DetailView: RGM: user named, \(currentUser?.email), successfully logged out")
         do {
             try! FIRAuth.auth()!.signOut()
         }

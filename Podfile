@@ -12,5 +12,6 @@ target 'photoLogger' do
      pod 'Firebase/Storage'
      pod 'FBSDKLoginKit'
      pod 'DZNEmptyDataSet'
+     pod 'SVProgressHUD'
      
 end
