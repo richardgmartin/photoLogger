@@ -29,7 +29,7 @@ class LoginView: UIViewController {
         FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
             if let user = user {
                 // user already signed in
-                print("RGM: the user, \(user), is already signed in.")
+                print("LoginView: RGM: the user, \(user), is already signed in.")
                 self.performSegue(withIdentifier: "goToPostFeed", sender: nil)
             }
         })
@@ -42,24 +42,24 @@ class LoginView: UIViewController {
         
         let facebookLogin = FBSDKLoginManager()
         
-        print("RGM: at inititalization the facebookLogin is - \(facebookLogin)")
+        print("LoginView: RGM: at inititalization the facebookLogin is - \(facebookLogin)")
         
         
         facebookLogin.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
             
-            print("RGM: result is - \(result?.isCancelled)")
-            print("RGM: error is - \(error)")
-            print("RGM: inside the completion handler facebookLogin is - \(facebookLogin)")
+            print("LoginView: RGM: result is - \(result?.isCancelled)")
+            print("LoginView: RGM: error is - \(error)")
+            print("LoginView: RGM: inside the completion handler facebookLogin is - \(facebookLogin)")
             
             if error != nil {
                 // facebook authentication failed
-                print("RGM: unable to authenticate with Facebook - \(error)")
+                print("LoginView: RGM: unable to authenticate with Facebook - \(error)")
             } else if result?.isCancelled == true {
                 // user declines access via facebook permissions
-                print("RGM: user declined permission to access via Facebook")
+                print("LoginView: RGM: user declined permission to access via Facebook")
             } else {
                 // facebook successful authentication
-                print("RGM: user successfully authenticated via Facebook")
+                print("LoginView: RGM: user successfully authenticated via Facebook")
                 // get credential
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 self.firebaseAuth(credential)
@@ -74,10 +74,10 @@ class LoginView: UIViewController {
         FIRAuth.auth()?.signIn(with: _credential, completion: { (user, error) in
             if error != nil {
                 // firebase authentication failed
-                print("RGM: unable to authenticate with Firebase - \(error)")
+                print("LoginView: RGM: unable to authenticate with Firebase - \(error)")
             } else {
                 // firebase authentication successful
-                print("RGM: successfully authenticated with Firebase")
+                print("LoginView: RGM: successfully authenticated with Firebase")
             }
         })
     }
@@ -89,16 +89,16 @@ class LoginView: UIViewController {
             FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
                 if error == nil {
                     // firebase authentication successful
-                    print("RGM: Email user successfully authenticated with Firebase")
+                    print("LoginView: RGM: Email user successfully authenticated with Firebase")
                 } else {
                     // user does not exist in firebase :: create new user
                     FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
                         if error != nil {
                             // problem creating user
-                            print("RGM: problem creating new user from email and password")
+                            print("LoginView: RGM: problem creating new user from email and password")
                         } else {
                             // new user successfully created in firebase
-                            print("RGM: new user from email and password successfully created")
+                            print("LoginView: RGM: new user from email and password successfully created")
                             
                             // post user on firebase database using func inside DataService
                             if let user = user {
@@ -111,7 +111,7 @@ class LoginView: UIViewController {
             })
         } else {
             // send alert to user (when we go to production
-            print("RGM: email address and/or password fields empty")
+            print("LoginView: RGM: email address and/or password fields empty")
         }
     }
     

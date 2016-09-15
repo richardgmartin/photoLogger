@@ -25,7 +25,6 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     var postDate: String?
     
     enum Reset : String {
-        
         case LogoImage = "photo-logger-logo"
         case TitleField = ""
         case DescriptionField = " "
@@ -50,7 +49,6 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     }
     
     // determine address where photo is taken
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation: CLLocation = locations[0]
         
@@ -59,47 +57,40 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                 print(error)
             } else {
                 if let placemark = placemarks?[0] {
-                    print("PostView: placemark: \(placemark)")
+                    print("PostView: RGM: placemark: \(placemark)")
                     
                     var subThoroughfare = ""
                     if placemark.subThoroughfare != nil {
                         subThoroughfare = placemark.subThoroughfare!
                     }
-                    
                     var thoroughfare = ""
                     if placemark.thoroughfare != nil {
                         thoroughfare = placemark.thoroughfare!
                     }
-                    
                     var subLocality = ""
                     if placemark.subLocality != nil {
                         subLocality = placemark.subLocality!
                     }
-                    
                     var subAdministrativeArea = ""
                     if placemark.subAdministrativeArea != nil {
                         subAdministrativeArea = placemark.subAdministrativeArea!
                     }
-                    
                     var postalCode = ""
                     if placemark.postalCode != nil {
                         postalCode = placemark.postalCode!
                     }
                     
                     self.address = subThoroughfare + " " + thoroughfare + " " + subLocality + " " + subAdministrativeArea + " " + postalCode
-                    print("PostView: address: \(self.address)")
+                    print("PostView: RGM: address: \(self.address)")
                     
                     self.locationManager.stopUpdatingLocation()
-                    
                 }
             }
         }
     }
     
     // determine time and date photo is taken
-    
     func getDateAndTime() -> String {
-        
         let date = NSDate()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM dd yyyy HH:mm"
@@ -108,9 +99,7 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     }
     
     // take photo or select image from library
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         imageView.image = image
         imageSelected = true
@@ -119,14 +108,12 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     }
     
     @IBAction func cameraButtonTapped(_ sender: AnyObject) {
-        
         imagePicker.sourceType = .savedPhotosAlbum
         imagePicker.allowsEditing = true
         present(imagePicker, animated: true, completion: nil)
     }
 
     // save post to firebase
-    
     @IBAction func savePostButtonTapped(_ sender: AnyObject) {
         
         // determine time save post button is pushed
@@ -175,7 +162,7 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                 let downloadURL = metaData?.downloadURL()?.absoluteString
                 print("PostView: RGM: downloadURL is \(downloadURL)")
                 if let url = downloadURL {
-                    self.postDataToFirebase(imageURL: url)
+                    // self.postDataToFirebase(imageURL: url)
                     
                     DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
                         // post data to firebase
@@ -183,7 +170,7 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                         
                         DispatchQueue.main.async {
                             SVProgressHUD.dismiss()
-                            self.reset()
+                            // self.reset()
                             _ = self.navigationController?.popViewController(animated: true)
 
                         }
@@ -194,9 +181,7 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     }
     
     // upload post data (with image url) to Firebase database
-    
     func postDataToFirebase(imageURL: String) {
-        
         let photoLoggerPost: Dictionary<String, String> = [
             "taskImage": imageURL,
             "taskTitle": titleTextField.text!,
@@ -205,14 +190,12 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
             "taskDate": self.postDate!
         ]
         
-        let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
+        let firebasePost = DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).childByAutoId()
         firebasePost.setValue(photoLoggerPost)
     }
     
     // reset fields
-    
     func reset() {
-        
         titleTextField.text = Reset.TitleField.rawValue
         descriptionTextView.text = Reset.DescriptionField.rawValue
         imageView.image = UIImage(named: Reset.LogoImage.rawValue)

@@ -34,35 +34,42 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // declare global cache var
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // self.perform(#selector(drawEmptyLabels), with: nil, afterDelay: 2)
         self.tableView.tableFooterView = UIView()
-        
-        self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
+        self.tableView.emptyDataSetSource = self
+        
+        
+//        DataService.ds.REF_POSTS.observeSingleEvent(of: .value, with: { (snapshot) in
+//            if snapshot.childrenCount == 0 {
+//                self.tableView.emptyDataSetSource = self
+//                self.tableView.emptyDataSetDelegate = self
+//
+//            }
+//            }, withCancel: nil)
         
         // set up and initiate firebase observer
-        DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
-            if let postsSnap = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                for snap in postsSnap {
-                    print("DetailView: RGM || SNAP: \(snap)")
-                    if let postDict = snap.value as? Dictionary<String, AnyObject> {
-                        let postKey = snap.key
-                        // call custom (convenience) init in Post.swift class to create a post
-                        let post = Post(postKey: postKey, postData: postDict as! Dictionary<String, String>)
-                        self.posts.append(post)
-                    }
-                }
+        DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childAdded, with: { (snapshot) in
+            if let postDict = snapshot.value as? Dictionary<String, AnyObject> {
+                let postKey = snapshot.key
+                // call custom (convenience) init in Post.swift class to create a post
+                let post = Post(postKey: postKey, postData: postDict as! Dictionary<String, String>)
+                self.posts.append(post)
             }
+            
             self.tableView.reloadData()
-            // self.tableView.reloadEmptyDataSet()
+            self.tableView.reloadEmptyDataSet()
             print("DetailView: RGM: snap posts are: \(self.posts)")
         })
         
     }
+    
+//    func drawEmptyLabels() {
+//        self.tableView.emptyDataSetSource = self
+//        self.tableView.emptyDataSetDelegate = self
+//    }
     
     // clear out delegate and data source assignments for DZNEmptyDataSet when class is destroyed
     
@@ -85,18 +92,18 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // check if we can source image from image cache
         if let img = DetailView.imageCache.object(forKey: post.taskImage as NSString) {
             cell.configureCell(post: post, img: img)
-            return cell
+            // return cell
         } else {
             // image is not there :: return post data without image
             cell.configureCell(post: post, img: nil)
-            return cell
+            // return cell
         }
+        return cell
     }
     
     internal func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
     
     @IBAction func logoutButtonTapped(_ sender: AnyObject) {
         
@@ -108,15 +115,11 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: "goToSignIn", sender: nil)
     }
     
-    
-    
     @IBAction func addPostButtonTapped(_ sender: AnyObject) {
         
         navigationItem.title = nil
 
         performSegue(withIdentifier: "addPostSegue", sender: nil)
     }
-    
-
 }
 

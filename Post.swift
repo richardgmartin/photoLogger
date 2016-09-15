@@ -25,38 +25,33 @@ class Post {
         }
         return _taskTitle
     }
-    
     var taskDescription: String {
         if _taskDescription == nil {
             _taskDescription = ""
         }
         return _taskDescription
     }
-    
     var taskDate: String {
         if _taskDate == nil {
             _taskDate = ""
         }
         return _taskDate
      }
-    
      var taskAddress: String {
         if _taskAddress == nil {
             _taskAddress = ""
         }
          return _taskAddress
      }
-    
      var taskImage: String {
         if _taskImage == nil {
             _taskImage = ""
         }
          return _taskImage
      }
-    
-    var postKey: String {
+     var postKey: String {
         return _postKey
-    }
+     }
     
     init(title: String, desc: String, date: String, address: String, image: String) {
         self._taskTitle = title
