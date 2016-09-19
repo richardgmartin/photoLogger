@@ -65,6 +65,9 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
 
     var posts = [Post]()
+    var fbposts = [FIRDataSnapshot]()
+    
+    
     // declare global cache var
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
     
@@ -83,6 +86,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 // call custom (convenience) init in Post.swift class to create a post
                 let post = Post(postKey: postKey, postData: postDict as! Dictionary<String, String>)
                 self.posts.append(post)
+                self.fbposts.append(snapshot)
             }
             
             self.tableView.reloadData()
@@ -92,13 +96,22 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    
-    
     // clear out delegate and data source assignments for DZNEmptyDataSet when class is destroyed
     
     deinit {
         self.tableView.emptyDataSetSource = nil
         self.tableView.emptyDataSetDelegate = nil
+    }
+    
+    // edit individual posts
+    
+    internal func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            posts.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            let firebasePost = fbposts[indexPath.row]
+            firebasePost.ref.removeValue()
+        }
     }
 
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
