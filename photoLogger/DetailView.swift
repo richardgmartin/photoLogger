@@ -12,16 +12,50 @@ import DZNEmptyDataSet
 
 extension DetailView: DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     
+    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+        
+        var emptyView = true
+        
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
+            DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
+                print("DetailView: RGM: snapshot.childrenCount is: \(snapshot.childrenCount)")
+                if snapshot.childrenCount == 0 {
+                    emptyView = true
+                    print("DetailView: RGM: emptyView (when true) is: \(emptyView)")
+                    // return emptyView
+                } else {
+                    emptyView = false
+                    print("DetailView: RGM: emptyView (when false) is: \(emptyView)")
+                    // return emptyView
+                }
+                
+                }, withCancel: nil)
+            
+            DispatchQueue.main.async {
+                print("DetailView: RGM: emptyView is: \(emptyView)")
+            }
+        }
+        
+        print("DetailView: RGM: emptyView is: \(emptyView)")
+        return emptyView
+        
+    }
+    
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString(string: "No Posts Available!")
+        return NSAttributedString(string: "No Posts Available.")
     }
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         return NSAttributedString(string: "Time to add some PhotoLogger posts.")
     }
     
-//    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-//        return UIImage(named: "photo-logger-girl")
-//    }
+    /*
+     unable to get working ... 
+     
+     
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(named: "photo-logger-girl")
+    }
+ */
     
     
 }
@@ -37,18 +71,10 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         // self.perform(#selector(drawEmptyLabels), with: nil, afterDelay: 2)
+        
         self.tableView.tableFooterView = UIView()
         self.tableView.emptyDataSetDelegate = self
         self.tableView.emptyDataSetSource = self
-        
-        
-//        DataService.ds.REF_POSTS.observeSingleEvent(of: .value, with: { (snapshot) in
-//            if snapshot.childrenCount == 0 {
-//                self.tableView.emptyDataSetSource = self
-//                self.tableView.emptyDataSetDelegate = self
-//
-//            }
-//            }, withCancel: nil)
         
         // set up and initiate firebase observer
         DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childAdded, with: { (snapshot) in
@@ -60,23 +86,20 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
             
             self.tableView.reloadData()
-            self.tableView.reloadEmptyDataSet()
+            // self.tableView.reloadEmptyDataSet()
             print("DetailView: RGM: snap posts are: \(self.posts)")
         })
         
     }
     
-//    func drawEmptyLabels() {
-//        self.tableView.emptyDataSetSource = self
-//        self.tableView.emptyDataSetDelegate = self
-//    }
+    
     
     // clear out delegate and data source assignments for DZNEmptyDataSet when class is destroyed
     
-//    deinit {
-//        self.tableView.emptyDataSetSource = nil
-//        self.tableView.emptyDataSetDelegate = nil
-//    }
+    deinit {
+        self.tableView.emptyDataSetSource = nil
+        self.tableView.emptyDataSetDelegate = nil
+    }
 
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
