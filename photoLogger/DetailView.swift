@@ -67,7 +67,6 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var posts = [Post]()
     var fbposts = [FIRDataSnapshot]()
     
-    
     // declare global cache var
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
     
@@ -85,7 +84,9 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let postKey = snapshot.key
                 // call custom (convenience) init in Post.swift class to create a post
                 let post = Post(postKey: postKey, postData: postDict as! Dictionary<String, String>)
+                // append post to posts array (of Post type)
                 self.posts.append(post)
+                // append snapshot to fbposts array (of type FIRDataSnapshot)
                 self.fbposts.append(snapshot)
             }
             
@@ -103,14 +104,26 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.tableView.emptyDataSetDelegate = nil
     }
     
-    // edit individual posts
+    // delete individual posts from table view and firebase database and images from firebase storage
     
     internal func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            let postImageURL = posts[indexPath.row].taskImage
+            
             posts.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             let firebasePost = fbposts[indexPath.row]
             firebasePost.ref.removeValue()
+            
+            let storage = FIRStorage.storage()
+            let storageRef = storage.reference(forURL: postImageURL)
+            storageRef.delete(completion: { (error ) in
+                if (error != nil) {
+                    print("DetailView -> RGM: error deleting image \(error)")
+                } else {
+                    print("DetailView -> RGM: image deleted")
+                }
+            })
         }
     }
 

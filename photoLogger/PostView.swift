@@ -24,12 +24,6 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     var address: String?
     var postDate: String?
     
-    enum Reset : String {
-        case LogoImage = "photo-logger-logo"
-        case TitleField = ""
-        case DescriptionField = " "
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -170,7 +164,6 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                         
                         DispatchQueue.main.async {
                             SVProgressHUD.dismiss()
-                            // self.reset()
                             _ = self.navigationController?.popViewController(animated: true)
 
                         }
@@ -192,13 +185,6 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         
         let firebasePost = DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).childByAutoId()
         firebasePost.setValue(photoLoggerPost)
-    }
-    
-    // reset fields
-    func reset() {
-        titleTextField.text = Reset.TitleField.rawValue
-        descriptionTextView.text = Reset.DescriptionField.rawValue
-        imageView.image = UIImage(named: Reset.LogoImage.rawValue)
     }
 }
 

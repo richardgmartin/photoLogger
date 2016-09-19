@@ -50,6 +50,4 @@ class DataService {
         return _REF_IMAGES
     }
     
-    
-    
 }
