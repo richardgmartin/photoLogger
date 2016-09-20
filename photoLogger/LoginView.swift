@@ -24,6 +24,7 @@ class LoginView: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         // check to see if user already signed in
         
         FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
@@ -33,6 +34,7 @@ class LoginView: UIViewController {
                 self.performSegue(withIdentifier: "goToPostFeed", sender: nil)
             }
         })
+    
     }
 
     

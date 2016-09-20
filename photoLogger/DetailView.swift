@@ -117,6 +117,8 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             let storage = FIRStorage.storage()
             let storageRef = storage.reference(forURL: postImageURL)
+            
+            // let storageRef = DataService.ds.REF_IMAGES.child(postImageURL)
             storageRef.delete(completion: { (error ) in
                 if (error != nil) {
                     print("DetailView -> RGM: error deleting image \(error)")

@@ -22,7 +22,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        // check to see if user already signed in
+        
+//        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
+//            if let user = user {
+//                // user already signed in
+//                print("AppDelegate: RGM: the user, \(user), is already signed in.")
+//                
+//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                let viewController: DetailView = storyboard.instantiateViewController(withIdentifier: "ViewController") as! DetailView
+//                
+//                let rootViewController = self.window?.rootViewController as! UINavigationController
+//                rootViewController.pushViewController(viewController, animated: true)
+//                // self.performSegue(withIdentifier: "goToPostFeed", sender: nil)
+//            }
+//        })
+//        
+//        
+        
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        return true
     }
     
 
