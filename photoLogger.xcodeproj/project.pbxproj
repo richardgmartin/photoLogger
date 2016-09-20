@@ -19,6 +19,7 @@
 		793386131D5A1E73003DF510 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7933860F1D5A1E73003DF510 /* NotoSans-Regular.ttf */; };
 		793386171D5A2E62003DF510 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793386161D5A2E62003DF510 /* Constants.swift */; };
 		7933861B1D5A6822003DF510 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7933861A1D5A6822003DF510 /* LoginButton.swift */; };
+		793E1D5B1D91A83300496E13 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793E1D5A1D91A83300496E13 /* EditView.swift */; };
 		7970EF0A1D84279100B91174 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7970EF091D84279100B91174 /* CoreLocation.framework */; };
 		797680FC1D400F65002F0382 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797680FB1D400F65002F0382 /* Post.swift */; };
 		7983B4011D8341F100F04B3A /* SavePostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983B4001D8341F100F04B3A /* SavePostButton.swift */; };
@@ -50,6 +51,7 @@
 		7933860F1D5A1E73003DF510 /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		793386161D5A2E62003DF510 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7933861A1D5A6822003DF510 /* LoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
+		793E1D5A1D91A83300496E13 /* EditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		7956F9211D63AAD400A33D01 /* photoLogger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = photoLogger.entitlements; sourceTree = "<group>"; };
 		7970EF091D84279100B91174 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		797680FB1D400F65002F0382 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = SOURCE_ROOT; };
@@ -133,6 +135,7 @@
 				7995E7B31D5B6D1600731D10 /* LoginView.swift */,
 				79331C701D3EBD1F0094D418 /* DetailView.swift */,
 				79F1A8CE1D6DFA41007E88D8 /* PostView.swift */,
+				793E1D5A1D91A83300496E13 /* EditView.swift */,
 				7995E7B21D5B686400731D10 /* styles */,
 				79EAD5FC1D46A2F60020BBA4 /* cells */,
 			);
@@ -368,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7983B4071D8349C800F04B3A /* TitleTextField.swift in Sources */,
+				793E1D5B1D91A83300496E13 /* EditView.swift in Sources */,
 				79F1A8CD1D6DE1EA007E88D8 /* NavigationItemView.swift in Sources */,
 				797680FC1D400F65002F0382 /* Post.swift in Sources */,
 				7983B4011D8341F100F04B3A /* SavePostButton.swift in Sources */,

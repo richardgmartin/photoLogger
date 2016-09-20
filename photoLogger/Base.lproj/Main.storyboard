@@ -248,6 +248,7 @@
                                             <outlet property="postDescription" destination="Wj8-NT-6IZ" id="Lgp-j3-00W"/>
                                             <outlet property="postImg" destination="h1b-wg-mCl" id="eOp-TW-oSG"/>
                                             <outlet property="postTitle" destination="bMP-vG-JZE" id="13B-Xn-46n"/>
+                                            <segue destination="yfc-Qn-5y8" kind="show" id="ryC-LM-x8j"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -274,18 +275,47 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="KNN-Dl-9of">
                             <connections>
                                 <action selector="addPostButtonTapped:" destination="BYZ-38-t0r" id="FK6-HV-hgQ"/>
+                                <segue destination="Dah-m4-UGt" kind="show" identifier="addPostSegue" id="XEX-0k-80k"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="rQf-YT-2zv" id="s1x-2e-TC6"/>
                         <segue destination="KDP-zt-1Nx" kind="presentation" identifier="goToSignIn" id="qVj-Wy-3uY"/>
-                        <segue destination="Dah-m4-UGt" kind="show" identifier="addPostSegue" id="nTz-zd-Ixj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1405.5999999999999" y="44.527736131934034"/>
+        </scene>
+        <!--Edit View-->
+        <scene sceneID="CQX-dQ-rdc">
+            <objects>
+                <viewController id="yfc-Qn-5y8" customClass="EditView" customModule="photoLogger" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="K6N-r9-gGL"/>
+                        <viewControllerLayoutGuide type="bottom" id="RvR-I0-stc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qGf-Gx-E13">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Shz-Od-Y1C">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Shz-Od-Y1C" firstAttribute="top" secondItem="K6N-r9-gGL" secondAttribute="bottom" constant="35" id="RMn-5r-lUi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Shz-Od-Y1C" secondAttribute="trailing" constant="136" id="crF-Xr-k1H"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F3u-HL-Ag0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2526" y="233"/>
         </scene>
         <!--Post View-->
         <scene sceneID="oHT-EQ-Cr5">
@@ -372,7 +402,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fcd-xI-Z7E" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5yi-DX-5Jk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5yi-DX-5Jk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -66,6 +66,8 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var posts = [Post]()
     var fbposts = [FIRDataSnapshot]()
+    var postToEdit = FIRDataSnapshot()
+    var fbPost = FIRDataSnapshot()
     
     // declare global cache var
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
@@ -172,5 +174,19 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         performSegue(withIdentifier: "addPostSegue", sender: nil)
     }
-}
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.postToEdit = fbposts[indexPath.row]
+        print("row selected \(self.postToEdit)")
+        performSegue(withIdentifier: "editCellSegue", sender: nil)
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "editCellSegue" {
+//            let dvc = segue.destination as! EditView
+//            let postIndex = tableView.indexPathForSelectedRow?.row
+//            dvc.
+//        }
+//    }
+   }
 
