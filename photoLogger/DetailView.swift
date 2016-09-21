@@ -161,9 +161,11 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBAction func logoutButtonTapped(_ sender: AnyObject) {
         
         let currentUser = FIRAuth.auth()?.currentUser
-        print("DetailView: RGM: user named, \(currentUser?.email), successfully logged out")
+        
         do {
             try! FIRAuth.auth()!.signOut()
+            print("DetailView: RGM: user named, \(currentUser?.email), successfully logged out")
+            
         }
         performSegue(withIdentifier: "goToSignIn", sender: nil)
     }
@@ -176,17 +178,21 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView .deselectRow(at: indexPath, animated: false)
+        
         self.postToEdit = fbposts[indexPath.row]
         print("row selected \(self.postToEdit)")
-        performSegue(withIdentifier: "editCellSegue", sender: nil)
+        performSegue(withIdentifier: "editPostSegue", sender: nil)
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "editCellSegue" {
-//            let dvc = segue.destination as! EditView
-//            let postIndex = tableView.indexPathForSelectedRow?.row
-//            dvc.
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editPostSegue", let dvc = segue.destination as? EditView, let postIndex = tableView.indexPathForSelectedRow?.row  {
+            // let dvc = segue.destination as? EditView
+            // let postIndex = tableView.indexPathForSelectedRow?.row
+            dvc.postTitle = posts[postIndex].taskTitle
+            dvc.firebasePostRef = posts[postIndex].postKey
+            dvc.firebasePost = fbposts[postIndex]
+        }
+    }
    }
-

@@ -156,7 +156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VnJ-Js-ihf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-330" y="38"/>
+            <point key="canvasLocation" x="-164" y="45"/>
         </scene>
         <!--Detail View-->
         <scene sceneID="tne-QT-ifu">
@@ -248,7 +248,6 @@
                                             <outlet property="postDescription" destination="Wj8-NT-6IZ" id="Lgp-j3-00W"/>
                                             <outlet property="postImg" destination="h1b-wg-mCl" id="eOp-TW-oSG"/>
                                             <outlet property="postTitle" destination="bMP-vG-JZE" id="13B-Xn-46n"/>
-                                            <segue destination="yfc-Qn-5y8" kind="show" id="ryC-LM-x8j"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -275,13 +274,14 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="KNN-Dl-9of">
                             <connections>
                                 <action selector="addPostButtonTapped:" destination="BYZ-38-t0r" id="FK6-HV-hgQ"/>
-                                <segue destination="Dah-m4-UGt" kind="show" identifier="addPostSegue" id="XEX-0k-80k"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="rQf-YT-2zv" id="s1x-2e-TC6"/>
-                        <segue destination="KDP-zt-1Nx" kind="presentation" identifier="goToSignIn" id="qVj-Wy-3uY"/>
+                        <segue destination="KDP-zt-1Nx" kind="presentation" identifier="goToSignIn" id="Gkb-wG-dbA"/>
+                        <segue destination="Dah-m4-UGt" kind="show" identifier="addPostSegue" id="ycd-oo-HxM"/>
+                        <segue destination="yfc-Qn-5y8" kind="show" identifier="editPostSegue" id="3nl-UM-QwB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -305,6 +305,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="post title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8B-0N-QdT">
+                                <frame key="frameInset" minX="53" minY="156" width="278" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -312,10 +319,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Shz-Od-Y1C" secondAttribute="trailing" constant="136" id="crF-Xr-k1H"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="I8B-0N-QdT" id="0f8-Ff-u6g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F3u-HL-Ag0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2526" y="233"/>
+            <point key="canvasLocation" x="2324" y="394"/>
         </scene>
         <!--Post View-->
         <scene sceneID="oHT-EQ-Cr5">
@@ -329,7 +339,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QcT-FC-eBV" customClass="ImageSelector" customModule="photoLogger" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-logger-logo-white" translatesAutoresizingMaskIntoConstraints="NO" id="QcT-FC-eBV" customClass="ImageSelector" customModule="photoLogger" customModuleProvider="target">
                                 <color key="backgroundColor" red="0.47058823529411764" green="0.56470588235294117" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="TLL-GR-4Hu"/>
@@ -395,7 +405,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ViD-bu-mHL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2530" y="-431"/>
+            <point key="canvasLocation" x="2324" y="-260"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zEp-2U-lTE">
@@ -413,7 +423,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3lo-hX-jNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="638" y="-576"/>
+            <point key="canvasLocation" x="633" y="45"/>
         </scene>
     </scenes>
     <resources>

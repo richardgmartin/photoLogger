@@ -11,15 +11,29 @@ import Firebase
 
 class EditView: UIViewController {
     
-    var fbPost = FIRDataSnapshot()
+    var postTitle = String()
+    var firebasePostRef = String()
+    var firebasePost = FIRDataSnapshot()
 
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        titleLabel.text = postTitle
+    }
     
+    func pullPostFromFirebase(postRef: String) {
+        
+        let postKey = firebasePost.key
+        
+        
+    }
     
 
 }

@@ -106,6 +106,10 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         imagePicker.allowsEditing = true
         present(imagePicker, animated: true, completion: nil)
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
     // save post to firebase
     @IBAction func savePostButtonTapped(_ sender: AnyObject) {
