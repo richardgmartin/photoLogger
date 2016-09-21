@@ -20,6 +20,8 @@ class EditView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        pullPostFromFirebase()
 
         // Do any additional setup after loading the view.
     }
@@ -28,11 +30,15 @@ class EditView: UIViewController {
         titleLabel.text = postTitle
     }
     
-    func pullPostFromFirebase(postRef: String) {
+    func pullPostFromFirebase() {
         
         let postKey = firebasePost.key
+        print("postKey is: \(postKey)")
         
-        
+       
+        let test = DataService.ds.REF_POSTS.child(postKey)
+        let test2 = DataService.ds
+
     }
     
 

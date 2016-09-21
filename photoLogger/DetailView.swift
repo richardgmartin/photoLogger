@@ -80,6 +80,8 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.tableView.emptyDataSetDelegate = self
         self.tableView.emptyDataSetSource = self
         
+        self.tableView.delegate = self
+        
         // set up and initiate firebase observer
         DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childAdded, with: { (snapshot) in
             if let postDict = snapshot.value as? Dictionary<String, AnyObject> {
@@ -179,7 +181,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView .deselectRow(at: indexPath, animated: false)
+       //  tableView .deselectRow(at: indexPath, animated: false)
         
         self.postToEdit = fbposts[indexPath.row]
         print("row selected \(self.postToEdit)")
