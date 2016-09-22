@@ -82,6 +82,8 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         self.tableView.delegate = self
         
+        self.title = "PhotoLogger"
+        
         // set up and initiate firebase observer
         DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childAdded, with: { (snapshot) in
             if let postDict = snapshot.value as? Dictionary<String, AnyObject> {
@@ -99,6 +101,11 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             print("DetailView: RGM: snap posts are: \(self.posts)")
         })
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.title = "PhotoLogger"
+
     }
     
     // clear out delegate and data source assignments for DZNEmptyDataSet when class is destroyed
@@ -147,11 +154,9 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // check if we can source image from image cache
         if let img = DetailView.imageCache.object(forKey: post.taskImage as NSString) {
             cell.configureCell(post: post, img: img)
-            // return cell
         } else {
             // image is not there :: return post data without image
             cell.configureCell(post: post, img: nil)
-            // return cell
         }
         return cell
     }
@@ -190,9 +195,16 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editPostSegue", let dvc = segue.destination as? EditView, let postIndex = tableView.indexPathForSelectedRow?.row  {
-            // let dvc = segue.destination as? EditView
-            // let postIndex = tableView.indexPathForSelectedRow?.row
+            
+            // back bar text
+            let backBar = UIBarButtonItem()
+            backBar.title = "Back"
+            navigationItem.backBarButtonItem = backBar
+            
+            // assign dvc attributes to carry across to EditView controller on segue
             dvc.postTitle = posts[postIndex].taskTitle
+            dvc.postDescription = posts[postIndex].taskDescription
+            dvc.postImage = DetailView.imageCache.object(forKey: posts[postIndex].taskImage as NSString)!
             dvc.firebasePostRef = posts[postIndex].postKey
             dvc.firebasePost = fbposts[postIndex]
         }

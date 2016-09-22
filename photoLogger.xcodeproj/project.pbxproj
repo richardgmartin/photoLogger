@@ -179,7 +179,7 @@
 			name = "LoginView styles";
 			sourceTree = "<group>";
 		};
-		7983B3FF1D83419F00F04B3A /* PostView styles */ = {
+		7983B3FF1D83419F00F04B3A /* PostView & EditView styles */ = {
 			isa = PBXGroup;
 			children = (
 				7983B4001D8341F100F04B3A /* SavePostButton.swift */,
@@ -187,7 +187,7 @@
 				7983B4061D8349C800F04B3A /* TitleTextField.swift */,
 				7983B4081D834A5B00F04B3A /* DescriptionTextView.swift */,
 			);
-			name = "PostView styles";
+			name = "PostView & EditView styles";
 			sourceTree = "<group>";
 		};
 		7983B40A1D834C2700F04B3A /* DetailView styles */ = {
@@ -203,7 +203,7 @@
 			children = (
 				7983B3FE1D8340BA00F04B3A /* LoginView styles */,
 				7983B40A1D834C2700F04B3A /* DetailView styles */,
-				7983B3FF1D83419F00F04B3A /* PostView styles */,
+				7983B3FF1D83419F00F04B3A /* PostView & EditView styles */,
 			);
 			name = styles;
 			sourceTree = "<group>";

@@ -12,14 +12,24 @@ import Firebase
 class EditView: UIViewController {
     
     var postTitle = String()
+    var postDescription = String()
+    var postImage = UIImage()
     var firebasePostRef = String()
     var firebasePost = FIRDataSnapshot()
-
-    @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var taskImage: ImageSelector!
+    @IBOutlet weak var taskTitle: TitleTextField!
+    @IBOutlet weak var taskDescription: DescriptionTextView!
+    @IBOutlet weak var savePostButton: SavePostButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "PhotoLogger"
+        
+        self.taskTitle.text = postTitle
+        self.taskDescription.text = postDescription
+        self.taskImage.image = postImage
         
         pullPostFromFirebase()
 
@@ -27,7 +37,7 @@ class EditView: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        titleLabel.text = postTitle
+        
     }
     
     func pullPostFromFirebase() {
@@ -36,10 +46,14 @@ class EditView: UIViewController {
         print("postKey is: \(postKey)")
         
        
-        let test = DataService.ds.REF_POSTS.child(postKey)
-        let test2 = DataService.ds
+//        let test1 = DataService.ds.REF_POSTS.child(postKey)
+//        let test2 = DataService.ds
 
     }
     
+    @IBAction func savePostButtonTapped(_ sender: AnyObject) {
+        
+        
+    }
 
 }
