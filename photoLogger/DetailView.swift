@@ -12,34 +12,34 @@ import DZNEmptyDataSet
 
 extension DetailView: DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     
-    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
-        
-        var emptyView = true
-        
-        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
-            DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
-                print("DetailView: RGM: snapshot.childrenCount is: \(snapshot.childrenCount)")
-                if snapshot.childrenCount == 0 {
-                    emptyView = true
-                    print("DetailView: RGM: emptyView (when true) is: \(emptyView)")
-                    // return emptyView
-                } else {
-                    emptyView = false
-                    print("DetailView: RGM: emptyView (when false) is: \(emptyView)")
-                    // return emptyView
-                }
-                
-                }, withCancel: nil)
-            
-            DispatchQueue.main.async {
-                print("DetailView: RGM: emptyView is: \(emptyView)")
-            }
-        }
-        
-        print("DetailView: RGM: emptyView is: \(emptyView)")
-        return emptyView
-        
-    }
+//    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+//        
+//        var emptyView = true
+//        
+//        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
+//            DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
+//                print("DetailView: RGM: snapshot.childrenCount is: \(snapshot.childrenCount)")
+//                if snapshot.childrenCount == 0 {
+//                    emptyView = true
+//                    print("DetailView: RGM: emptyView (when true) is: \(emptyView)")
+//                    // return emptyView
+//                } else {
+//                    emptyView = false
+//                    print("DetailView: RGM: emptyView (when false) is: \(emptyView)")
+//                    // return emptyView
+//                }
+//                
+//                }, withCancel: nil)
+//            
+//            DispatchQueue.main.async {
+//                print("DetailView: RGM: emptyView is: \(emptyView)")
+//            }
+//        }
+//        
+//        print("DetailView: RGM: emptyView is: \(emptyView)")
+//        return emptyView
+//        
+//    }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         return NSAttributedString(string: "No Posts Available.")
@@ -97,15 +97,28 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
             
             self.tableView.reloadData()
-            // self.tableView.reloadEmptyDataSet()
-            print("DetailView: RGM: snap posts are: \(self.posts)")
+            self.tableView.reloadEmptyDataSet()
+            print("DetailView -> RGM -> snap posts are: \(self.posts)")
         })
         
+        DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childChanged, with: { (snapshot) in
+            let postData = snapshot.value as! Dictionary<String, AnyObject>
+            print("DetailView -> RGM -> postData for .childChanged \(postData)")
+            let postKey = snapshot.key
+            print("DetailView -> RGM -> postKey for .childChanged \(postKey)")
+            
+            print("DetailView -> RGM -> posts[0] \(self.posts[0])")
+            
+            self.tableView.reloadData()
+            
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        self.tableView.reloadData()
         self.title = "PhotoLogger"
-
+        
     }
     
     // clear out delegate and data source assignments for DZNEmptyDataSet when class is destroyed
@@ -186,8 +199,6 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-       //  tableView .deselectRow(at: indexPath, animated: false)
-        
         self.postToEdit = fbposts[indexPath.row]
         print("row selected \(self.postToEdit)")
         performSegue(withIdentifier: "editPostSegue", sender: nil)
@@ -204,6 +215,9 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             // assign dvc attributes to carry across to EditView controller on segue
             dvc.postTitle = posts[postIndex].taskTitle
             dvc.postDescription = posts[postIndex].taskDescription
+            dvc.postAddress = posts[postIndex].taskAddress
+            dvc.postDate = posts[postIndex].taskDate
+            dvc.postImageURL = posts[postIndex].taskImage
             dvc.postImage = DetailView.imageCache.object(forKey: posts[postIndex].taskImage as NSString)!
             dvc.firebasePostRef = posts[postIndex].postKey
             dvc.firebasePost = fbposts[postIndex]

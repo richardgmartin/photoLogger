@@ -33,7 +33,7 @@ class PostCell: UITableViewCell {
     
     func configureCell(post: Post, img: UIImage? = nil) {
         
-        // self.post = post
+        self.post = post
         
         postTitle.text = post.taskTitle
         postDescription.text = post.taskDescription
