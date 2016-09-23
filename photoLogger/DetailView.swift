@@ -68,6 +68,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var fbposts = [FIRDataSnapshot]()
     var postToEdit = FIRDataSnapshot()
     var fbPost = FIRDataSnapshot()
+    var postIndex = Int()
     
     // declare global cache var
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
@@ -108,6 +109,11 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             print("DetailView -> RGM -> postKey for .childChanged \(postKey)")
             
             print("DetailView -> RGM -> posts[0] \(self.posts[0])")
+            
+            let post = Post(postKey: postKey, postData: postData as! Dictionary<String, String>)
+            
+            self.posts[self.postIndex] = post
+            self.fbposts[self.postIndex] = snapshot
             
             self.tableView.reloadData()
             
@@ -211,6 +217,10 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let backBar = UIBarButtonItem()
             backBar.title = "Back"
             navigationItem.backBarButtonItem = backBar
+            
+            // set postIndex
+            
+            self.postIndex = postIndex
             
             // assign dvc attributes to carry across to EditView controller on segue
             dvc.postTitle = posts[postIndex].taskTitle

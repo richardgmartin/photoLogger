@@ -53,6 +53,7 @@ class Post {
         return _postKey
      }
     
+    
     init(title: String, desc: String, date: String, address: String, image: String) {
         self._taskTitle = title
         self._taskDescription = desc
@@ -61,8 +62,9 @@ class Post {
         self._taskImage = image
     }
     
-    init(postKey: String, postData: Dictionary<String, String>) {
+    init(postKey: String!, postData: Dictionary<String, String>) {
             
+        
         self._postKey = postKey
             
         if let taskTitle = postData["taskTitle"] {
