@@ -34,7 +34,6 @@ class LoginView: UIViewController {
                 self.performSegue(withIdentifier: "goToPostFeed", sender: nil)
             }
         })
-    
     }
 
     
@@ -45,7 +44,6 @@ class LoginView: UIViewController {
         let facebookLogin = FBSDKLoginManager()
         
         print("LoginView: RGM: at inititalization the facebookLogin is - \(facebookLogin)")
-        
         
         facebookLogin.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
             

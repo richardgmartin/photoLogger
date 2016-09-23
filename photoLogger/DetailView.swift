@@ -65,10 +65,8 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
 
     var posts = [Post]()
-    var fbposts = [FIRDataSnapshot]()
     var postToEdit = FIRDataSnapshot()
     var fbPost = FIRDataSnapshot()
-    var postIndex = Int()
     
     // declare global cache var
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
@@ -94,7 +92,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 // append post to posts array (of Post type)
                 self.posts.append(post)
                 // append snapshot to fbposts array (of type FIRDataSnapshot)
-                self.fbposts.append(snapshot)
+                // self.fbposts.append(snapshot)
             }
             
             self.tableView.reloadData()
@@ -107,13 +105,15 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             print("DetailView -> RGM -> postData for .childChanged \(postData)")
             let postKey = snapshot.key
             print("DetailView -> RGM -> postKey for .childChanged \(postKey)")
-            
             print("DetailView -> RGM -> posts[0] \(self.posts[0])")
             
-            let post = Post(postKey: postKey, postData: postData as! Dictionary<String, String>)
+            let updatedPost = Post(postKey: postKey, postData: postData as! Dictionary<String, String>)
             
-            self.posts[self.postIndex] = post
-            self.fbposts[self.postIndex] = snapshot
+            let index = self.posts.index {
+                $0.postKey == postKey
+            }
+            
+            self.posts[index!] = updatedPost
             
             self.tableView.reloadData()
             
@@ -140,15 +140,16 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             let postImageURL = posts[indexPath.row].taskImage
             
+            let postKey = posts[indexPath.row].postKey
+            
             posts.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            let firebasePost = fbposts[indexPath.row]
-            firebasePost.ref.removeValue()
+            
+            DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).child(postKey).removeValue()
             
             let storage = FIRStorage.storage()
             let storageRef = storage.reference(forURL: postImageURL)
             
-            // let storageRef = DataService.ds.REF_IMAGES.child(postImageURL)
             storageRef.delete(completion: { (error ) in
                 if (error != nil) {
                     print("DetailView -> RGM: error deleting image \(error)")
@@ -205,8 +206,6 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.postToEdit = fbposts[indexPath.row]
-        print("row selected \(self.postToEdit)")
         performSegue(withIdentifier: "editPostSegue", sender: nil)
     }
     
@@ -218,19 +217,8 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             backBar.title = "Back"
             navigationItem.backBarButtonItem = backBar
             
-            // set postIndex
-            
-            self.postIndex = postIndex
-            
             // assign dvc attributes to carry across to EditView controller on segue
-            dvc.postTitle = posts[postIndex].taskTitle
-            dvc.postDescription = posts[postIndex].taskDescription
-            dvc.postAddress = posts[postIndex].taskAddress
-            dvc.postDate = posts[postIndex].taskDate
-            dvc.postImageURL = posts[postIndex].taskImage
-            dvc.postImage = DetailView.imageCache.object(forKey: posts[postIndex].taskImage as NSString)!
-            dvc.firebasePostRef = posts[postIndex].postKey
-            dvc.firebasePost = fbposts[postIndex]
+            dvc.post = posts[postIndex]
         }
     }
    }

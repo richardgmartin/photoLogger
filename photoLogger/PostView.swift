@@ -159,9 +159,7 @@ class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                 
                 let downloadURL = metaData?.downloadURL()?.absoluteString
                 print("PostView: RGM: downloadURL is \(downloadURL)")
-                if let url = downloadURL {
-                    // self.postDataToFirebase(imageURL: url)
-                    
+                if let url = downloadURL {                    
                     DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
                         // post data to firebase
                         self.postDataToFirebase(imageURL: url)

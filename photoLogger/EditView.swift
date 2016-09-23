@@ -12,15 +12,7 @@ import SVProgressHUD
 
 class EditView: UIViewController {
     
-    var postTitle = String()
-    var postDescription = String()
-    var postAddress = String()
-    var postDate = String()
-    var postImageURL = String()
-    var postImage = UIImage()
-    var firebasePostRef = String()
-    var firebasePost = FIRDataSnapshot()
-    
+    var post: Post?
     
     @IBOutlet weak var taskImage: ImageSelector!
     @IBOutlet weak var taskTitle: TitleTextField!
@@ -29,13 +21,10 @@ class EditView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.title = "PhotoLogger"
-        
-        self.taskTitle.text = postTitle
-        self.taskDescription.text = postDescription
-        self.taskImage.image = postImage
-
+        self.taskTitle.text = post?.taskTitle
+        self.taskDescription.text = post?.taskDescription
+        self.taskImage.image = DetailView.imageCache.object(forKey: post!.taskImage as NSString)
     }
 
     @IBAction func savePostButtonTapped(_ sender: AnyObject) {
@@ -63,16 +52,14 @@ class EditView: UIViewController {
         let postUpdate: Dictionary<String, String> = [
             "taskTitle": newTaskTitle!,
             "taskDescription": newTaskDescription!,
-            "taskAddress": postAddress,
-            "taskDate": postDate,
-            "taskImage": postImageURL
+            "taskAddress": (post?.taskAddress)!,
+            "taskDate": (post?.taskDate)!,
+            "taskImage": (post?.taskImage)!
         ]
-        
-        let firebasePostKey = firebasePost.key
+        let firebasePostKey = post!.postKey
         print("EditView -> RGM -> postKey (aka firebasePost.key) is: \(firebasePostKey)")
         let firebasePostDetail = DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).child(firebasePostKey)
         print("EditView -> RGM -> DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).child(firebasePostKey) is \(firebasePostDetail)")
-        
         firebasePostDetail.setValue(postUpdate)
     }
 }
