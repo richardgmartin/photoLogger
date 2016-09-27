@@ -68,7 +68,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var postToEdit = FIRDataSnapshot()
     var fbPost = FIRDataSnapshot()
     
-    // declare global cache var
+    // MARK: - declare global cache var
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
     
     override func viewDidLoad() {
@@ -83,7 +83,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         self.title = "PhotoLogger"
         
-        // set up and initiate firebase observer
+        // MARK: - firebase observer to track new post adds
         DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childAdded, with: { (snapshot) in
             if let postDict = snapshot.value as? Dictionary<String, AnyObject> {
                 let postKey = snapshot.key
@@ -100,6 +100,8 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             print("DetailView -> RGM -> snap posts are: \(self.posts)")
         })
         
+        
+        // MARK: - firebase observer to track post edits/changes
         DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childChanged, with: { (snapshot) in
             let postData = snapshot.value as! Dictionary<String, AnyObject>
             print("DetailView -> RGM -> postData for .childChanged \(postData)")
@@ -115,6 +117,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             self.posts[index!] = updatedPost
             
+            
             self.tableView.reloadData()
             
         })
@@ -127,15 +130,13 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    // clear out delegate and data source assignments for DZNEmptyDataSet when class is destroyed
-    
+    // MARK: - clear out delegate and data source assignments for DZNEmptyDataSet when class is destroyed
     deinit {
         self.tableView.emptyDataSetSource = nil
         self.tableView.emptyDataSetDelegate = nil
     }
     
-    // delete individual posts from table view and firebase database and images from firebase storage
-    
+    // MARK: - delete individual posts from table view and firebase database and images from firebase storage
     internal func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let postImageURL = posts[indexPath.row].taskImage
@@ -160,10 +161,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
-    }
-    
+    // MARK: - tableView Methods :: set up populating table view with cells
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let post = posts[indexPath.row]
@@ -178,13 +176,22 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             // image is not there :: return post data without image
             cell.configureCell(post: post, img: nil)
         }
+        // assign tag attribute in shareButton the cell index row number
+        cell.shareButton.tag = indexPath.row
+        cell.shareButton.addTarget(self, action: #selector(sharePost), for: .touchUpInside)
+        
         return cell
+    }
+    
+    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
     }
     
     internal func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
+    // MARK: - logout user
     @IBAction func logoutButtonTapped(_ sender: AnyObject) {
         
         let currentUser = FIRAuth.auth()?.currentUser
@@ -197,6 +204,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: "goToSignIn", sender: nil)
     }
     
+    // MARK: - add post with segue
     @IBAction func addPostButtonTapped(_ sender: AnyObject) {
         
         navigationItem.title = nil
@@ -204,11 +212,13 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: "addPostSegue", sender: nil)
     }
     
+    // MARK: - edit post with segue :: didSelectRowAt
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         performSegue(withIdentifier: "editPostSegue", sender: nil)
     }
     
+    // MARK: - edit post with segue :: prepareForSegue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editPostSegue", let dvc = segue.destination as? EditView, let postIndex = tableView.indexPathForSelectedRow?.row  {
             
@@ -219,6 +229,28 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             // assign dvc attributes to carry across to EditView controller on segue
             dvc.post = posts[postIndex]
+            
+            // when done, deselect the row
+            let pathIndex = self.tableView.indexPathForSelectedRow
+            self.tableView.deselectRow(at: pathIndex!, animated: true)
         }
+    }
+    
+    // MARK: - (selector) logic to share post
+    @IBAction  func sharePost(sender: UIButton) {
+        
+        var objectsToShare: [AnyObject]?
+        let titlePost = self.posts[sender.tag].taskTitle as String
+        // let descriptionPost = self.posts[sender.tag].taskDescription as String
+        let url = NSURL(string: "http://www.google.com")
+        
+        objectsToShare = [titlePost as AnyObject, url as AnyObject]
+        
+        // let objectsToShare: [AnyObject] = [titlePost as AnyObject]
+        // let activityViewController = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        let activityViewController = UIActivityViewController(activityItems: objectsToShare!, applicationActivities: nil)
+        
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
     }
    }

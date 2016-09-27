@@ -170,7 +170,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="185" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rQf-YT-2zv">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="185" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rQf-YT-2zv">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCellID" rowHeight="185" id="s7K-o8-Ijv" customClass="PostCell" customModule="photoLogger" customModuleProvider="target">
@@ -208,6 +208,11 @@
                                                                 <constraint firstAttribute="height" constant="162" id="dlb-18-8Zv"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZO-F4-EUu">
+                                                            <frame key="frameInset" minX="120" minY="130" width="104" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" image="Upload-50"/>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -248,6 +253,7 @@
                                             <outlet property="postDescription" destination="Wj8-NT-6IZ" id="Lgp-j3-00W"/>
                                             <outlet property="postImg" destination="h1b-wg-mCl" id="eOp-TW-oSG"/>
                                             <outlet property="postTitle" destination="bMP-vG-JZE" id="13B-Xn-46n"/>
+                                            <outlet property="shareButton" destination="yZO-F4-EUu" id="ozk-gV-LND"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -464,6 +470,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Upload-50" width="50" height="50"/>
         <image name="photo-logger-logo-white" width="300" height="60"/>
     </resources>
 </document>

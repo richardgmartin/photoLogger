@@ -16,6 +16,10 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var postAddress: UILabel!
     @IBOutlet weak var postDescription: UILabel!
     @IBOutlet weak var postImg: UIImageView!
+    @IBOutlet weak var shareButton: UIButton!
+    
+    weak var detailViewController = UIViewController()
+    
     
 //    var post: Post! {
 //        didSet {
@@ -30,6 +34,7 @@ class PostCell: UITableViewCell {
         super.awakeFromNib()
 
     }
+    
     
     func configureCell(post: Post, img: UIImage? = nil) {
         
