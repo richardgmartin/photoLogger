@@ -42,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        FIRDatabase.database().persistenceEnabled = true
         
         return true
     }
