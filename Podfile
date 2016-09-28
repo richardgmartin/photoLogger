@@ -13,5 +13,7 @@ target 'photoLogger' do
      pod 'FBSDKLoginKit'
      pod 'DZNEmptyDataSet'
      pod 'SVProgressHUD'
+     pod 'Fabric'
+     pod 'TwitterKit'
      
 end
