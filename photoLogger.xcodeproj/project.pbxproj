@@ -28,6 +28,8 @@
 		7983B4071D8349C800F04B3A /* TitleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983B4061D8349C800F04B3A /* TitleTextField.swift */; };
 		7983B4091D834A5B00F04B3A /* DescriptionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983B4081D834A5B00F04B3A /* DescriptionTextView.swift */; };
 		7995E7B41D5B6D1600731D10 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7995E7B31D5B6D1600731D10 /* LoginView.swift */; };
+		79A7AED41D9C00FA008A8D9A /* ForgotPasswordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A7AED31D9C00FA008A8D9A /* ForgotPasswordButton.swift */; };
+		79A7AED61D9C0343008A8D9A /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A7AED51D9C0343008A8D9A /* ForgotPasswordView.swift */; };
 		79CF4A061D6B778F001F3373 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CF4A051D6B778F001F3373 /* DataService.swift */; };
 		79E413C41D46528C0072863C /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E413C31D46528C0072863C /* PostCell.swift */; };
 		79F1A8CD1D6DE1EA007E88D8 /* NavigationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F1A8CC1D6DE1EA007E88D8 /* NavigationItemView.swift */; };
@@ -61,6 +63,8 @@
 		7983B4061D8349C800F04B3A /* TitleTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleTextField.swift; sourceTree = "<group>"; };
 		7983B4081D834A5B00F04B3A /* DescriptionTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionTextView.swift; sourceTree = "<group>"; };
 		7995E7B31D5B6D1600731D10 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		79A7AED31D9C00FA008A8D9A /* ForgotPasswordButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordButton.swift; sourceTree = "<group>"; };
+		79A7AED51D9C0343008A8D9A /* ForgotPasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		79CF4A051D6B778F001F3373 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		79E413C31D46528C0072863C /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		79F1A8CC1D6DE1EA007E88D8 /* NavigationItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationItemView.swift; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				7995E7B31D5B6D1600731D10 /* LoginView.swift */,
+				79A7AED51D9C0343008A8D9A /* ForgotPasswordView.swift */,
 				79331C701D3EBD1F0094D418 /* DetailView.swift */,
 				79F1A8CE1D6DFA41007E88D8 /* PostView.swift */,
 				793E1D5A1D91A83300496E13 /* EditView.swift */,
@@ -175,6 +180,7 @@
 				7933861A1D5A6822003DF510 /* LoginButton.swift */,
 				7983B4021D83448200F04B3A /* EmailPasswordTextField.swift */,
 				7983B4041D8346B200F04B3A /* ShadowBoxView.swift */,
+				79A7AED31D9C00FA008A8D9A /* ForgotPasswordButton.swift */,
 			);
 			name = "LoginView styles";
 			sourceTree = "<group>";
@@ -375,10 +381,12 @@
 				79F1A8CD1D6DE1EA007E88D8 /* NavigationItemView.swift in Sources */,
 				797680FC1D400F65002F0382 /* Post.swift in Sources */,
 				7983B4011D8341F100F04B3A /* SavePostButton.swift in Sources */,
+				79A7AED41D9C00FA008A8D9A /* ForgotPasswordButton.swift in Sources */,
 				7995E7B41D5B6D1600731D10 /* LoginView.swift in Sources */,
 				7983B4091D834A5B00F04B3A /* DescriptionTextView.swift in Sources */,
 				79F1A8D11D6E453A007E88D8 /* ImageSelector.swift in Sources */,
 				79331C711D3EBD1F0094D418 /* DetailView.swift in Sources */,
+				79A7AED61D9C0343008A8D9A /* ForgotPasswordView.swift in Sources */,
 				79331C6F1D3EBD1F0094D418 /* AppDelegate.swift in Sources */,
 				79E413C41D46528C0072863C /* PostCell.swift in Sources */,
 				7983B4031D83448200F04B3A /* EmailPasswordTextField.swift in Sources */,

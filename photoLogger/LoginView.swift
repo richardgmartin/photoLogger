@@ -121,4 +121,9 @@ class LoginView: UIViewController {
         DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
         performSegue(withIdentifier: "goToPostFeed", sender: nil)
     }
+    
+    @IBAction func unwindToLogin(storyboard: UIStoryboardSegue) {
+        
+        // no code required
+    }
 }
