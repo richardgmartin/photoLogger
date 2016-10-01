@@ -253,6 +253,7 @@
 				79331C691D3EBD1E0094D418 /* Resources */,
 				4B298DE94F712FEA86F96840 /* [CP] Embed Pods Frameworks */,
 				6EE84A63527D296F202A2641 /* [CP] Copy Pods Resources */,
+				79F2FCF91DA030CB004D4958 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -353,6 +354,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-photoLogger/Pods-photoLogger-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		79F2FCF91DA030CB004D4958 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/Fabric/run 0d882f1fe0c081344efc0fee06c999c48de50eba ba51e9f120b1686b2f1c827056d9e0176a3c59283bbcea83a26d00f37bee98c4";
 		};
 		FA30C298C62832ED20D19960 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

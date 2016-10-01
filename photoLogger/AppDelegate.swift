@@ -9,6 +9,9 @@
 import UIKit
 import Firebase
 import FBSDKLoginKit
+import Fabric
+import TwitterKit
+
 
 
 @UIApplicationMain
@@ -43,6 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         FIRDatabase.database().persistenceEnabled = true
+        
+        Fabric.with([Twitter.self])
         
         return true
     }

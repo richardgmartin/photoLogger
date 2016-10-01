@@ -2,6 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>Fabric</key>
+    <dict>
+        <key>APIKey</key>
+        <string>0d882f1fe0c081344efc0fee06c999c48de50eba</string>
+        <key>Kits</key>
+        <array>
+            <dict>
+                <key>KitInfo</key>
+                <dict>
+                    <key>consumerKey</key>
+                    <string>fdPzL6pFIPHxvCKti4tQBaOV7</string>
+                    <key>consumerSecret</key>
+                    <string>TSlmOzJUR9ZLZDpnwWUn9fw0hm5mTJcdoEl51eU6YMvf7KLgMz</string>
+                </dict>
+                <key>KitName</key>
+                <string>Twitter</string>
+            </dict>
+        </array>
+    </dict>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>PhotoLogger would like to access your photo library.</string>
 	<key>CFBundleDevelopmentRegion</key>
