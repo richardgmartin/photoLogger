@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 import FBSDKLoginKit
 import FBSDKCoreKit
+import TwitterKit
+import Fabric
 
 class LoginView: UIViewController {
 
@@ -39,7 +41,43 @@ class LoginView: UIViewController {
     
     @IBAction func twitterButtonTapped(_ sender: AnyObject) {
         
+        print("twitter login tapped")
         
+        Twitter.sharedInstance().start(withConsumerKey: "fdPzL6pFIPHxvCKti4tQBaOV7", consumerSecret: "TSlmOzJUR9ZLZDpnwWUn9fw0hm5mTJcdoEl51eU6YMvf7KLgMz")
+        Fabric.with([Twitter.self()])
+
+        
+        Twitter.sharedInstance().logIn() { (session, error) in
+            if (session != nil) {
+                let authToken = session?.authToken
+                let authTokenSecret = session?.authTokenSecret
+                print("Twitter login successful")
+                
+                let credential = FIRTwitterAuthProvider.credential(withToken: authToken!, secret: authTokenSecret!)
+                self.firebaseAuth(credential)
+                
+                
+            } else {
+                print("Twitter login error \(error?.localizedDescription)")
+            }
+        }
+        
+        
+        
+//        let logInButton = TWTRLogInButton(logInCompletion: { session, error in
+//            if (session != nil) {
+//                let authToken = session?.authToken
+//                let authTokenSecret = session?.authTokenSecret
+//                print("Twitter login successful")
+//                
+//                let credential = FIRTwitterAuthProvider.credential(withToken: authToken!, secret: authTokenSecret!)
+//                self.firebaseAuth(credential)
+//
+//
+//            } else {
+//                print("Twitter login error \(error?.localizedDescription)")
+//            }
+//        })
     }
 
     
@@ -73,7 +111,7 @@ class LoginView: UIViewController {
         }
     }
     
-    // authenticate with Firebase :: used by Facebook login
+    // authenticate with Firebase :: used by Facebook  and Twitter login methods
     
     func firebaseAuth(_ _credential: FIRAuthCredential) {
         

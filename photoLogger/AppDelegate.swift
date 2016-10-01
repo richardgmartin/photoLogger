@@ -26,6 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        FIRDatabase.database().persistenceEnabled = true
+        
+        Fabric.with([Twitter.self])
+        
+        return true
+
+        
         // check to see if user already signed in
         
 //        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
@@ -41,16 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                // self.performSegue(withIdentifier: "goToPostFeed", sender: nil)
 //            }
 //        })
-//        
-//        
         
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        FIRDatabase.database().persistenceEnabled = true
-        
-        Fabric.with([Twitter.self])
-        
-        return true
-    }
+            }
     
 
     private func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
