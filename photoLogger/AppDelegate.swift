@@ -11,6 +11,7 @@ import Firebase
 import FBSDKLoginKit
 import Fabric
 import TwitterKit
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,7 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         FIRDatabase.database().persistenceEnabled = true
-        Fabric.with([Twitter.self])
+        Fabric.with([Twitter.self, Crashlytics.self])
+
         return true
         
 //        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in

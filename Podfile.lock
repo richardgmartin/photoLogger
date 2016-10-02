@@ -5,6 +5,8 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
+  - Crashlytics (3.8.2):
+    - Fabric (~> 1.6.3)
   - DZNEmptyDataSet (1.8.1)
   - Fabric (1.6.9)
   - FBSDKCoreKit (4.16.0):
@@ -56,6 +58,7 @@ PODS:
 
 DEPENDENCIES:
   - Bolts
+  - Crashlytics
   - DZNEmptyDataSet
   - Fabric
   - FBSDKCoreKit
@@ -69,6 +72,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Crashlytics: 27acca95a01b042a8294291dd6dff27f8f6af6d7
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Fabric: bc5bec42cef4bcf1ee3ce0e218fc518e4b44dfbb
   FBSDKCoreKit: 7a6baaed4a2b2a244ba253346713bdbc74df135b
@@ -87,6 +91,6 @@ SPEC CHECKSUMS:
   TwitterCore: 95c46af93112768a7983bd370d66023553601d01
   TwitterKit: dd8042698b0ff5bd3066fa919b3b2b50d8eed829
 
-PODFILE CHECKSUM: 35da0823f4de07f54714e3beeb67fd5e0a6d7595
+PODFILE CHECKSUM: 7fb8c02bc8e8fd24453199b122f31920c2a237f1
 
 COCOAPODS: 1.1.0.rc.2

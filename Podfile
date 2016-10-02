@@ -17,5 +17,6 @@ target 'photoLogger' do
      pod 'SVProgressHUD'
      pod 'Fabric'
      pod 'TwitterKit'
+     pod 'Crashlytics'
      
 end
