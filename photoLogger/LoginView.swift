@@ -22,7 +22,6 @@ class LoginView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,10 +37,8 @@ class LoginView: UIViewController {
         })
     }
     
-    
+    // authenticate with Twitter
     @IBAction func twitterButtonTapped(_ sender: AnyObject) {
-        
-        print("twitter login tapped")
         
         Twitter.sharedInstance().start(withConsumerKey: "fdPzL6pFIPHxvCKti4tQBaOV7", consumerSecret: "TSlmOzJUR9ZLZDpnwWUn9fw0hm5mTJcdoEl51eU6YMvf7KLgMz")
         Fabric.with([Twitter.self()])
@@ -63,7 +60,6 @@ class LoginView: UIViewController {
 
     
     // authenticate with Facebook
-    
     @IBAction func facebookButtonTapped(_ sender: AnyObject) {
         
         let facebookLogin = FBSDKLoginManager()
@@ -108,7 +104,6 @@ class LoginView: UIViewController {
     }
     
     // authenticate user with email + password or create new user with email + password
-
     @IBAction func signinTapped(_ sender: AnyObject) {
         if let email = emailAddressText.text, let password = passwordText.text {
             FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
@@ -141,14 +136,13 @@ class LoginView: UIViewController {
     }
     
     // function to complete the signin process :: post new user in firebase database and segue to DetailView
-    
     func completeSignIn(id: String, userData: Dictionary<String, String>) {
         DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
         performSegue(withIdentifier: "goToPostFeed", sender: nil)
     }
     
+    // func to return the user back to the login page (called in other view controllers)
     @IBAction func unwindToLogin(storyboard: UIStoryboardSegue) {
         
-        // no code required
     }
 }
