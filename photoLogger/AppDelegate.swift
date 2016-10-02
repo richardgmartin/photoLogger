@@ -12,8 +12,6 @@ import FBSDKLoginKit
 import Fabric
 import TwitterKit
 
-
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -28,13 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         FIRDatabase.database().persistenceEnabled = true
-        
         Fabric.with([Twitter.self])
-        
         return true
-
-        
-        // check to see if user already signed in
         
 //        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
 //            if let user = user {
@@ -50,18 +43,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }
 //        })
         
-            }
-    
-
-    private func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url as URL!, sourceApplication: sourceApplication, annotation: annotation)
     }
     
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        let handled = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+        // Add any custom logic here.
+        return handled
+    }
     
     func applicationDidBecomeActive(application: UIApplication) {
         FBSDKAppEvents.activateApp()
     }
-    
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -84,7 +76,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 

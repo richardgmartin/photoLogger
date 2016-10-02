@@ -18,7 +18,6 @@ class LoginView: UIViewController {
     @IBOutlet weak var emailAddressText: EmailPasswordTextField!
     @IBOutlet weak var passwordText: EmailPasswordTextField!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,7 +87,7 @@ class LoginView: UIViewController {
         }
     }
     
-    // authenticate with Firebase :: used by Facebook  and Twitter login methods
+    // authenticate with Firebase :: used by Facebook and Twitter login methods
     
     func firebaseAuth(_ _credential: FIRAuthCredential) {
         

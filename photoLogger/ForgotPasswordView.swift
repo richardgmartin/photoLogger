@@ -14,11 +14,9 @@ class ForgotPasswordView: UIViewController {
     
     @IBOutlet weak var emailTextField: EmailPasswordTextField!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
     

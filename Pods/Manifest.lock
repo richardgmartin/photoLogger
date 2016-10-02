@@ -49,14 +49,16 @@ PODS:
   - GoogleUtilities (1.3.1):
     - GoogleSymbolUtilities (~> 1.0)
   - SVProgressHUD (2.0.3)
-  - TwitterCore (2.4.0):
+  - TwitterCore (2.5.0):
     - Fabric
-  - TwitterKit (2.4.0):
-    - TwitterCore (= 2.4.0)
+  - TwitterKit (2.5.0):
+    - TwitterCore (= 2.5.0)
 
 DEPENDENCIES:
+  - Bolts
   - DZNEmptyDataSet
   - Fabric
+  - FBSDKCoreKit
   - FBSDKLoginKit
   - Firebase
   - Firebase/Auth
@@ -82,9 +84,9 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
-  TwitterCore: a139904c80805ad3dde9eef1100704f96f646d1d
-  TwitterKit: 1cf9742edf9d182c1518cfdd6aaac0dfe313b38b
+  TwitterCore: 95c46af93112768a7983bd370d66023553601d01
+  TwitterKit: dd8042698b0ff5bd3066fa919b3b2b50d8eed829
 
-PODFILE CHECKSUM: 160b8caf9e8bc2b0e0a556e33b8416bd0db5114a
+PODFILE CHECKSUM: 35da0823f4de07f54714e3beeb67fd5e0a6d7595
 
 COCOAPODS: 1.1.0.rc.2

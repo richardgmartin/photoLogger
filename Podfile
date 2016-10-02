@@ -10,6 +10,8 @@ target 'photoLogger' do
      pod 'Firebase/Database'
      pod 'Firebase/Auth'
      pod 'Firebase/Storage'
+     pod 'FBSDKCoreKit'
+     pod 'Bolts'
      pod 'FBSDKLoginKit'
      pod 'DZNEmptyDataSet'
      pod 'SVProgressHUD'
