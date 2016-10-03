@@ -96,7 +96,9 @@ class LoginView: UIViewController {
                 // firebase authentication failed
                 print("LoginView: RGM: unable to authenticate with Firebase - \(error)")
             } else {
-                // firebase authentication successful
+                // firebase authentication successful => post user in firebase database
+                let userData = ["provider": user?.providerID]
+                DataService.ds.createFirebaseDBUser(uid: (user?.uid)!, userData: userData as! Dictionary<String, String>)
                 print("LoginView: RGM: successfully authenticated with Firebase")
             }
         })
