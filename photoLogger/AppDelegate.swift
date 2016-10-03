@@ -28,22 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         FIRDatabase.database().persistenceEnabled = true
         Fabric.with([Twitter.self, Crashlytics.self])
-
-        return true
         
-//        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
-//            if let user = user {
-//                // user already signed in
-//                print("AppDelegate: RGM: the user, \(user), is already signed in.")
-//                
-//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                let viewController: DetailView = storyboard.instantiateViewController(withIdentifier: "ViewController") as! DetailView
-//                
-//                let rootViewController = self.window?.rootViewController as! UINavigationController
-//                rootViewController.pushViewController(viewController, animated: true)
-//                // self.performSegue(withIdentifier: "goToPostFeed", sender: nil)
-//            }
-//        })
+        return true
         
     }
     

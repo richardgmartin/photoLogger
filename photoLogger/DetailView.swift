@@ -60,13 +60,14 @@ extension DetailView: DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     
 }
 
-class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, LoadDetailViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
 
     var posts = [Post]()
     var postToEdit = FIRDataSnapshot()
     var fbPost = FIRDataSnapshot()
+    var loadDetailView: LoginView!
     
     // MARK: - declare global cache var
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
@@ -80,9 +81,55 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.tableView.emptyDataSetSource = self
         
         self.tableView.delegate = self
+        loadDetailView?.delegate = self
         
         self.title = "PhotoLogger"
         
+        if FIRAuth.auth()?.currentUser == nil {
+            performSegue(withIdentifier: "goToSignIn", sender: nil)
+        } else {
+            
+            // MARK: - firebase observer to track new post adds
+            DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childAdded, with: { (snapshot) in
+                if let postDict = snapshot.value as? Dictionary<String, AnyObject> {
+                    let postKey = snapshot.key
+                    // call custom (convenience) init in Post.swift class to create a post
+                    let post = Post(postKey: postKey, postData: postDict as! Dictionary<String, String>)
+                    // append post to posts array (of Post type)
+                    self.posts.append(post)
+                    // append snapshot to fbposts array (of type FIRDataSnapshot)
+                    // self.fbposts.append(snapshot)
+                }
+                
+                self.tableView.reloadData()
+                self.tableView.reloadEmptyDataSet()
+                print("DetailView -> RGM -> snap posts are: \(self.posts)")
+            })
+            
+            
+            // MARK: - firebase observer to track post edits/changes
+            DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childChanged, with: { (snapshot) in
+                let postData = snapshot.value as! Dictionary<String, AnyObject>
+                print("DetailView -> RGM -> postData for .childChanged \(postData)")
+                let postKey = snapshot.key
+                print("DetailView -> RGM -> postKey for .childChanged \(postKey)")
+                print("DetailView -> RGM -> posts[0] \(self.posts[0])")
+                
+                let updatedPost = Post(postKey: postKey, postData: postData as! Dictionary<String, String>)
+                
+                let index = self.posts.index {
+                    $0.postKey == postKey
+                }
+                
+                self.posts[index!] = updatedPost
+                
+                self.tableView.reloadData()
+                
+            })
+        }
+    }
+    
+    func buildTable() {
         // MARK: - firebase observer to track new post adds
         DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childAdded, with: { (snapshot) in
             if let postDict = snapshot.value as? Dictionary<String, AnyObject> {
@@ -100,7 +147,6 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             print("DetailView -> RGM -> snap posts are: \(self.posts)")
         })
         
-        
         // MARK: - firebase observer to track post edits/changes
         DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childChanged, with: { (snapshot) in
             let postData = snapshot.value as! Dictionary<String, AnyObject>
@@ -116,7 +162,6 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
             
             self.posts[index!] = updatedPost
-            
             
             self.tableView.reloadData()
             
@@ -201,6 +246,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             print("DetailView: RGM: user named, \(currentUser?.email), successfully logged out")
             
         }
+        posts = [Post]()
         performSegue(withIdentifier: "goToSignIn", sender: nil)
     }
     

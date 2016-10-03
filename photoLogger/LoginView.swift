@@ -13,10 +13,20 @@ import FBSDKCoreKit
 import TwitterKit
 import Fabric
 
+// declare delegate protocol
+
+protocol LoadDetailViewDelegate {
+    func buildTable()
+}
+
+
 class LoginView: UIViewController {
 
     @IBOutlet weak var emailAddressText: EmailPasswordTextField!
     @IBOutlet weak var passwordText: EmailPasswordTextField!
+    
+    // declare delegate property
+    var delegate: LoadDetailViewDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,15 +35,6 @@ class LoginView: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        // check to see if user already signed in
-        
-        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
-            if let user = user {
-                // user already signed in
-                print("LoginView: RGM: the user, \(user), is already signed in.")
-                self.performSegue(withIdentifier: "goToPostFeed", sender: nil)
-            }
-        })
     }
     
     // authenticate with Twitter
@@ -99,6 +100,9 @@ class LoginView: UIViewController {
                 // firebase authentication successful => post user in firebase database
                 let userData = ["provider": user?.providerID]
                 DataService.ds.createFirebaseDBUser(uid: (user?.uid)!, userData: userData as! Dictionary<String, String>)
+                self.dismiss(animated: true, completion: {
+                    self.delegate?.buildTable()
+                })
                 print("LoginView: RGM: successfully authenticated with Firebase")
             }
         })
@@ -111,6 +115,7 @@ class LoginView: UIViewController {
                 if error == nil {
                     // firebase authentication successful
                     print("LoginView: RGM: Email user successfully authenticated with Firebase")
+                    self.dismiss(animated: true, completion: nil)
                 } else {
                     // user does not exist in firebase :: create new user
                     FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
@@ -139,7 +144,10 @@ class LoginView: UIViewController {
     // function to complete the signin process :: post new user in firebase database and segue to DetailView
     func completeSignIn(id: String, userData: Dictionary<String, String>) {
         DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
-        performSegue(withIdentifier: "goToPostFeed", sender: nil)
+        // implement delegate method
+        dismiss(animated: true) { 
+            self.delegate?.buildTable()
+        }
     }
     
     // func to return the user back to the login page (called in other view controllers)
