@@ -13,10 +13,10 @@ import FBSDKCoreKit
 import TwitterKit
 import Fabric
 
-// declare delegate protocol
+// 1. declare delegate protocol
 
 protocol LoadDetailViewDelegate {
-    func buildTable()
+    func buildTable(controller: LoginView)
 }
 
 
@@ -25,8 +25,8 @@ class LoginView: UIViewController {
     @IBOutlet weak var emailAddressText: EmailPasswordTextField!
     @IBOutlet weak var passwordText: EmailPasswordTextField!
     
-    // declare delegate property
-    var delegate: LoadDetailViewDelegate!
+    // 2. declare delegate property
+    var delegate: LoadDetailViewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +74,7 @@ class LoginView: UIViewController {
             
             if error != nil {
                 // facebook authentication failed
-                print("LoginView: RGM: unable to authenticate with Facebook - \(error)")
+                print("LoginView: RGM: unable to authenticate with Facebook - \(error?.localizedDescription)")
             } else if result?.isCancelled == true {
                 // user declines access via facebook permissions
                 print("LoginView: RGM: user declined permission to access via Facebook")
@@ -82,27 +82,34 @@ class LoginView: UIViewController {
                 // facebook successful authentication
                 print("LoginView: RGM: user successfully authenticated via Facebook")
                 // get credential
+                
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                
                 self.firebaseAuth(credential)
+                
             }
         }
     }
     
     // authenticate with Firebase :: used by Facebook and Twitter login methods
-    
     func firebaseAuth(_ _credential: FIRAuthCredential) {
         
         FIRAuth.auth()?.signIn(with: _credential, completion: { (user, error) in
             if error != nil {
                 // firebase authentication failed
-                print("LoginView: RGM: unable to authenticate with Firebase - \(error)")
+                print("LoginView: RGM: unable to authenticate with Firebase - \(error?.localizedDescription)")
             } else {
                 // firebase authentication successful => post user in firebase database
                 let userData = ["provider": user?.providerID]
                 DataService.ds.createFirebaseDBUser(uid: (user?.uid)!, userData: userData as! Dictionary<String, String>)
+                // 3. implement delegate method
+                
                 self.dismiss(animated: true, completion: {
-                    self.delegate?.buildTable()
+                    self.delegate?.buildTable(controller: self)
                 })
+                
+//                self.dismiss(animated: true, completion: nil)
+//                self.delegate?.buildTable(controller: self)
                 print("LoginView: RGM: successfully authenticated with Firebase")
             }
         })
@@ -115,7 +122,9 @@ class LoginView: UIViewController {
                 if error == nil {
                     // firebase authentication successful
                     print("LoginView: RGM: Email user successfully authenticated with Firebase")
-                    self.dismiss(animated: true, completion: nil)
+                    self.dismiss(animated: true, completion: { 
+                        self.delegate?.buildTable(controller: self)
+                    })
                 } else {
                     // user does not exist in firebase :: create new user
                     FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
@@ -144,10 +153,12 @@ class LoginView: UIViewController {
     // function to complete the signin process :: post new user in firebase database and segue to DetailView
     func completeSignIn(id: String, userData: Dictionary<String, String>) {
         DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
-        // implement delegate method
-        dismiss(animated: true) { 
-            self.delegate?.buildTable()
+        // 3. implement delegate method
+        dismiss(animated: true) {
+            self.delegate?.buildTable(controller: self)
         }
+//        self.dismiss(animated: true, completion: nil)
+//        self.delegate?.buildTable(controller: self)
     }
     
     // func to return the user back to the login page (called in other view controllers)

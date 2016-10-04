@@ -67,28 +67,27 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     var posts = [Post]()
     var postToEdit = FIRDataSnapshot()
     var fbPost = FIRDataSnapshot()
-    var loadDetailView: LoginView!
+    var loadDetailView: LoginView?
     
     // MARK: - declare global cache var
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // self.perform(#selector(drawEmptyLabels), with: nil, afterDelay: 2)
         
         self.tableView.tableFooterView = UIView()
         self.tableView.emptyDataSetDelegate = self
         self.tableView.emptyDataSetSource = self
         
         self.tableView.delegate = self
-        loadDetailView?.delegate = self
         
         self.title = "PhotoLogger"
         
         if FIRAuth.auth()?.currentUser == nil {
+            print("DetailView -> RGM -> no currentUser")
             performSegue(withIdentifier: "goToSignIn", sender: nil)
         } else {
-            
+            print("DetailView -> RGM -> currentUser logged in \(FIRAuth.auth()?.currentUser?.uid)")
             // MARK: - firebase observer to track new post adds
             DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childAdded, with: { (snapshot) in
                 if let postDict = snapshot.value as? Dictionary<String, AnyObject> {
@@ -97,15 +96,12 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                     let post = Post(postKey: postKey, postData: postDict as! Dictionary<String, String>)
                     // append post to posts array (of Post type)
                     self.posts.append(post)
-                    // append snapshot to fbposts array (of type FIRDataSnapshot)
-                    // self.fbposts.append(snapshot)
                 }
                 
                 self.tableView.reloadData()
                 self.tableView.reloadEmptyDataSet()
                 print("DetailView -> RGM -> snap posts are: \(self.posts)")
             })
-            
             
             // MARK: - firebase observer to track post edits/changes
             DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childChanged, with: { (snapshot) in
@@ -122,14 +118,15 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 }
                 
                 self.posts[index!] = updatedPost
-                
                 self.tableView.reloadData()
-                
             })
         }
     }
     
-    func buildTable() {
+    func buildTable(controller: LoginView) {
+        
+        print("DetailView -> RGM -> buildTable function -> currentUser logged in \(FIRAuth.auth()?.currentUser?.uid)")
+        
         // MARK: - firebase observer to track new post adds
         DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childAdded, with: { (snapshot) in
             if let postDict = snapshot.value as? Dictionary<String, AnyObject> {
@@ -138,8 +135,6 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 let post = Post(postKey: postKey, postData: postDict as! Dictionary<String, String>)
                 // append post to posts array (of Post type)
                 self.posts.append(post)
-                // append snapshot to fbposts array (of type FIRDataSnapshot)
-                // self.fbposts.append(snapshot)
             }
             
             self.tableView.reloadData()
@@ -162,17 +157,13 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             }
             
             self.posts[index!] = updatedPost
-            
             self.tableView.reloadData()
-            
         })
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         self.tableView.reloadData()
         self.title = "PhotoLogger"
-        
     }
     
     // MARK: - clear out delegate and data source assignments for DZNEmptyDataSet when class is destroyed
@@ -240,11 +231,9 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     @IBAction func logoutButtonTapped(_ sender: AnyObject) {
         
         let currentUser = FIRAuth.auth()?.currentUser
-        
         do {
             try! FIRAuth.auth()!.signOut()
             print("DetailView: RGM: user named, \(currentUser?.email), successfully logged out")
-            
         }
         posts = [Post]()
         performSegue(withIdentifier: "goToSignIn", sender: nil)
@@ -264,7 +253,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         performSegue(withIdentifier: "editPostSegue", sender: nil)
     }
     
-    // MARK: - edit post with segue :: prepareForSegue
+    // MARK: - prepareForSegue for editPost and logOut
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editPostSegue", let dvc = segue.destination as? EditView, let postIndex = tableView.indexPathForSelectedRow?.row  {
             
@@ -279,6 +268,9 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             // when done, deselect the row
             let pathIndex = self.tableView.indexPathForSelectedRow
             self.tableView.deselectRow(at: pathIndex!, animated: true)
+        } else if segue.identifier == "goToSignIn" {
+            loadDetailView = segue.destination as? LoginView
+            loadDetailView?.delegate = self
         }
     }
     
