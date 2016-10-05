@@ -193,7 +193,9 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     // MARK: - edit post with segue :: didSelectRowAt
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         performSegue(withIdentifier: "editPostSegue", sender: nil)
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
     // MARK: - prepareForSegue for editPost and logOut

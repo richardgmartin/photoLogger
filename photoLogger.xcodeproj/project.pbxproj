@@ -21,6 +21,7 @@
 		7933861B1D5A6822003DF510 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7933861A1D5A6822003DF510 /* LoginButton.swift */; };
 		793E1D5B1D91A83300496E13 /* EditPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793E1D5A1D91A83300496E13 /* EditPostView.swift */; };
 		7970EF0A1D84279100B91174 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7970EF091D84279100B91174 /* CoreLocation.framework */; };
+		7975D5451DA56AD300D04240 /* PostCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7975D5441DA56AD300D04240 /* PostCellView.swift */; };
 		797680FC1D400F65002F0382 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797680FB1D400F65002F0382 /* Post.swift */; };
 		7983B4011D8341F100F04B3A /* SavePostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983B4001D8341F100F04B3A /* SavePostButton.swift */; };
 		7983B4031D83448200F04B3A /* EmailPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983B4021D83448200F04B3A /* EmailPasswordTextField.swift */; };
@@ -56,6 +57,7 @@
 		793E1D5A1D91A83300496E13 /* EditPostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPostView.swift; sourceTree = "<group>"; };
 		7956F9211D63AAD400A33D01 /* photoLogger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = photoLogger.entitlements; sourceTree = "<group>"; };
 		7970EF091D84279100B91174 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7975D5441DA56AD300D04240 /* PostCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCellView.swift; sourceTree = "<group>"; };
 		797680FB1D400F65002F0382 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = SOURCE_ROOT; };
 		7983B4001D8341F100F04B3A /* SavePostButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavePostButton.swift; sourceTree = "<group>"; };
 		7983B4021D83448200F04B3A /* EmailPasswordTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailPasswordTextField.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				79F1A8CC1D6DE1EA007E88D8 /* NavigationItemView.swift */,
+				7975D5441DA56AD300D04240 /* PostCellView.swift */,
 			);
 			name = "DetailView styles";
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				7983B4091D834A5B00F04B3A /* DescriptionTextView.swift in Sources */,
 				79F1A8D11D6E453A007E88D8 /* ImageSelector.swift in Sources */,
 				79331C711D3EBD1F0094D418 /* DetailView.swift in Sources */,
+				7975D5451DA56AD300D04240 /* PostCellView.swift in Sources */,
 				79A7AED61D9C0343008A8D9A /* ForgotPasswordView.swift in Sources */,
 				79331C6F1D3EBD1F0094D418 /* AppDelegate.swift in Sources */,
 				79E413C41D46528C0072863C /* PostCell.swift in Sources */,
