@@ -47,17 +47,6 @@ extension DetailView: DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         return NSAttributedString(string: "Time to add some PhotoLogger posts.")
     }
-    
-    /*
-     unable to get working ... 
-     
-     
-    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return UIImage(named: "photo-logger-girl")
-    }
- */
-    
-    
 }
 
 class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, LoadDetailViewDelegate {
@@ -279,13 +268,9 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         var objectsToShare: [AnyObject]?
         let titlePost = self.posts[sender.tag].taskTitle as String
-        // let descriptionPost = self.posts[sender.tag].taskDescription as String
         let url = NSURL(string: "http://www.google.com")
         
         objectsToShare = [titlePost as AnyObject, url as AnyObject]
-        
-        // let objectsToShare: [AnyObject] = [titlePost as AnyObject]
-        // let activityViewController = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         let activityViewController = UIActivityViewController(activityItems: objectsToShare!, applicationActivities: nil)
         
         // present the view controller

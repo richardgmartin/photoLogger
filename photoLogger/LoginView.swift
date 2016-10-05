@@ -107,9 +107,6 @@ class LoginView: UIViewController {
                 self.dismiss(animated: true, completion: {
                     self.delegate?.buildTable(controller: self)
                 })
-                
-//                self.dismiss(animated: true, completion: nil)
-//                self.delegate?.buildTable(controller: self)
                 print("LoginView: RGM: successfully authenticated with Firebase")
             }
         })
@@ -157,8 +154,6 @@ class LoginView: UIViewController {
         dismiss(animated: true) {
             self.delegate?.buildTable(controller: self)
         }
-//        self.dismiss(animated: true, completion: nil)
-//        self.delegate?.buildTable(controller: self)
     }
     
     // func to return the user back to the login page (called in other view controllers)
