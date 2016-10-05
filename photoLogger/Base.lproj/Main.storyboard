@@ -432,10 +432,10 @@
             </objects>
             <point key="canvasLocation" x="1405.5999999999999" y="44.527736131934034"/>
         </scene>
-        <!--Edit View-->
+        <!--Edit Post View-->
         <scene sceneID="CQX-dQ-rdc">
             <objects>
-                <viewController id="yfc-Qn-5y8" customClass="EditView" customModule="photoLogger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yfc-Qn-5y8" customClass="EditPostView" customModule="photoLogger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="K6N-r9-gGL"/>
                         <viewControllerLayoutGuide type="bottom" id="RvR-I0-stc"/>
@@ -508,10 +508,10 @@
             </objects>
             <point key="canvasLocation" x="2324" y="393.55322338830587"/>
         </scene>
-        <!--Post View-->
+        <!--Add Post View-->
         <scene sceneID="oHT-EQ-Cr5">
             <objects>
-                <viewController id="Dah-m4-UGt" customClass="PostView" customModule="photoLogger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Dah-m4-UGt" customClass="AddPostView" customModule="photoLogger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wbc-2q-Iw2"/>
                         <viewControllerLayoutGuide type="bottom" id="YrJ-3i-rUe"/>

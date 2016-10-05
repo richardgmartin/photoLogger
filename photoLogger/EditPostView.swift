@@ -1,5 +1,5 @@
 //
-//  EditView.swift
+//  EditPostView.swift
 //  photoLogger
 //
 //  Created by Richard Martin on 2016-09-20.
@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import SVProgressHUD
 
-class EditView: UIViewController {
+class EditPostView: UIViewController {
     
     var post: Post?
     

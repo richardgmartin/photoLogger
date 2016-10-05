@@ -73,11 +73,9 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         self.title = "PhotoLogger"
         
         if FIRAuth.auth()?.currentUser == nil {
-            print("DetailView -> RGM -> no currentUser")
             performSegue(withIdentifier: "goToSignIn", sender: nil)
         } else {
-            print("DetailView -> RGM -> currentUser logged in \(FIRAuth.auth()?.currentUser?.uid)")
-            // MARK: - firebase observer to track new post adds
+            
             DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childAdded, with: { (snapshot) in
                 if let postDict = snapshot.value as? Dictionary<String, AnyObject> {
                     let postKey = snapshot.key
@@ -89,17 +87,11 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 
                 self.tableView.reloadData()
                 self.tableView.reloadEmptyDataSet()
-                print("DetailView -> RGM -> snap posts are: \(self.posts)")
             })
             
-            // MARK: - firebase observer to track post edits/changes
             DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childChanged, with: { (snapshot) in
                 let postData = snapshot.value as! Dictionary<String, AnyObject>
-                print("DetailView -> RGM -> postData for .childChanged \(postData)")
                 let postKey = snapshot.key
-                print("DetailView -> RGM -> postKey for .childChanged \(postKey)")
-                print("DetailView -> RGM -> posts[0] \(self.posts[0])")
-                
                 let updatedPost = Post(postKey: postKey, postData: postData as! Dictionary<String, String>)
                 
                 let index = self.posts.index {
@@ -113,9 +105,6 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     func buildTable(controller: LoginView) {
-        
-        print("DetailView -> RGM -> buildTable function -> currentUser logged in \(FIRAuth.auth()?.currentUser?.uid)")
-        
         // MARK: - firebase observer to track new post adds
         DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childAdded, with: { (snapshot) in
             if let postDict = snapshot.value as? Dictionary<String, AnyObject> {
@@ -128,23 +117,16 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             
             self.tableView.reloadData()
             self.tableView.reloadEmptyDataSet()
-            print("DetailView -> RGM -> snap posts are: \(self.posts)")
         })
         
         // MARK: - firebase observer to track post edits/changes
         DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childChanged, with: { (snapshot) in
             let postData = snapshot.value as! Dictionary<String, AnyObject>
-            print("DetailView -> RGM -> postData for .childChanged \(postData)")
             let postKey = snapshot.key
-            print("DetailView -> RGM -> postKey for .childChanged \(postKey)")
-            print("DetailView -> RGM -> posts[0] \(self.posts[0])")
-            
             let updatedPost = Post(postKey: postKey, postData: postData as! Dictionary<String, String>)
-            
             let index = self.posts.index {
                 $0.postKey == postKey
             }
-            
             self.posts[index!] = updatedPost
             self.tableView.reloadData()
         })
@@ -230,21 +212,18 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     // MARK: - add post with segue
     @IBAction func addPostButtonTapped(_ sender: AnyObject) {
-        
         navigationItem.title = nil
-
         performSegue(withIdentifier: "addPostSegue", sender: nil)
     }
     
     // MARK: - edit post with segue :: didSelectRowAt
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         performSegue(withIdentifier: "editPostSegue", sender: nil)
     }
     
     // MARK: - prepareForSegue for editPost and logOut
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "editPostSegue", let dvc = segue.destination as? EditView, let postIndex = tableView.indexPathForSelectedRow?.row  {
+        if segue.identifier == "editPostSegue", let dvc = segue.destination as? EditPostView, let postIndex = tableView.indexPathForSelectedRow?.row  {
             
             // back bar text
             let backBar = UIBarButtonItem()

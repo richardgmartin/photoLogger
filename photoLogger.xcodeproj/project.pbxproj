@@ -19,7 +19,7 @@
 		793386131D5A1E73003DF510 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7933860F1D5A1E73003DF510 /* NotoSans-Regular.ttf */; };
 		793386171D5A2E62003DF510 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793386161D5A2E62003DF510 /* Constants.swift */; };
 		7933861B1D5A6822003DF510 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7933861A1D5A6822003DF510 /* LoginButton.swift */; };
-		793E1D5B1D91A83300496E13 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793E1D5A1D91A83300496E13 /* EditView.swift */; };
+		793E1D5B1D91A83300496E13 /* EditPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793E1D5A1D91A83300496E13 /* EditPostView.swift */; };
 		7970EF0A1D84279100B91174 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7970EF091D84279100B91174 /* CoreLocation.framework */; };
 		797680FC1D400F65002F0382 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797680FB1D400F65002F0382 /* Post.swift */; };
 		7983B4011D8341F100F04B3A /* SavePostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983B4001D8341F100F04B3A /* SavePostButton.swift */; };
@@ -33,7 +33,7 @@
 		79CF4A061D6B778F001F3373 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CF4A051D6B778F001F3373 /* DataService.swift */; };
 		79E413C41D46528C0072863C /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E413C31D46528C0072863C /* PostCell.swift */; };
 		79F1A8CD1D6DE1EA007E88D8 /* NavigationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F1A8CC1D6DE1EA007E88D8 /* NavigationItemView.swift */; };
-		79F1A8CF1D6DFA41007E88D8 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F1A8CE1D6DFA41007E88D8 /* PostView.swift */; };
+		79F1A8CF1D6DFA41007E88D8 /* AddPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F1A8CE1D6DFA41007E88D8 /* AddPostView.swift */; };
 		79F1A8D11D6E453A007E88D8 /* ImageSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F1A8D01D6E4539007E88D8 /* ImageSelector.swift */; };
 		79F7ADD21D4920F8006A3B13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F7ADD11D4920F8006A3B13 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -53,7 +53,7 @@
 		7933860F1D5A1E73003DF510 /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		793386161D5A2E62003DF510 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7933861A1D5A6822003DF510 /* LoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
-		793E1D5A1D91A83300496E13 /* EditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		793E1D5A1D91A83300496E13 /* EditPostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPostView.swift; sourceTree = "<group>"; };
 		7956F9211D63AAD400A33D01 /* photoLogger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = photoLogger.entitlements; sourceTree = "<group>"; };
 		7970EF091D84279100B91174 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		797680FB1D400F65002F0382 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = SOURCE_ROOT; };
@@ -68,7 +68,7 @@
 		79CF4A051D6B778F001F3373 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		79E413C31D46528C0072863C /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		79F1A8CC1D6DE1EA007E88D8 /* NavigationItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationItemView.swift; sourceTree = "<group>"; };
-		79F1A8CE1D6DFA41007E88D8 /* PostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		79F1A8CE1D6DFA41007E88D8 /* AddPostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPostView.swift; sourceTree = "<group>"; };
 		79F1A8D01D6E4539007E88D8 /* ImageSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSelector.swift; sourceTree = "<group>"; };
 		79F7ADD11D4920F8006A3B13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E4BA8673243489A63428372D /* Pods-photoLogger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-photoLogger.release.xcconfig"; path = "Pods/Target Support Files/Pods-photoLogger/Pods-photoLogger.release.xcconfig"; sourceTree = "<group>"; };
@@ -139,8 +139,8 @@
 				7995E7B31D5B6D1600731D10 /* LoginView.swift */,
 				79A7AED51D9C0343008A8D9A /* ForgotPasswordView.swift */,
 				79331C701D3EBD1F0094D418 /* DetailView.swift */,
-				79F1A8CE1D6DFA41007E88D8 /* PostView.swift */,
-				793E1D5A1D91A83300496E13 /* EditView.swift */,
+				79F1A8CE1D6DFA41007E88D8 /* AddPostView.swift */,
+				793E1D5A1D91A83300496E13 /* EditPostView.swift */,
 				7995E7B21D5B686400731D10 /* styles */,
 				79EAD5FC1D46A2F60020BBA4 /* cells */,
 			);
@@ -391,7 +391,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7983B4071D8349C800F04B3A /* TitleTextField.swift in Sources */,
-				793E1D5B1D91A83300496E13 /* EditView.swift in Sources */,
+				793E1D5B1D91A83300496E13 /* EditPostView.swift in Sources */,
 				79F1A8CD1D6DE1EA007E88D8 /* NavigationItemView.swift in Sources */,
 				797680FC1D400F65002F0382 /* Post.swift in Sources */,
 				7983B4011D8341F100F04B3A /* SavePostButton.swift in Sources */,
@@ -407,7 +407,7 @@
 				7983B4051D8346B200F04B3A /* ShadowBoxView.swift in Sources */,
 				793386171D5A2E62003DF510 /* Constants.swift in Sources */,
 				7933861B1D5A6822003DF510 /* LoginButton.swift in Sources */,
-				79F1A8CF1D6DFA41007E88D8 /* PostView.swift in Sources */,
+				79F1A8CF1D6DFA41007E88D8 /* AddPostView.swift in Sources */,
 				79CF4A061D6B778F001F3373 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

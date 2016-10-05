@@ -1,5 +1,5 @@
 //
-//  PostView.swift
+//  AddPostView.swift
 //  photoLogger
 //
 //  Created by Richard Martin on 2016-08-24.
@@ -11,7 +11,7 @@ import Firebase
 import CoreLocation
 import SVProgressHUD
 
-class PostView: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
+class AddPostView: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleTextField: TitleTextField!

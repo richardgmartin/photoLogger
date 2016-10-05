@@ -33,10 +33,6 @@ class LoginView: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-    }
-    
     // authenticate with Twitter
     @IBAction func twitterButtonTapped(_ sender: AnyObject) {
         
@@ -47,44 +43,29 @@ class LoginView: UIViewController {
             if (session != nil) {
                 let authToken = session?.authToken
                 let authTokenSecret = session?.authTokenSecret
-                print("Twitter login successful")
-                
                 let credential = FIRTwitterAuthProvider.credential(withToken: authToken!, secret: authTokenSecret!)
                 self.firebaseAuth(credential)
                 
             } else {
-                print("Twitter login error \(error?.localizedDescription)")
+                // alert user that twitter login failed
             }
         }
     }
 
-    
     // authenticate with Facebook
     @IBAction func facebookButtonTapped(_ sender: AnyObject) {
         
         let facebookLogin = FBSDKLoginManager()
         
-        print("LoginView: RGM: at inititalization the facebookLogin is - \(facebookLogin)")
-        
         facebookLogin.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
             
-            print("LoginView: RGM: result is - \(result?.isCancelled)")
-            print("LoginView: RGM: error is - \(error)")
-            print("LoginView: RGM: inside the completion handler facebookLogin is - \(facebookLogin)")
-            
             if error != nil {
-                // facebook authentication failed
-                print("LoginView: RGM: unable to authenticate with Facebook - \(error?.localizedDescription)")
+                // alert user that facebook authentication failed
             } else if result?.isCancelled == true {
-                // user declines access via facebook permissions
-                print("LoginView: RGM: user declined permission to access via Facebook")
+                // alert user that login failed because user declines access via facebook permissions
             } else {
-                // facebook successful authentication
-                print("LoginView: RGM: user successfully authenticated via Facebook")
-                // get credential
-                
+                // facebook successful authentication :: get credential
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-                
                 self.firebaseAuth(credential)
                 
             }
@@ -96,18 +77,15 @@ class LoginView: UIViewController {
         
         FIRAuth.auth()?.signIn(with: _credential, completion: { (user, error) in
             if error != nil {
-                // firebase authentication failed
-                print("LoginView: RGM: unable to authenticate with Firebase - \(error?.localizedDescription)")
+                // alert user that firebase authentication failed
             } else {
                 // firebase authentication successful => post user in firebase database
                 let userData = ["provider": user?.providerID]
                 DataService.ds.createFirebaseDBUser(uid: (user?.uid)!, userData: userData as! Dictionary<String, String>)
                 // 3. implement delegate method
-                
                 self.dismiss(animated: true, completion: {
                     self.delegate?.buildTable(controller: self)
                 })
-                print("LoginView: RGM: successfully authenticated with Firebase")
             }
         })
     }
@@ -118,20 +96,16 @@ class LoginView: UIViewController {
             FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
                 if error == nil {
                     // firebase authentication successful
-                    print("LoginView: RGM: Email user successfully authenticated with Firebase")
-                    self.dismiss(animated: true, completion: { 
+                    self.dismiss(animated: true, completion: {
                         self.delegate?.buildTable(controller: self)
                     })
                 } else {
                     // user does not exist in firebase :: create new user
                     FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
                         if error != nil {
-                            // problem creating user
-                            print("LoginView: RGM: problem creating new user from email and password")
+                            // alert user that there was a problem creating user
                         } else {
                             // new user successfully created in firebase
-                            print("LoginView: RGM: new user from email and password successfully created")
-                            
                             // post user on firebase database using func inside DataService
                             if let user = user {
                                 let userData = ["provider": user.providerID]
@@ -142,8 +116,7 @@ class LoginView: UIViewController {
                 }
             })
         } else {
-            // send alert to user (when we go to production
-            print("LoginView: RGM: email address and/or password fields empty")
+            // send alert to user that email address and/or password fields empty
         }
     }
     
