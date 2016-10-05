@@ -75,36 +75,12 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         if FIRAuth.auth()?.currentUser == nil {
             performSegue(withIdentifier: "goToSignIn", sender: nil)
         } else {
-            
-            DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childAdded, with: { (snapshot) in
-                if let postDict = snapshot.value as? Dictionary<String, AnyObject> {
-                    let postKey = snapshot.key
-                    // call custom (convenience) init in Post.swift class to create a post
-                    let post = Post(postKey: postKey, postData: postDict as! Dictionary<String, String>)
-                    // append post to posts array (of Post type)
-                    self.posts.append(post)
-                }
-                
-                self.tableView.reloadData()
-                self.tableView.reloadEmptyDataSet()
-            })
-            
-            DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childChanged, with: { (snapshot) in
-                let postData = snapshot.value as! Dictionary<String, AnyObject>
-                let postKey = snapshot.key
-                let updatedPost = Post(postKey: postKey, postData: postData as! Dictionary<String, String>)
-                
-                let index = self.posts.index {
-                    $0.postKey == postKey
-                }
-                
-                self.posts[index!] = updatedPost
-                self.tableView.reloadData()
-            })
+            buildTable()
         }
     }
     
-    func buildTable(controller: LoginView) {
+    // MARK: func call to load posts array with firebase database data/posts
+    func buildTable() {
         // MARK: - firebase observer to track new post adds
         DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childAdded, with: { (snapshot) in
             if let postDict = snapshot.value as? Dictionary<String, AnyObject> {
@@ -114,7 +90,6 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 // append post to posts array (of Post type)
                 self.posts.append(post)
             }
-            
             self.tableView.reloadData()
             self.tableView.reloadEmptyDataSet()
         })

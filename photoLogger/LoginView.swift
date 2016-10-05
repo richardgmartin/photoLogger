@@ -16,7 +16,7 @@ import Fabric
 // 1. declare delegate protocol
 
 protocol LoadDetailViewDelegate {
-    func buildTable(controller: LoginView)
+    func buildTable()
 }
 
 
@@ -84,7 +84,7 @@ class LoginView: UIViewController {
                 DataService.ds.createFirebaseDBUser(uid: (user?.uid)!, userData: userData as! Dictionary<String, String>)
                 // 3. implement delegate method
                 self.dismiss(animated: true, completion: {
-                    self.delegate?.buildTable(controller: self)
+                    self.delegate?.buildTable()
                 })
             }
         })
@@ -97,7 +97,7 @@ class LoginView: UIViewController {
                 if error == nil {
                     // firebase authentication successful
                     self.dismiss(animated: true, completion: {
-                        self.delegate?.buildTable(controller: self)
+                        self.delegate?.buildTable()
                     })
                 } else {
                     // user does not exist in firebase :: create new user
@@ -125,7 +125,7 @@ class LoginView: UIViewController {
         DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
         // 3. implement delegate method
         dismiss(animated: true) {
-            self.delegate?.buildTable(controller: self)
+            self.delegate?.buildTable()
         }
     }
     
