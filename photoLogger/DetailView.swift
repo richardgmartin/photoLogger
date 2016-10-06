@@ -12,35 +12,6 @@ import DZNEmptyDataSet
 
 extension DetailView: DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     
-//    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
-//        
-//        var emptyView = true
-//        
-//        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
-//            DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
-//                print("DetailView: RGM: snapshot.childrenCount is: \(snapshot.childrenCount)")
-//                if snapshot.childrenCount == 0 {
-//                    emptyView = true
-//                    print("DetailView: RGM: emptyView (when true) is: \(emptyView)")
-//                    // return emptyView
-//                } else {
-//                    emptyView = false
-//                    print("DetailView: RGM: emptyView (when false) is: \(emptyView)")
-//                    // return emptyView
-//                }
-//                
-//                }, withCancel: nil)
-//            
-//            DispatchQueue.main.async {
-//                print("DetailView: RGM: emptyView is: \(emptyView)")
-//            }
-//        }
-//        
-//        print("DetailView: RGM: emptyView is: \(emptyView)")
-//        return emptyView
-//        
-//    }
-    
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         return NSAttributedString(string: "No Posts Available.")
     }
@@ -83,6 +54,16 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         } else {
             buildTable()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UILabel()
+        view.text = "We are trying to load your posts"
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 100
     }
     
     // MARK: func call to load posts array with firebase database data/posts

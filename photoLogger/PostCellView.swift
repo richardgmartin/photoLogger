@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostCellView : UITableViewCell {
+class PostCellView : UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
