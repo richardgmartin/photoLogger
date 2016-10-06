@@ -14,6 +14,10 @@ class ForgotPasswordView: UIViewController {
     
     @IBOutlet weak var emailTextField: EmailPasswordTextField!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

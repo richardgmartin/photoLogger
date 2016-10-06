@@ -28,6 +28,10 @@ class LoginView: UIViewController {
     // 2. declare delegate property
     var delegate: LoadDetailViewDelegate?
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

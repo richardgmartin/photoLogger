@@ -58,19 +58,25 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     var fbPost = FIRDataSnapshot()
     var loadDetailView: LoginView?
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // MARK: - declare global cache var
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        // UINavigationBar.appearance().barTintColor = UIColor(red: 120/255, green: 144/255, blue: 156/255, alpha: 1)
+        // navigationController?.navigationBar.isTranslucent = false
+
+        self.title = "PhotoLogger"
+
         self.tableView.tableFooterView = UIView()
         self.tableView.emptyDataSetDelegate = self
         self.tableView.emptyDataSetSource = self
-        
         self.tableView.delegate = self
-        
-        self.title = "PhotoLogger"
         
         if FIRAuth.auth()?.currentUser == nil {
             performSegue(withIdentifier: "goToSignIn", sender: nil)
@@ -205,6 +211,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             // back bar text
             let backBar = UIBarButtonItem()
             backBar.title = "Back"
+            backBar.tintColor = UIColor .white
             navigationItem.backBarButtonItem = backBar
             
             // assign dvc attributes to carry across to EditView controller on segue

@@ -318,7 +318,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dMM-xk-diY">
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMP-vG-JZE">
-                                                                    <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="14"/>
+                                                                    <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="14"/>
                                                                     <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -334,7 +334,7 @@
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Wj8-NT-6IZ">
                                                                     <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="10"/>
-                                                                    <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -351,7 +351,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="dMM-xk-diY" secondAttribute="trailing" constant="20" id="1Pi-mU-vrJ"/>
                                                         <constraint firstItem="dMM-xk-diY" firstAttribute="centerX" secondItem="QVK-PB-S4M" secondAttribute="centerX" id="27O-pl-BPo"/>
-                                                        <constraint firstItem="dMM-xk-diY" firstAttribute="top" secondItem="h1b-wg-mCl" secondAttribute="bottom" constant="18" id="P5z-Jx-guS"/>
+                                                        <constraint firstItem="dMM-xk-diY" firstAttribute="top" secondItem="h1b-wg-mCl" secondAttribute="bottom" constant="8" id="P5z-Jx-guS"/>
                                                         <constraint firstItem="dMM-xk-diY" firstAttribute="leading" secondItem="QVK-PB-S4M" secondAttribute="leading" constant="20" id="TCq-kV-en5"/>
                                                         <constraint firstAttribute="bottom" secondItem="yZO-F4-EUu" secondAttribute="bottom" constant="8" id="aAK-2c-9EI"/>
                                                         <constraint firstItem="h1b-wg-mCl" firstAttribute="leading" secondItem="QVK-PB-S4M" secondAttribute="leading" constant="20" id="fY1-dg-BO2"/>
@@ -391,11 +391,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="q1T-EG-ohS">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="c37-U6-Wzu">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="logoutButtonTapped:" destination="BYZ-38-t0r" id="RKy-Cf-tEz"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="KNN-Dl-9of">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="addPostButtonTapped:" destination="BYZ-38-t0r" id="FK6-HV-hgQ"/>
                             </connections>
@@ -424,7 +426,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-logger-logo-white" translatesAutoresizingMaskIntoConstraints="NO" id="DQb-aM-Z0B" customClass="ImageSelector" customModule="photoLogger" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-logger-logo-white" translatesAutoresizingMaskIntoConstraints="NO" id="DQb-aM-Z0B" customClass="ImageSelector" customModule="photoLogger" customModuleProvider="target">
                                 <color key="backgroundColor" red="0.56470588235294117" green="0.64313725490196072" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="Juv-WA-BwW"/>
@@ -503,7 +505,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-logger-logo-white" translatesAutoresizingMaskIntoConstraints="NO" id="QcT-FC-eBV" customClass="ImageSelector" customModule="photoLogger" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-logger-logo-white" translatesAutoresizingMaskIntoConstraints="NO" id="QcT-FC-eBV" customClass="ImageSelector" customModule="photoLogger" customModuleProvider="target">
                                 <color key="backgroundColor" red="0.56470588235294117" green="0.64313725490196072" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="WeZ-MX-9du"/>
@@ -561,6 +563,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="4Rb-rL-zmY">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="O3L-1m-sgC">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="cameraButtonTapped:" destination="Dah-m4-UGt" id="UUe-hX-6GX"/>
                             </connections>
@@ -585,6 +588,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5yi-DX-5Jk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.47058823529999999" green="0.56470588239999997" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
