@@ -20,14 +20,6 @@ class PostCell: UITableViewCell {
     
     weak var detailViewController = UIViewController()
     
-    
-//    var post: Post! {
-//        didSet {
-//            // takes care of self.post = post
-//            
-//        }
-//    }
-    
     var post: Post!
     
     override func awakeFromNib() {
@@ -56,7 +48,6 @@ class PostCell: UITableViewCell {
                     print("PostCell -> configureCell -> DetailView: RGM: problem downloading image from firebase storage")
                 } else {
                     // image downloaded from firebase storage
-                    print("PostCell -> configureCell -> DetailView: RGM: image successfully downloaded from firebase storage")
                     // download the image from firebase storage into cache
                     if let imgData = data {
                         if let img = UIImage(data: imgData) {

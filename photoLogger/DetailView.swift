@@ -8,17 +8,6 @@
 
 import UIKit
 import Firebase
-import DZNEmptyDataSet
-
-extension DetailView: DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
-    
-    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString(string: "No Posts Available.")
-    }
-    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString(string: "Time to add some PhotoLogger posts.")
-    }
-}
 
 class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, LoadDetailViewDelegate {
     
@@ -28,6 +17,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     var postToEdit = FIRDataSnapshot()
     var fbPost = FIRDataSnapshot()
     var loadDetailView: LoginView?
+    var haveICheckedFirebase = false
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -42,25 +32,49 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         self.title = "PhotoLogger"
 
         self.tableView.tableFooterView = UIView()
-        self.tableView.emptyDataSetDelegate = self
-        self.tableView.emptyDataSetSource = self
         self.tableView.delegate = self
         
         if FIRAuth.auth()?.currentUser == nil {
             performSegue(withIdentifier: "goToSignIn", sender: nil)
         } else {
+            
             buildTable()
         }
     }
     
+    // MARK: display message while waiting for posts to download from firebase
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UILabel()
-        view.text = "We are trying to load your posts"
-        return view
+        let emptyViewMessage = UILabel()
+        
+        // initiate a 'wait' message
+        emptyViewMessage.text = "Please wait while we see if you have any posts."
+        emptyViewMessage.textAlignment = .center
+        emptyViewMessage.numberOfLines = 0
+        emptyViewMessage.textColor = .darkGray
+        emptyViewMessage.font = UIFont(name: "NotoSans", size: 12)
+        
+        
+        if haveICheckedFirebase {
+            emptyViewMessage.text = "You have no posts. Time to start posting."
+        } else {
+            perform(#selector (doSomething), with: nil, afterDelay: 3)
+        }
+        
+        return emptyViewMessage
+    }
+    
+    func doSomething() {
+        haveICheckedFirebase = true
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 100
+        
+        if self.posts.count > 0 {
+            return 0
+        } else {
+            return view.frame.height - 64
+        }
     }
     
     // MARK: func call to load posts array with firebase database data/posts
@@ -75,7 +89,6 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 self.posts.append(post)
             }
             self.tableView.reloadData()
-            self.tableView.reloadEmptyDataSet()
         })
         
         // MARK: - firebase observer to track post edits/changes
@@ -94,12 +107,6 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
         self.title = "PhotoLogger"
-    }
-    
-    // MARK: - clear out delegate and data source assignments for DZNEmptyDataSet when class is destroyed
-    deinit {
-        self.tableView.emptyDataSetSource = nil
-        self.tableView.emptyDataSetDelegate = nil
     }
     
     // MARK: - delete individual posts from table view and firebase database and images from firebase storage
@@ -166,6 +173,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             print("DetailView: RGM: user named, \(currentUser?.email), successfully logged out")
         }
         posts = [Post]()
+        haveICheckedFirebase = false
         performSegue(withIdentifier: "goToSignIn", sender: nil)
     }
     
@@ -189,7 +197,8 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             // back bar text
             let backBar = UIBarButtonItem()
             backBar.title = "Back"
-            backBar.tintColor = UIColor .white
+//            backBar.tintColor = UIColor .white
+            navigationController?.navigationBar.tintColor = .white
             navigationItem.backBarButtonItem = backBar
             
             // assign dvc attributes to carry across to EditView controller on segue
