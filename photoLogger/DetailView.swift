@@ -39,9 +39,6 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // UINavigationBar.appearance().barTintColor = UIColor(red: 120/255, green: 144/255, blue: 156/255, alpha: 1)
-        // navigationController?.navigationBar.isTranslucent = false
-
         self.title = "PhotoLogger"
 
         self.tableView.tableFooterView = UIView()
