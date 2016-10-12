@@ -37,6 +37,7 @@ class PostCell: UITableViewCell {
         postDate.text = post.taskDate
         postAddress.text = post.taskAddress
         
+        
         if img != nil {
             // set image in cell to image in cache
             self.postImg.image = img

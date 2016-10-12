@@ -34,6 +34,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         self.tableView.tableFooterView = UIView()
         self.tableView.delegate = self
         
+        
         if FIRAuth.auth()?.currentUser == nil {
             performSegue(withIdentifier: "goToSignIn", sender: nil)
         } else {
