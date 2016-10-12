@@ -24,7 +24,7 @@
                         <viewControllerLayoutGuide type="bottom" id="iIn-fU-j0S"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Mft-M8-wvd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mLh-Tf-hs0">
@@ -185,7 +185,7 @@
                         <viewControllerLayoutGuide type="bottom" id="gEj-5k-f1A"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="STJ-7y-UWc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vd2-mZ-bMI">
@@ -302,17 +302,17 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="329" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rQf-YT-2zv">
                                 <color key="backgroundColor" red="0.92549019607843142" green="0.93725490196078431" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCellID" rowHeight="329" id="s7K-o8-Ijv" customClass="PostCell" customModule="photoLogger" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="329"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="329"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s7K-o8-Ijv" id="ekR-5x-Mq5">
-                                            <frame key="frameInset" width="375" height="329"/>
+                                            <frame key="frameInset" width="320" height="329"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" verticalCompressionResistancePriority="760" translatesAutoresizingMaskIntoConstraints="NO" id="QVK-PB-S4M" customClass="PostCellView" customModule="photoLogger" customModuleProvider="target">
@@ -438,7 +438,7 @@
                         <viewControllerLayoutGuide type="bottom" id="RvR-I0-stc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qGf-Gx-E13">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-logger-logo-white" translatesAutoresizingMaskIntoConstraints="NO" id="DQb-aM-Z0B" customClass="ImageSelector" customModule="photoLogger" customModuleProvider="target">
@@ -517,7 +517,7 @@
                         <viewControllerLayoutGuide type="bottom" id="YrJ-3i-rUe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DbH-ya-KGC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-logger-logo-white" translatesAutoresizingMaskIntoConstraints="NO" id="QcT-FC-eBV" customClass="ImageSelector" customModule="photoLogger" customModuleProvider="target">
