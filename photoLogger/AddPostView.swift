@@ -24,6 +24,10 @@ class AddPostView: UIViewController, UIImagePickerControllerDelegate, UINavigati
     var address: String?
     var postDate: String?
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

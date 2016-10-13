@@ -19,6 +19,10 @@ class EditPostView: UIViewController {
     @IBOutlet weak var taskDescription: DescriptionTextView!
     @IBOutlet weak var savePostButton: SavePostButton!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "PhotoLogger"

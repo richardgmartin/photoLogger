@@ -19,9 +19,9 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     var loadDetailView: LoginView?
     var haveICheckedFirebase = false
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .lightContent
+//    }
     
     // MARK: - declare global cache var
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
@@ -34,7 +34,8 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         self.tableView.tableFooterView = UIView()
         self.tableView.delegate = self
         
-        
+        // self.setNeedsStatusBarAppearanceUpdate()
+                        
         if FIRAuth.auth()?.currentUser == nil {
             performSegue(withIdentifier: "goToSignIn", sender: nil)
         } else {
@@ -42,6 +43,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             buildTable()
         }
     }
+    
     
     // MARK: display message while waiting for posts to download from firebase
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -198,7 +200,6 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             // back bar text
             let backBar = UIBarButtonItem()
             backBar.title = "Back"
-//            backBar.tintColor = UIColor .white
             navigationController?.navigationBar.tintColor = .white
             navigationItem.backBarButtonItem = backBar
             
@@ -211,6 +212,8 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         } else if segue.identifier == "goToSignIn" {
             loadDetailView = segue.destination as? LoginView
             loadDetailView?.delegate = self
+        } else if segue.identifier == "addPostSegue" {
+            navigationController?.navigationBar.tintColor = .white
         }
     }
     
@@ -218,11 +221,13 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     @IBAction  func sharePost(sender: UIButton) {
         
         var objectsToShare: [AnyObject]?
-        let titlePost = self.posts[sender.tag].taskTitle as String
-        let url = NSURL(string: "http://www.google.com")
+        let titlePost = "Title: " + self.posts[sender.tag].taskTitle as String
+        let descriptionPost = "Description: " + self.posts[sender.tag].taskDescription as String
+        let imagePost = DetailView.imageCache.object(forKey: self.posts[sender.tag].taskImage as NSString)
         
-        objectsToShare = [titlePost as AnyObject, url as AnyObject]
+        objectsToShare = [titlePost as AnyObject, descriptionPost as AnyObject, imagePost! as UIImage]
         let activityViewController = UIActivityViewController(activityItems: objectsToShare!, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
         
         // present the view controller
         self.present(activityViewController, animated: true, completion: nil)

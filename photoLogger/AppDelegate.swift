@@ -28,7 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         FIRDatabase.database().persistenceEnabled = true
         Fabric.with([Twitter.self, Crashlytics.self])
-               
+        
+        application.statusBarStyle = .lightContent
+                       
         return true
         
     }
