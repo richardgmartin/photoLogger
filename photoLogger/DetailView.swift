@@ -54,7 +54,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         emptyViewMessage.textAlignment = .center
         emptyViewMessage.numberOfLines = 0
         emptyViewMessage.textColor = .darkGray
-        emptyViewMessage.font = UIFont(name: "NotoSans", size: 12)
+        emptyViewMessage.font = UIFont(name: "NotoSans", size: 20)
         
         
         if haveICheckedFirebase {
