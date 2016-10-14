@@ -19,10 +19,6 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     var loadDetailView: LoginView?
     var haveICheckedFirebase = false
     
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        return .lightContent
-//    }
-    
     // MARK: - declare global cache var
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
     

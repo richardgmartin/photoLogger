@@ -39,7 +39,6 @@ class AddPostView: UIViewController, UIImagePickerControllerDelegate, UINavigati
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -121,6 +120,24 @@ class AddPostView: UIViewController, UIImagePickerControllerDelegate, UINavigati
         // determine time save post button is pushed
         self.postDate = getDateAndTime()
         print("PostView: RGM: self.postDate is ... \(self.postDate)")
+        
+        // determine if access to user location was denied and if yes, request access again
+        if CLLocationManager.authorizationStatus() == .denied {
+            let alertController = UIAlertController(
+                title: "You Have Denied Access to Your Location",
+                message: "In order to provide the address of your where your image was taken, please open this app's settings and set location access to 'Always'.",
+                preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertController.addAction(cancelAction)
+            
+            let openAction = UIAlertAction(title: "Open Settings", style: .default, handler: { (action) in
+                if let url = NSURL(string: UIApplicationOpenSettingsURLString) {
+                    UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+                }
+            })
+            alertController.addAction(openAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
         
         // check to make sure post entries complete
         guard let postTitle = titleTextField.text, postTitle != "" else {

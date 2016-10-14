@@ -595,12 +595,12 @@
             </objects>
             <point key="canvasLocation" x="2324" y="-260.41979010494754"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Photo Logger Nav-->
         <scene sceneID="zEp-2U-lTE">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fcd-xI-Z7E" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fcd-xI-Z7E" customClass="PhotoLoggerNav" customModule="photoLogger" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5yi-DX-5Jk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5yi-DX-5Jk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.47058823529999999" green="0.56470588239999997" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>

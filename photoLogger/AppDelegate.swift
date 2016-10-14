@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRDatabase.database().persistenceEnabled = true
         Fabric.with([Twitter.self, Crashlytics.self])
         
-        application.statusBarStyle = .lightContent
+        // application.statusBarStyle = .lightContent
                        
         return true
         
