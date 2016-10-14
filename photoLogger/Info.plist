@@ -71,6 +71,8 @@
 	<string>PhotoLogger would like to access your location to get the address of any photos you take inside the app.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>PhotoLogger would like to access your photo library.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>PhotoLogger would like to access your camera.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>NotoSan-Bold.ttf</string>

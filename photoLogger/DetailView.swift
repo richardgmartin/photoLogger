@@ -29,9 +29,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
 
         self.tableView.tableFooterView = UIView()
         self.tableView.delegate = self
-        
-        // self.setNeedsStatusBarAppearanceUpdate()
-                        
+                                
         if FIRAuth.auth()?.currentUser == nil {
             performSegue(withIdentifier: "goToSignIn", sender: nil)
         } else {
