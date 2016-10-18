@@ -71,7 +71,6 @@ class LoginView: UIViewController {
                 // facebook successful authentication :: get credential
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 self.firebaseAuth(credential)
-                
             }
         }
     }
@@ -100,7 +99,7 @@ class LoginView: UIViewController {
             
             if email.isEmpty || password.isEmpty {
                 // send alert that one of the fields is empty (email address and password fields cannot be empty)
-                displayAlert(messageTodisplay: "Your Email Adress and/or Password field(s) are empty. Please try again.")
+                displayAlert(messageToDisplay: "Your Email Adress and/or Password field(s) are empty. Please try again.")
                 print("RGM -> LoginView -> field(s) are empty")
             } else {
                 let isEmailAddressValid = verifyEmailAddressValid(emailAddressString: email)
@@ -113,12 +112,12 @@ class LoginView: UIViewController {
                         firebaseEmailAuth(email: email, password: password)
                     } else {
                         // fire alert controller indicating that password is too short in length
-                        displayAlert(messageTodisplay: "The password you provided is too short. You need at least 6 characters.")
+                        displayAlert(messageToDisplay: "The password you provided is too short. You need at least 6 characters.")
                         print("RGM -> LoginView -> password string too short")
                     }
                 } else {
                     // fire alert controller stating that email address is invalid and must be enter a valid email address
-                    displayAlert(messageTodisplay: "The email address you provided is invalid. Please make sure the email address is correct.")
+                    displayAlert(messageToDisplay: "The email address you provided is invalid. Please make sure the email address is correct.")
                     print("RGM -> LoginView -> email address is NOT valid")
                 }
             }
@@ -139,7 +138,7 @@ class LoginView: UIViewController {
                 FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
                     if error != nil {
                         // alert user that there was a problem creating user
-                        self.displayAlert(messageTodisplay: "Unable to create your account. Please try again.")
+                        self.displayAlert(messageToDisplay: "Unable to create your account. Please try again.")
                         print("RGM -> LoginView -> Firebase failed to create or authenticate email user")
                     } else {
                         // new user successfully created in firebase
@@ -182,9 +181,9 @@ class LoginView: UIViewController {
     }
     
     // alert controller to display message to user
-    func displayAlert(messageTodisplay: String) {
+    func displayAlert(messageToDisplay: String) {
         
-        let alertController = UIAlertController(title: "Problem With Email Login", message: messageTodisplay, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Problem With Email Login", message: messageToDisplay, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK. Try Again", style: .default) { (action: UIAlertAction!) in
             self.emailAddressText.text = ""
             self.passwordText.text = ""

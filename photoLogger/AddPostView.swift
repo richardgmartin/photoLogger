@@ -165,14 +165,17 @@ class AddPostView: UIViewController, UIImagePickerControllerDelegate, UINavigati
         
         // check to make sure post entries complete
         guard let postTitle = titleTextField.text, postTitle != "" else {
+            displayAlert(messageToDisplay: "Post title is required. Please complete.")
             print("PostView: RGM: post title must be provided")
             return
         }
         guard let postDescription = descriptionTextView.text, postDescription != "" else {
+            displayAlert(messageToDisplay: "Post description is required. Please complete.")
             print("PostView: RGM: post description must be provided")
             return
         }
         guard let image = imageView.image, imageSelected == true else {
+            displayAlert(messageToDisplay: "Post image is required. Please click camera icon in top right hand corner.")
             print("PostView: RGM: image must be selected")
             return
         }
@@ -232,6 +235,17 @@ class AddPostView: UIViewController, UIImagePickerControllerDelegate, UINavigati
         
         let firebasePost = DataService.ds.REF_POSTS.child((FIRAuth.auth()?.currentUser?.uid)!).childByAutoId()
         firebasePost.setValue(photoLoggerPost)
+    }
+    
+    // alert controller to display message to user
+    func displayAlert(messageToDisplay: String) {
+        
+        let alertController = UIAlertController(title: "Not Enough Information to Create Post", message: messageToDisplay, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK. Try Again", style: .default) { (action: UIAlertAction!) in
+                print("RGM -> AddPostView -> OK button tapped on Alert")
+        }
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
