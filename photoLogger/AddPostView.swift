@@ -23,6 +23,7 @@ class AddPostView: UIViewController, UIImagePickerControllerDelegate, UINavigati
     var locationManager = CLLocationManager()
     var address: String?
     var postDate: String?
+    var choice = "blank"
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -105,9 +106,32 @@ class AddPostView: UIViewController, UIImagePickerControllerDelegate, UINavigati
     }
     
     @IBAction func cameraButtonTapped(_ sender: AnyObject) {
-        imagePicker.sourceType = .savedPhotosAlbum
-        imagePicker.allowsEditing = true
-        present(imagePicker, animated: true, completion: nil)
+        // present alert controller (with action sheet) to select access to either camera or photo library
+        
+        let alertController = UIAlertController(title: "Choose Photo Source", message: "Please choose either camera or your photo library.", preferredStyle: .actionSheet)
+        let cameraButton = UIAlertAction(title: "Select Camera", style: .default) { (action) in
+            print("RGM -> AddPostView -> camera button pressed for image choice.")
+            self.navigationController?.dismiss(animated: true, completion: nil)
+            self.imagePicker.sourceType = .camera
+            self.imagePicker.allowsEditing = true
+            self.present(self.imagePicker, animated: true, completion: nil)
+        }
+        let savePhotosButton = UIAlertAction(title: "Select Photo Album", style: .default) { (action) in
+            print("RGM -> AddPostView -> photo library button pressed for image choice.")
+            self.navigationController?.dismiss(animated: true, completion: nil)
+            self.imagePicker.sourceType = .savedPhotosAlbum
+            self.imagePicker.allowsEditing = true
+            self.present(self.imagePicker, animated: true, completion: nil)
+        }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            self.navigationController?.dismiss(animated: true, completion: nil)
+            print("RGM -> AddPostView -> cancel button pressed for image choice.")
+        }
+        alertController.addAction(cameraButton)
+        alertController.addAction(savePhotosButton)
+        alertController.addAction(cancelButton)
+        
+        self.navigationController?.present(alertController, animated: true, completion: nil)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
