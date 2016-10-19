@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>Photo Logger</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -65,14 +67,14 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>PhotoLogger would like to access your camera.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>PhotoLogger would like to access your location to get the address of any photos you take inside the app.</string>
 	<key>NSLocationWhileInUseUsageDescription</key>
 	<string>PhotoLogger would like to access your location to get the address of any photos you take inside the app.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>PhotoLogger would like to access your photo library.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>PhotoLogger would like to access your camera.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>NotoSan-Bold.ttf</string>

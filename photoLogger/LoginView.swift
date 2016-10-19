@@ -99,26 +99,21 @@ class LoginView: UIViewController {
             
             if email.isEmpty || password.isEmpty {
                 // send alert that one of the fields is empty (email address and password fields cannot be empty)
-                displayAlert(messageToDisplay: "Your Email Adress and/or Password field(s) are empty. Please try again.")
-                print("RGM -> LoginView -> field(s) are empty")
+                displayAlert(messageToDisplay: "Your Email Address and/or Password field(s) are empty. Please try again.")
             } else {
                 let isEmailAddressValid = verifyEmailAddressValid(emailAddressString: email)
                 // verify email address is valid
                 if isEmailAddressValid {
-                    print("RGM -> LoginView -> email address is valid: \(email)")
                     // verify password is valid
                     if password.characters.count >= 6 {
-                        print("RGM -> LoginView -> password string just fine")
                         firebaseEmailAuth(email: email, password: password)
                     } else {
                         // fire alert controller indicating that password is too short in length
                         displayAlert(messageToDisplay: "The password you provided is too short. You need at least 6 characters.")
-                        print("RGM -> LoginView -> password string too short")
                     }
                 } else {
                     // fire alert controller stating that email address is invalid and must be enter a valid email address
                     displayAlert(messageToDisplay: "The email address you provided is invalid. Please make sure the email address is correct.")
-                    print("RGM -> LoginView -> email address is NOT valid")
                 }
             }
         }
@@ -139,7 +134,6 @@ class LoginView: UIViewController {
                     if error != nil {
                         // alert user that there was a problem creating user
                         self.displayAlert(messageToDisplay: "Unable to create your account. Please try again.")
-                        print("RGM -> LoginView -> Firebase failed to create or authenticate email user")
                     } else {
                         // new user successfully created in firebase
                         // post user on firebase database using func inside DataService
@@ -184,10 +178,9 @@ class LoginView: UIViewController {
     func displayAlert(messageToDisplay: String) {
         
         let alertController = UIAlertController(title: "Problem With Email Login", message: messageToDisplay, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK. Try Again", style: .default) { (action: UIAlertAction!) in
+        let okAction = UIAlertAction(title: "Please Try Again.", style: .default) { (action: UIAlertAction!) in
             self.emailAddressText.text = ""
             self.passwordText.text = ""
-            print("RGM -> LoginView -> OK button tapped on Alert")
         }
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)

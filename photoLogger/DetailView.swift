@@ -25,7 +25,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "PhotoLogger"
+        self.title = "PHOTO LOGGER"
 
         self.tableView.tableFooterView = UIView()
         self.tableView.delegate = self
@@ -103,7 +103,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
-        self.title = "PhotoLogger"
+        self.title = "PHOTO LOGGER"
     }
     
     // MARK: - delete individual posts from table view and firebase database and images from firebase storage

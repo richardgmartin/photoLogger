@@ -43,7 +43,7 @@ class AddPostView: UIViewController, UIImagePickerControllerDelegate, UINavigati
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationItem.title = "PhotoLogger"
+        self.navigationItem.title = "PHOTO LOGGER"
     }
     
     // determine address where photo is taken
@@ -149,7 +149,7 @@ class AddPostView: UIViewController, UIImagePickerControllerDelegate, UINavigati
         if CLLocationManager.authorizationStatus() == .denied {
             let alertController = UIAlertController(
                 title: "You Have Denied Access to Your Location",
-                message: "In order to provide the address of your where your image was taken, please open this app's settings and set location access to 'Always'.",
+                message: "In order to provide the address of where your image was taken, please open this app's settings and allow location access to 'While Using the App'.",
                 preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alertController.addAction(cancelAction)
@@ -166,25 +166,20 @@ class AddPostView: UIViewController, UIImagePickerControllerDelegate, UINavigati
         // check to make sure post entries complete
         guard let postTitle = titleTextField.text, postTitle != "" else {
             displayAlert(messageToDisplay: "Post title is required. Please complete.")
-            print("PostView: RGM: post title must be provided")
             return
         }
         guard let postDescription = descriptionTextView.text, postDescription != "" else {
             displayAlert(messageToDisplay: "Post description is required. Please complete.")
-            print("PostView: RGM: post description must be provided")
             return
         }
         guard let image = imageView.image, imageSelected == true else {
             displayAlert(messageToDisplay: "Post image is required. Please click camera icon in top right hand corner.")
-            print("PostView: RGM: image must be selected")
             return
         }
         guard let postAddress = self.address, postAddress != "" else {
-            print("PostView: RGM: post address must be provided")
             return
         }
         guard let postDate = self.postDate, postDate != "" else {
-            print("PostView: RGM: post date must be provided")
             return
         }
         
