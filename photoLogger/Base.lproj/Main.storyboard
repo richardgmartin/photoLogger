@@ -453,21 +453,20 @@
                                 </constraints>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wUW-D8-acc" customClass="DescriptionTextView" customModule="photoLogger" customModuleProvider="target">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Description" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vuG-mK-xEb" customClass="TitleTextField" customModule="photoLogger" customModuleProvider="target">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="79" id="zJQ-oL-hVs"/>
+                                    <constraint firstAttribute="height" constant="30" id="LD2-hI-guJ"/>
                                 </constraints>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                            </textView>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xsl-ci-DAv" customClass="SavePostButton" customModule="photoLogger" customModuleProvider="target">
                                 <color key="backgroundColor" red="0.25490196078431371" green="0.3529411764705882" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="H6M-7m-UI1"/>
+                                    <constraint firstAttribute="height" constant="30" id="GiB-yE-v0Y"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="UPDATE POST">
@@ -481,25 +480,23 @@
                         <color key="backgroundColor" red="0.92549019607843142" green="0.93725490196078431" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="FEi-kK-ubx" firstAttribute="leading" secondItem="qGf-Gx-E13" secondAttribute="leadingMargin" id="8ah-8u-Abx"/>
-                            <constraint firstItem="wUW-D8-acc" firstAttribute="top" secondItem="FEi-kK-ubx" secondAttribute="bottom" constant="8" id="BzF-Tf-och"/>
-                            <constraint firstItem="Xsl-ci-DAv" firstAttribute="trailing" secondItem="qGf-Gx-E13" secondAttribute="trailingMargin" id="Djt-1a-Jk5"/>
-                            <constraint firstItem="Xsl-ci-DAv" firstAttribute="top" secondItem="wUW-D8-acc" secondAttribute="bottom" constant="8" id="EsE-ha-W89"/>
+                            <constraint firstItem="Xsl-ci-DAv" firstAttribute="trailing" secondItem="qGf-Gx-E13" secondAttribute="trailingMargin" id="GNX-0e-5Id"/>
                             <constraint firstItem="FEi-kK-ubx" firstAttribute="top" secondItem="DQb-aM-Z0B" secondAttribute="bottom" constant="8" id="Mh3-GT-jl5"/>
-                            <constraint firstItem="wUW-D8-acc" firstAttribute="trailing" secondItem="qGf-Gx-E13" secondAttribute="trailingMargin" id="RGv-t1-8vq"/>
-                            <constraint firstItem="Xsl-ci-DAv" firstAttribute="top" secondItem="wUW-D8-acc" secondAttribute="bottom" constant="8" id="V8a-zT-Hxu"/>
+                            <constraint firstItem="vuG-mK-xEb" firstAttribute="trailing" secondItem="qGf-Gx-E13" secondAttribute="trailingMargin" id="PMD-8O-Eh1"/>
+                            <constraint firstItem="Xsl-ci-DAv" firstAttribute="top" secondItem="vuG-mK-xEb" secondAttribute="bottom" constant="8" id="Qyy-t5-Hk4"/>
                             <constraint firstItem="FEi-kK-ubx" firstAttribute="trailing" secondItem="qGf-Gx-E13" secondAttribute="trailingMargin" id="Wrb-uv-ttG"/>
                             <constraint firstItem="DQb-aM-Z0B" firstAttribute="top" secondItem="K6N-r9-gGL" secondAttribute="bottom" constant="8" id="ZEc-vP-RDg"/>
+                            <constraint firstItem="vuG-mK-xEb" firstAttribute="leading" secondItem="qGf-Gx-E13" secondAttribute="leadingMargin" id="a4T-hI-oe2"/>
                             <constraint firstItem="FEi-kK-ubx" firstAttribute="top" secondItem="DQb-aM-Z0B" secondAttribute="bottom" constant="8" id="eMO-wn-bFl"/>
                             <constraint firstItem="DQb-aM-Z0B" firstAttribute="leading" secondItem="qGf-Gx-E13" secondAttribute="leadingMargin" id="iaK-Jv-fby"/>
-                            <constraint firstItem="Xsl-ci-DAv" firstAttribute="leading" secondItem="qGf-Gx-E13" secondAttribute="leadingMargin" id="qDo-x6-gjM"/>
-                            <constraint firstItem="wUW-D8-acc" firstAttribute="top" secondItem="FEi-kK-ubx" secondAttribute="bottom" constant="8" id="qmL-aj-1tK"/>
+                            <constraint firstItem="vuG-mK-xEb" firstAttribute="top" secondItem="FEi-kK-ubx" secondAttribute="bottom" constant="8" id="izc-vr-97t"/>
                             <constraint firstItem="DQb-aM-Z0B" firstAttribute="trailing" secondItem="qGf-Gx-E13" secondAttribute="trailingMargin" id="rmd-Td-HJD"/>
-                            <constraint firstItem="wUW-D8-acc" firstAttribute="leading" secondItem="qGf-Gx-E13" secondAttribute="leadingMargin" id="vYd-Po-adf"/>
+                            <constraint firstItem="Xsl-ci-DAv" firstAttribute="leading" secondItem="qGf-Gx-E13" secondAttribute="leadingMargin" id="tEm-4U-oyB"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="savePostButton" destination="Xsl-ci-DAv" id="DFB-8X-0AB"/>
-                        <outlet property="taskDescription" destination="wUW-D8-acc" id="DpX-Ay-YDH"/>
+                        <outlet property="taskDescription" destination="vuG-mK-xEb" id="nfv-FW-WKO"/>
                         <outlet property="taskImage" destination="DQb-aM-Z0B" id="D88-vx-A2p"/>
                         <outlet property="taskTitle" destination="FEi-kK-ubx" id="C3b-X3-yCi"/>
                     </connections>
@@ -532,21 +529,21 @@
                                 </constraints>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qdD-pi-hk6" customClass="DescriptionTextView" customModule="photoLogger" customModuleProvider="target">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Description" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GyB-i9-e9g" customClass="TitleTextField" customModule="photoLogger" customModuleProvider="target">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="79" id="JaE-UJ-soC"/>
+                                    <constraint firstAttribute="height" constant="30" id="wvI-t7-gq6"/>
                                 </constraints>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                            </textView>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gM-zY-6xM" customClass="SavePostButton" customModule="photoLogger" customModuleProvider="target">
                                 <color key="backgroundColor" red="0.25490196078431371" green="0.3529411764705882" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="WSF-nv-PNt"/>
+                                    <constraint firstAttribute="height" constant="30" id="wqm-96-rN6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="14"/>
                                 <state key="normal" title="SAVE POST">
@@ -560,20 +557,18 @@
                         <color key="backgroundColor" red="0.92549019607843142" green="0.93725490196078431" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="t1w-aU-srJ" firstAttribute="top" secondItem="QcT-FC-eBV" secondAttribute="bottom" constant="8" id="0wC-hb-LYr"/>
-                            <constraint firstItem="3gM-zY-6xM" firstAttribute="leading" secondItem="DbH-ya-KGC" secondAttribute="leadingMargin" id="3R5-hN-oDs"/>
+                            <constraint firstItem="3gM-zY-6xM" firstAttribute="trailing" secondItem="DbH-ya-KGC" secondAttribute="trailingMargin" id="1kb-CE-ZCy"/>
+                            <constraint firstItem="GyB-i9-e9g" firstAttribute="trailing" secondItem="DbH-ya-KGC" secondAttribute="trailingMargin" id="BkD-ar-Sjc"/>
+                            <constraint firstItem="GyB-i9-e9g" firstAttribute="leading" secondItem="DbH-ya-KGC" secondAttribute="leadingMargin" id="Edl-9f-hjb"/>
                             <constraint firstItem="QcT-FC-eBV" firstAttribute="top" secondItem="Wbc-2q-Iw2" secondAttribute="bottom" constant="8" id="FUR-mt-uN0"/>
+                            <constraint firstItem="3gM-zY-6xM" firstAttribute="leading" secondItem="DbH-ya-KGC" secondAttribute="leadingMargin" id="Hk6-aA-wT1"/>
                             <constraint firstItem="t1w-aU-srJ" firstAttribute="trailing" secondItem="DbH-ya-KGC" secondAttribute="trailingMargin" id="QIu-QT-m6C"/>
-                            <constraint firstItem="qdD-pi-hk6" firstAttribute="top" secondItem="t1w-aU-srJ" secondAttribute="bottom" constant="8" id="TCL-z1-teX"/>
                             <constraint firstItem="QcT-FC-eBV" firstAttribute="leading" secondItem="DbH-ya-KGC" secondAttribute="leadingMargin" id="WEV-rj-Vbr"/>
-                            <constraint firstItem="3gM-zY-6xM" firstAttribute="trailing" secondItem="DbH-ya-KGC" secondAttribute="trailingMargin" id="YdV-JE-DPY"/>
-                            <constraint firstItem="3gM-zY-6xM" firstAttribute="top" secondItem="qdD-pi-hk6" secondAttribute="bottom" constant="8" id="YpI-fh-Xdy"/>
                             <constraint firstItem="t1w-aU-srJ" firstAttribute="top" secondItem="QcT-FC-eBV" secondAttribute="bottom" constant="8" id="ZsE-oN-gWe"/>
-                            <constraint firstItem="3gM-zY-6xM" firstAttribute="top" secondItem="qdD-pi-hk6" secondAttribute="bottom" constant="8" id="oep-zM-nG1"/>
                             <constraint firstItem="t1w-aU-srJ" firstAttribute="leading" secondItem="DbH-ya-KGC" secondAttribute="leadingMargin" id="pVc-gH-YpR"/>
-                            <constraint firstItem="qdD-pi-hk6" firstAttribute="leading" secondItem="DbH-ya-KGC" secondAttribute="leadingMargin" id="sC9-6i-Jod"/>
-                            <constraint firstItem="qdD-pi-hk6" firstAttribute="trailing" secondItem="DbH-ya-KGC" secondAttribute="trailingMargin" id="ugC-wW-A0H"/>
-                            <constraint firstItem="qdD-pi-hk6" firstAttribute="top" secondItem="t1w-aU-srJ" secondAttribute="bottom" constant="8" id="vVr-hN-t1N"/>
+                            <constraint firstItem="3gM-zY-6xM" firstAttribute="top" secondItem="GyB-i9-e9g" secondAttribute="bottom" constant="8" id="qJu-ei-vML"/>
                             <constraint firstItem="QcT-FC-eBV" firstAttribute="trailing" secondItem="DbH-ya-KGC" secondAttribute="trailingMargin" id="xOL-oq-lrX"/>
+                            <constraint firstItem="GyB-i9-e9g" firstAttribute="top" secondItem="t1w-aU-srJ" secondAttribute="bottom" constant="8" id="zK1-dZ-cBh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4Rb-rL-zmY">
@@ -585,7 +580,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="descriptionTextView" destination="qdD-pi-hk6" id="s47-QC-DdD"/>
+                        <outlet property="descriptionTextView" destination="GyB-i9-e9g" id="iqm-yp-mYh"/>
                         <outlet property="imageView" destination="QcT-FC-eBV" id="6tE-0f-FJT"/>
                         <outlet property="savePostButton" destination="3gM-zY-6xM" id="OL8-7g-p6W"/>
                         <outlet property="titleTextField" destination="t1w-aU-srJ" id="nte-SK-nDC"/>
@@ -600,7 +595,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fcd-xI-Z7E" customClass="PhotoLoggerNav" customModule="photoLogger" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5yi-DX-5Jk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5yi-DX-5Jk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.47058823529999999" green="0.56470588239999997" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>

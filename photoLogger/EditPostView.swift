@@ -16,8 +16,8 @@ class EditPostView: UIViewController {
     
     @IBOutlet weak var taskImage: ImageSelector!
     @IBOutlet weak var taskTitle: TitleTextField!
-    @IBOutlet weak var taskDescription: DescriptionTextView!
     @IBOutlet weak var savePostButton: SavePostButton!
+    @IBOutlet weak var taskDescription: TitleTextField!
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -29,6 +29,11 @@ class EditPostView: UIViewController {
         self.taskTitle.text = post?.taskTitle
         self.taskDescription.text = post?.taskDescription
         self.taskImage.image = DetailView.imageCache.object(forKey: post!.taskImage as NSString)
+        
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "photo-logger-logo-white"))
+        imageView.contentMode = .scaleAspectFit
+        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 35)
+        navigationItem.titleView = imageView
     }
 
     @IBAction func savePostButtonTapped(_ sender: AnyObject) {

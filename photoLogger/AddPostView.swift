@@ -15,8 +15,8 @@ class AddPostView: UIViewController, UIImagePickerControllerDelegate, UINavigati
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleTextField: TitleTextField!
-    @IBOutlet weak var descriptionTextView: DescriptionTextView!
     @IBOutlet weak var savePostButton: SavePostButton!
+    @IBOutlet weak var descriptionTextView: TitleTextField!
     
     var imagePicker: UIImagePickerController!
     var imageSelected: Bool = false
@@ -31,6 +31,11 @@ class AddPostView: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "photo-logger-logo-white"))
+        imageView.contentMode = .scaleAspectFit
+        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 35)
+        navigationItem.titleView = imageView
         
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -223,7 +228,7 @@ class AddPostView: UIViewController, UIImagePickerControllerDelegate, UINavigati
         let photoLoggerPost: Dictionary<String, String> = [
             "taskImage": imageURL,
             "taskTitle": titleTextField.text!,
-            "taskDescription": descriptionTextView.text,
+            "taskDescription": descriptionTextView.text!,
             "taskAddress": self.address!,
             "taskDate": self.postDate!
         ]

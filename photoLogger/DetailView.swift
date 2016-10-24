@@ -24,8 +24,11 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.title = "PHOTO LOGGER"
+        
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "photo-logger-logo-white"))
+        imageView.contentMode = .scaleAspectFit
+        imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 35)
+        navigationItem.titleView = imageView
 
         self.tableView.tableFooterView = UIView()
         self.tableView.delegate = self
@@ -36,6 +39,7 @@ class DetailView: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             
             buildTable()
         }
+        
     }
     
     
