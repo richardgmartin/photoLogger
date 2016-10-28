@@ -47,10 +47,6 @@ class AddPostView: UIViewController, UIImagePickerControllerDelegate, UINavigati
         locationManager.startUpdatingLocation()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationItem.title = "PHOTO LOGGER"
-    }
-    
     // determine address where photo is taken
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation: CLLocation = locations[0]

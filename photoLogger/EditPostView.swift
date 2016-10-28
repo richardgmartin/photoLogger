@@ -25,7 +25,6 @@ class EditPostView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "PhotoLogger"
         self.taskTitle.text = post?.taskTitle
         self.taskDescription.text = post?.taskDescription
         self.taskImage.image = DetailView.imageCache.object(forKey: post!.taskImage as NSString)

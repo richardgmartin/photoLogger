@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Photo Logger</string>
+	<string>FotoLogger</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -57,7 +57,7 @@
 	<key>FacebookAppID</key>
 	<string>1630268053931525</string>
 	<key>FacebookDisplayName</key>
-	<string>PhotoLogger</string>
+	<string>FotoLogger</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -68,13 +68,13 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>PhotoLogger would like to access your camera.</string>
+	<string>FotoLogger would like to access your camera.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>PhotoLogger would like to access your location to get the address of any photos you take inside the app.</string>
+	<string>FotoLogger would like to access your location to get the address of any photos you take inside the app.</string>
 	<key>NSLocationWhileInUseUsageDescription</key>
-	<string>PhotoLogger would like to access your location to get the address of any photos you take inside the app.</string>
+	<string>FotoLogger would like to access your location to get the address of any photos you take inside the app.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>PhotoLogger would like to access your photo library.</string>
+	<string>FotoLogger would like to access your photo library.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>NotoSan-Bold.ttf</string>
