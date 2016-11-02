@@ -16,24 +16,42 @@ Firebase is the backend service for the database, image storage, and user authen
 The font used in FotoLogger is Google Font, NotoSans.
 
 The following CocoaPods are used in the distributed code:
-1. Bolts (Facebook)
-2. Crashlytics
-3. DZNEmptyDataSet
-4. Fabric
-5. FBSDKCoreKit (Facebook)
-6. FBSDKLoginKit (Facebook)
-7. Firebase
-8. Firebase Analytics
-9. FirebaseDatabase
-10. FirebaseInstanceID
-11. FirebaseStorage
-12. GoogleInterchangeUtilities
-13. GoogleNetworkingUtilities
-14. GoogleSymnolUtilities
-15. GoogleUtilities
-16. SVProgressHUD
-17. TwitterCore
-18. TwitterKit
+
+* Bolts (Facebook)
+
+* Crashlytics
+
+* DZNEmptyDataSet
+
+* Fabric
+
+* FBSDKCoreKit (Facebook)
+
+* FBSDKLoginKit (Facebook)
+
+* Firebase
+
+* Firebase Analytics
+
+* FirebaseDatabase
+
+* FirebaseInstanceID
+
+* FirebaseStorage
+
+* GoogleInterchangeUtilities
+
+* GoogleNetworkingUtilities
+
+* GoogleSymnolUtilities
+
+* GoogleUtilities
+
+* SVProgressHUD
+
+* TwitterCore
+
+* TwitterKit
 
 ##Attributions##
 
