@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:435957809353:ios:63f7d649635fa22e</string>
+	<string>PUT_YOUR_ID</string>
 	<key>DATABASE_URL</key>
 	<string>https://photologger-d8f68.firebaseio.com</string>
 </dict>
