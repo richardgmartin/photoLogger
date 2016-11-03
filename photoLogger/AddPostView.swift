@@ -53,7 +53,7 @@ class AddPostView: UIViewController, UIImagePickerControllerDelegate, UINavigati
         
         CLGeocoder().reverseGeocodeLocation(userLocation) { (placemarks, error) in
             if error != nil {
-                print(error)
+                print(error!)
             } else {
                 if let placemark = placemarks?[0] {
                     print("PostView: RGM: placemark: \(placemark)")
