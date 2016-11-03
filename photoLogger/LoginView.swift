@@ -40,7 +40,7 @@ class LoginView: UIViewController {
     // authenticate with Twitter
     @IBAction func twitterButtonTapped(_ sender: AnyObject) {
         
-        Twitter.sharedInstance().start(withConsumerKey: "fdPzL6pFIPHxvCKti4tQBaOV7", consumerSecret: "TSlmOzJUR9ZLZDpnwWUn9fw0hm5mTJcdoEl51eU6YMvf7KLgMz")
+        Twitter.sharedInstance().start(withConsumerKey: TWITTER_CONSUMER_KEY, consumerSecret: TWITTER_CONSUMER_SECRET)
         Fabric.with([Twitter.self()])
 
         Twitter.sharedInstance().logIn() { (session, error) in
@@ -52,6 +52,7 @@ class LoginView: UIViewController {
                 
             } else {
                 // alert user that twitter login failed
+                print("Twitter login failed")
             }
         }
     }
